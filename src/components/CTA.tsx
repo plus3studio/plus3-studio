@@ -9,7 +9,7 @@ import { site } from "@/data/site";
 // 2. Entre l'email du studio : contact@plus3studio.fr
 // 3. Tu recevras un "access key" par mail — colle-le ci-dessous :
 // ═══════════════════════════════════════════════════════════════════════════
-const WEB3FORMS_KEY = "c94ad1bb-ec8b-41e1-8c4c-a252f986e59b";
+const WEB3FORMS_KEY = "9ca242e2-f7aa-4067-8ac3-28afac1057c4";
 
 export default function CTA() {
   const [sent, setSent] = useState(false);
