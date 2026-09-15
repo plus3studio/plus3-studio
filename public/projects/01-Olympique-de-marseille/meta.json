@@ -1,13 +1,32 @@
 {
   "title": "Olympique de Marseille",
-  "tags": ["Photo", "Vidéo"],
-  "client": "OM",
+  "tags": [
+    "Photo",
+    "Vidéo"
+  ],
   "year": "2025",
   "decoColor": "gray",
   "credits": "Une production +3 Studio",
   "campaignMeta": {
-    "Campagne maillots": { "title": "Campagne maillots lifestyle", "credits": "Photos : Alexis Patient · Retouche : Alix Hubert" },
-    "vs. FC Lorient : 2025": { "credits": "Photos : Alexis Patient · Retouche : Alix Hubert · Vidéo : Christopher Debenham", "videos": [{ "url": "https://youtu.be/kRAuCLIbIRc" }] },
-    "vs. MHSC : 2024": { "credits": "Photos : Alexis Patient · Retouche : Alix Hubert · Vidéo : Christopher Debenham", "videos": [{ "url": "https://youtu.be/k5W-Aljo2xo" }] }
+    "Campagne maillots": {
+      "title": "Campagne maillots lifestyle",
+      "credits": "Photos : Alexis Patient · Retouche : Alix Hubert"
+    },
+    "vs. FC Lorient : 2025": {
+      "credits": "Photos : Alexis Patient · Retouche : Alix Hubert · Vidéo : Christopher Debenham",
+      "videos": [
+        {
+          "url": "https://youtu.be/kRAuCLIbIRc"
+        }
+      ]
+    },
+    "vs. MHSC : 2024": {
+      "credits": "Photos : Alexis Patient · Retouche : Alix Hubert · Vidéo : Christopher Debenham",
+      "videos": [
+        {
+          "url": "https://youtu.be/k5W-Aljo2xo"
+        }
+      ]
+    }
   }
 }

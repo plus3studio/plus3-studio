@@ -7,7 +7,7 @@ import type { ProjectMedia } from "@/data/projects";
 function getEmbedUrl(url: string): string {
   // YouTube
   let match = url.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/,
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]+)/,
   );
   if (match) return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
 

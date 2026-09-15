@@ -74,7 +74,7 @@ function prettyCampaignTitle(folder: string): string {
 
 function getYouTubePoster(url: string): string | undefined {
   const match = url.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/,
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]+)/,
   );
   if (match) return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
   return undefined;
@@ -85,16 +85,35 @@ type VideoLink = {
   poster?: string;
 };
 
+type CampaignMeta = {
+  title?: string;
+  credits?: string;
+  videos?: VideoLink[];
+  order?: number;
+};
+
 type Meta = {
   title: string;
   tags?: ProjectCategory[];
   client?: string;
   year?: string;
   description?: string;
+  credits?: string;
   decoColor?: "lime" | "gray" | "black";
   logo?: string;
   videos?: VideoLink[];
+  campaignMeta?: Record<string, CampaignMeta>;
 };
+
+// Normalise un nom de dossier/clé pour une comparaison tolérante
+// (accents, casse, espaces et ponctuation ignorés).
+function normKey(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
 
 export function getProjects(): Project[] {
   if (!fs.existsSync(PROJECTS_DIR)) return [];
@@ -152,6 +171,43 @@ export function getProjects(): Project[] {
         });
       }
     }
+
+    // 1b) campaignMeta : override des campagnes existantes,
+    //     création de campagnes "vidéo seule", puis tri par "order".
+    const order = new Map<string, number>();
+    if (meta.campaignMeta) {
+      const byNorm = new Map(campaigns.map((c) => [normKey(c.id), c]));
+      let seq = 0;
+      for (const [key, cm] of Object.entries(meta.campaignMeta)) {
+        const nk = normKey(key);
+        let camp = byNorm.get(nk);
+        if (!camp) {
+          // Aucun dossier correspondant : on crée une campagne depuis campaignMeta
+          // (utile pour une campagne composée uniquement de vidéos YouTube/Vimeo).
+          camp = { id: key, title: cm.title ?? key, media: [] };
+          campaigns.push(camp);
+          byNorm.set(nk, camp);
+        }
+        if (cm.title) camp.title = cm.title;
+        if (cm.credits) camp.credits = cm.credits;
+        if (cm.videos && cm.videos.length > 0) {
+          for (const v of cm.videos) {
+            const poster = v.poster || getYouTubePoster(v.url);
+            camp.media.push({ type: "embed", url: v.url, poster });
+          }
+        }
+        order.set(nk, cm.order ?? 100 + seq);
+        seq += 1;
+      }
+    }
+    // Retirer d'éventuelles campagnes synthétiques restées vides
+    const builtCampaigns = campaigns.filter((c) => c.media.length > 0);
+    // Tri : "order" explicite prioritaire, sinon ordre alpha d'origine conservé
+    builtCampaigns.sort(
+      (a, b) => (order.get(normKey(a.id)) ?? 50) - (order.get(normKey(b.id)) ?? 50),
+    );
+    campaigns.length = 0;
+    campaigns.push(...builtCampaigns);
 
     // 2) Scan root-level files
     const rootFiles = entries
@@ -240,6 +296,7 @@ export function getProjects(): Project[] {
       client: meta.client,
       year: meta.year,
       description: meta.description,
+      credits: meta.credits,
       cover,
       logo,
       gallery,

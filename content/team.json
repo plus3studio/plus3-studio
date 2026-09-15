@@ -12,7 +12,15 @@
       "title": "Direction artistique & vidéo",
       "description": "Direction artistique, captation, montage, aftermovies et stratégie éditoriale. Du concept à l'image finale, je construis l'identité et les contenus qui font vivre vos clubs."
     },
-    "specialties": ["Direction artistique", "Captation vidéo", "Montage", "Aftermovies", "Stratégie réseaux sociaux", "Contenus éditoriaux", "Community management"],
+    "specialties": [
+      "Direction artistique",
+      "Captation vidéo",
+      "Montage",
+      "Aftermovies",
+      "Stratégie réseaux sociaux",
+      "Contenus éditoriaux",
+      "Community management"
+    ],
     "socials": {
       "instagram": "https://www.instagram.com/cdstudio___",
       "linkedin": "",
@@ -32,7 +40,13 @@
       "title": "Photo",
       "description": "Reportage sportif, portraits, packshots et photo événementielle. L'œil qui capte l'émotion brute du sport."
     },
-    "specialties": ["Reportage sportif", "Portraits", "Packshots", "Photo événementielle", "Direction photo"],
+    "specialties": [
+      "Reportage sportif",
+      "Portraits",
+      "Packshots",
+      "Photo événementielle",
+      "Direction photo"
+    ],
     "socials": {
       "instagram": "https://www.instagram.com/ap.photographe86?igsh=MTl0YmlqMWRpcTMxNw==",
       "linkedin": ""
@@ -42,13 +56,20 @@
     "id": "reseau",
     "firstName": "Le réseau",
     "initials": "+3",
-    "role": "Renfort sur tous les métiers",
-    "photo": "/reseau.svg",
+    "role": "On mobilise les bons profils pour chaque besoin",
+    "photo": "/reseau.png",
     "bio": "Autour des fondateurs, +3 Studio s'appuie sur un réseau de créatifs mobilisés selon les besoins de chaque projet.",
     "expertise": {
-      "title": "Renfort sur tous les métiers",
-      "description": "Autour des fondateurs, +3 Studio s'appuie sur un réseau de photographes, vidéastes, graphistes, motion designers et techniciens. Du plus petit projet aux plus grands événements, on mobilise le bon profil pour chaque besoin. La bonne équipe au bon moment."
+      "title": "Photo · Vidéo · Graphisme · Motion",
+      "description": "Autour des fondateurs, un réseau de photographes, vidéastes, graphistes, motion designers et techniciens. Du plus petit projet aux plus grands événements, la bonne équipe au bon moment."
     },
-    "specialties": ["Photographes", "Vidéastes", "Graphistes", "Motion designers", "Techniciens", "Et plus encore"]
+    "specialties": [
+      "Photographes",
+      "Vidéastes",
+      "Graphistes",
+      "Motion designers",
+      "Techniciens",
+      "Et bien d'autres…"
+    ]
   }
 ]

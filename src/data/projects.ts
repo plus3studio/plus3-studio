@@ -13,6 +13,7 @@ export type ProjectMedia =
 export type Campaign = {
   id: string;
   title: string;
+  credits?: string;
   media: ProjectMedia[];
 };
 
@@ -24,6 +25,7 @@ export type Project = {
   client?: string;
   year?: string;
   description?: string;
+  credits?: string;
   cover?: ProjectMedia;
   logo?: string;
   gallery: ProjectMedia[];

@@ -7,7 +7,7 @@ import Lightbox from "./Lightbox";
 
 function getEmbedUrl(url: string): string {
   let match = url.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/,
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]+)/,
   );
   if (match) return `https://www.youtube.com/embed/${match[1]}`;
   match = url.match(/vimeo\.com\/(\d+)/);
@@ -135,6 +135,13 @@ function CampaignFolder({
   onOpenLightbox: (media: ProjectMedia[], idx: number) => void;
 }) {
   const thumb = campaign.media.find((m) => m.type === "image") ?? campaign.media[0];
+  const videos = campaign.media
+    .map((m, i) => ({ m, i }))
+    .filter(({ m }) => m.type === "video" || m.type === "embed");
+  const images = campaign.media
+    .map((m, i) => ({ m, i }))
+    .filter(({ m }) => m.type === "image");
+  const [photosOpen, setPhotosOpen] = useState(images.length <= 8);
 
   return (
     <div className="mb-4">
@@ -181,13 +188,64 @@ function CampaignFolder({
         </svg>
       </button>
 
-      {/* Collapsible media grid */}
+      {/* Collapsible content */}
       <div
         className={`overflow-hidden transition-all duration-400 ease-out ${
-          isOpen ? "mt-3 max-h-[3000px] opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "mt-3 max-h-[40000px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <MediaGrid media={campaign.media} onOpenLightbox={onOpenLightbox} />
+        {campaign.credits && (
+          <p className="mb-3 flex flex-wrap gap-x-1 text-[11px] leading-relaxed text-mist-500">
+            <span className="font-semibold text-ink">Crédits</span>
+            <span aria-hidden>·</span>
+            <span>{campaign.credits}</span>
+          </p>
+        )}
+
+        {/* Vidéos d'abord */}
+        {videos.length > 0 && (
+          <div className="mb-4">
+            <p className="mb-2 text-[10px] uppercase tracking-[0.2em] text-mist-400">
+              Vid&eacute;os
+            </p>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4">
+              {videos.map(({ m, i }) => (
+                <MediaThumb key={i} media={m} onClick={() => onOpenLightbox(campaign.media, i)} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Photos, repliables */}
+        {images.length > 0 && (
+          <div>
+            <button
+              type="button"
+              onClick={() => setPhotosOpen((v) => !v)}
+              className="mb-2 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-mist-400 transition hover:text-ink"
+            >
+              <span>Photos ({images.length})</span>
+              <svg
+                className={`h-4 w-4 transition-transform duration-300 ${photosOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+            {photosOpen && (
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+                {images.map(({ m, i }) => (
+                  <MediaThumb key={i} media={m} onClick={() => onOpenLightbox(campaign.media, i)} />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -287,6 +345,11 @@ export default function ProjectModal({
             {project.description && (
               <p className="mt-3 max-w-2xl text-sm text-mist-500 md:mt-4 md:text-base">
                 {project.description}
+              </p>
+            )}
+            {project.credits && (
+              <p className="mt-3 text-[11px] uppercase tracking-[0.15em] text-mist-400">
+                {project.credits}
               </p>
             )}
           </div>

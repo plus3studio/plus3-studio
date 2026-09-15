@@ -1,11 +1,14 @@
 {
   "title": "Soccer Edu",
-  "tags": ["Social media"],
-  "client": "SE",
+  "tags": [
+    "Social media"
+  ],
   "year": "2026",
   "decoColor": "gray",
   "credits": "Une production +3 Studio",
   "campaignMeta": {
-    "Visuels ADS": { "credits": "DA & graphisme : Alix Hubert" }
+    "Visuels ADS": {
+      "credits": "DA & graphisme : Alix Hubert"
+    }
   }
 }

@@ -219,8 +219,9 @@ export default function Team() {
             Qui sommes-nous
           </h2>
           <p className="mt-3 max-w-xl text-sm text-mist-500 md:mt-4 md:text-base">
-            Trois ind&eacute;pendants, un seul terrain de jeu. Chacun son expertise,
-            une seule vision pour vos projets.
+            Deux cofondateurs, un r&eacute;seau de cr&eacute;atifs. On r&eacute;unit sur chaque projet
+            les bons profils (photo, vid&eacute;o, graphisme, motion) pour construire une image
+            &agrave; la hauteur de vos ambitions sportives.
           </p>
         </div>
 

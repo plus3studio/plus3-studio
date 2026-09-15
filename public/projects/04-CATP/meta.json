@@ -1,7 +1,8 @@
 {
   "title": "Crédit Agricole Touraine Poitou",
-  "tags": ["Vidéo"],
-  "client": "CATP",
+  "tags": [
+    "Vidéo"
+  ],
   "year": "2026",
   "decoColor": "lime",
   "description": "Le CATP, partenaire du sport.",
@@ -10,12 +11,20 @@
     "Le CATP, partenaire du sport — Manifeste": {
       "order": 1,
       "credits": "Scénario : Christopher Debenham · Cadrage : Christopher Debenham · Montage : Christopher Debenham · Banque d'images : Agence Zébrelle, CHTB, TMB, District de football d'Indre-et-Loire",
-      "videos": [{ "url": "https://youtu.be/jxJ2QMtAngE" }]
+      "videos": [
+        {
+          "url": "https://youtu.be/jxJ2QMtAngE"
+        }
+      ]
     },
     "Le CATP, partenaire du sport — Short RS": {
       "order": 2,
       "credits": "Scénario : Christopher Debenham · Cadrage : Christopher Debenham · Montage : Christopher Debenham · Banque d'images : Agence Zébrelle, CHTB, TMB, District de football d'Indre-et-Loire",
-      "videos": [{ "url": "https://youtube.com/shorts/L1h3gQx4sw8" }]
+      "videos": [
+        {
+          "url": "https://youtube.com/shorts/L1h3gQx4sw8"
+        }
+      ]
     }
   }
 }

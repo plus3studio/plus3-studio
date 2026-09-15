@@ -1,11 +1,14 @@
 {
   "title": "UJS Toulouse",
-  "tags": ["Photo"],
-  "client": "UJST",
+  "tags": [
+    "Photo"
+  ],
   "year": "2025",
   "decoColor": "gray",
   "credits": "Une production +3 Studio",
   "campaignMeta": {
-    "Matchday": { "credits": "Photo : Alexis Patient · Retouche : Alexis Patient" }
+    "Matchday": {
+      "credits": "Photo : Alexis Patient · Retouche : Alexis Patient"
+    }
   }
 }

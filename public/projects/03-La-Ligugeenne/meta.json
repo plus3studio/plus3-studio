@@ -1,7 +1,11 @@
 {
   "title": "La Ligugéenne",
-  "tags": ["Vidéo", "Photo", "Branding", "Social media"],
-  "client": "La Ligugéenne Football",
+  "tags": [
+    "Vidéo",
+    "Photo",
+    "Branding",
+    "Social media"
+  ],
   "year": "2026",
   "decoColor": "lime",
   "description": "Club ambassadeur +3 Studio.",
@@ -10,20 +14,36 @@
     "Appel à candidature": {
       "order": 1,
       "credits": "Cadrage : Victor Gagneux · Montage : Christopher Debenham · Assistant montage : Alix Hubert · DA : Christopher Debenham & Alix Hubert · Étalonnage : Victor Gagneux",
-      "videos": [{ "url": "https://youtu.be/jw55adhZCKE" }]
+      "videos": [
+        {
+          "url": "https://youtu.be/jw55adhZCKE"
+        }
+      ]
     },
     "Annonce du club ambassadeur": {
       "order": 2,
       "credits": "Scénario, cadrage & montage : Christopher Debenham",
-      "videos": [{ "url": "https://youtu.be/WDz15X1u1nU" }]
+      "videos": [
+        {
+          "url": "https://youtu.be/WDz15X1u1nU"
+        }
+      ]
+    },
+    "Design maillot": {
+      "order": 3,
+      "credits": "Design : Alix Hubert · Photo : Alexis Patient · Retouche : Alexis Patient"
     },
     "Campagne maillot": {
-      "order": 3,
-      "credits": "Design maillot : Alix Hubert · Photo : Alexis Patient · Retouche : Alexis Patient · Acte II (scénario, cadrage & montage) : Christopher Debenham · Assistante réalisation : Charline Coutret",
-      "videos": [{ "url": "https://youtu.be/k9e4nmq5Xpc" }]
+      "order": 4,
+      "credits": "Photo : Alexis Patient · Retouche : Alexis Patient · Acte II (scénario, cadrage & montage) : Christopher Debenham · Assistante réalisation : Charline Coutret",
+      "videos": [
+        {
+          "url": "https://youtu.be/k9e4nmq5Xpc"
+        }
+      ]
     },
     "Logo & identité visuelle": {
-      "order": 4,
+      "order": 5,
       "credits": "Logo & identité : Alix Hubert"
     }
   }
