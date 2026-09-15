@@ -1,11 +1,44 @@
 {
   "title": "Arena Futuroscope",
-  "tags": ["Photo", "Vidéo"],
+  "tags": [
+    "Photo",
+    "Vidéo"
+  ],
   "client": "Arena Futuroscope",
   "year": "2025",
   "decoColor": "gray",
-  "videos": [
-    { "url": "https://youtu.be/uH7efO6AacM" },
-    { "url": "https://www.instagram.com/reel/DOIj7MODxFT/" }
-  ]
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "Photos d'avant match": {
+      "order": 1,
+      "credits": "Photo : Christopher Debenham · Retouche : Alix Hubert"
+    },
+    "Ticket d'or": {
+      "order": 2,
+      "credits": "DA & graphisme : Alix Hubert · Photo : Christopher Debenham · Retouche : Alix Hubert",
+      "videos": [
+        {
+          "url": "https://youtube.com/shorts/f8cVritoE44"
+        }
+      ]
+    },
+    "Poitiers Basket 86 vs. Stade Rochelais Basket": {
+      "order": 3,
+      "credits": "Vidéo : Christopher Debenham",
+      "videos": [
+        {
+          "url": "https://youtu.be/uH7efO6AacM"
+        }
+      ]
+    },
+    "EDF Futsal — District de la Vienne": {
+      "order": 4,
+      "credits": "Vidéo : Christopher Debenham",
+      "videos": [
+        {
+          "url": "https://youtu.be/rg1MQmKYBdQ"
+        }
+      ]
+    }
+  }
 }

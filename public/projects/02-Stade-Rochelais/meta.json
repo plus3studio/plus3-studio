@@ -3,5 +3,13 @@
   "tags": ["Photo"],
   "client": "SR",
   "year": "2025",
-  "decoColor": "gray"
+  "decoColor": "gray",
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "Poitiers Basket 86 vs. Stade Rochelais Basket": { "order": 1, "credits": "Photo : Alexis Patient · Retouche : Alexis Patient & Alix Hubert" },
+    "Stade Rochelais Basket vs. ADA Blois": { "order": 2, "credits": "Photo : Alexis Patient · Retouche : Alexis Patient & Alix Hubert" },
+    "Stade Rochelais vs. Aviron Bayonnais": { "order": 3, "credits": "Photo : Alexis Patient · Retouche : Alexis Patient & Alix Hubert" },
+    "Stade Rochelais vs. US Montauban": { "order": 4, "credits": "Photo : Alexis Patient · Retouche : Alexis Patient & Alix Hubert" },
+    "Story Matchday": { "order": 5, "credits": "Photo : Alexis Patient · Retouche : Alexis Patient & Alix Hubert" }
+  }
 }

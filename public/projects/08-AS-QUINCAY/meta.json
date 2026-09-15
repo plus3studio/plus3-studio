@@ -3,5 +3,9 @@
   "tags": ["Branding"],
   "client": "AS Quinçay",
   "year": "2024",
-  "decoColor": "lime"
+  "decoColor": "lime",
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "Branding": { "credits": "DA & graphisme : Alix Hubert" }
+  }
 }

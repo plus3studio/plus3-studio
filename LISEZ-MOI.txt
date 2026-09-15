@@ -1,0 +1,41 @@
++3 STUDIO — LOT COMPLET (à appliquer sur le repo)
+==================================================
+
+A. CODE (remplacer) — crédits, vidéos par campagne, campagnes vidéo-seule,
+   ordre des campagnes, ET prise en charge des YouTube Shorts :
+   src/data/projects.ts
+   src/lib/getProjects.ts
+   src/components/ProjectModal.tsx
+   src/components/Lightbox.tsx
+   src/components/Team.tsx
+
+B. TEXTES / ÉQUIPE (remplacer) :
+   content/team.json · content/hero.json · public/reseau.svg (nouveau)
+
+C. PROJETS (remplacer les meta.json + nouveaux dossiers fournis) :
+   01 OM · 02 Stade Rochelais · 03 ES Buxerolles · 04 Stade Poitevin ·
+   05 Arena · 06 EDF Futsal · 07 UJS · 08 Quinçay ·
+   09 Marathon Poitiers Futuroscope (NOUVEAU) · 10 CATP (NOUVEAU) ·
+   11 La Ligugéenne (NOUVEAU, images intégrées) ·
+   12 Soccer Edu · 13 Formations Football
+   + Screenshot Ticket d'or ajouté dans 05-Arena/Ticket d'or/
+
+   Toutes les vidéos sont branchées (YouTube), y compris les Shorts.
+
+OPÉRATIONS DE DOSSIERS (à faire avec GitHub Desktop, voir le chat) :
+   1. SUPPRIMER  09-AC-Ajaccio/
+   2. SUPPRIMER  10-Football-Bourg-en-Bresse-Peronnas/
+   3. SUPPRIMER  11-Club-ambassadeur/        (fusionné dans La Ligugéenne)
+   4. RENOMMER   12-Formations-Football/  ->  13-Formations-Football/
+   5. DÉPLACER   "Poitiers Basket 86 vs. Stade Rochelais Basket"
+                 DE 05-Arena-Futuroscope/  VERS 02-Stade-Rochelais/
+      (les 61 photos sont pour le SR ; côté Arena la vidéo est gérée
+       automatiquement via meta.json)
+
+MANQUE ENCORE (à me fournir) :
+   - Le visuel design du maillot Ligugéenne (celui fait pour la vidéo
+     d'annonce) : je ne l'ai pas dans cette conversation. Upload-le et je
+     l'ajoute à la campagne maillot.
+
+VÉRIFS (affectations devinées) :
+   - OM : quelle vidéo = FC Lorient / MHSC.

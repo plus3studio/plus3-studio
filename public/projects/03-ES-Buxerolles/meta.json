@@ -1,10 +1,32 @@
 {
   "title": "ES Buxerolles",
-  "tags": ["Branding", "Photo", "Vidéo"],
+  "tags": [
+    "Branding",
+    "Photo",
+    "Vidéo"
+  ],
   "client": "ES Buxerolles",
   "year": "2024",
   "decoColor": "black",
+  "credits": "Une production +3 Studio",
   "videos": [
-    { "url": "https://youtu.be/0gQpsNqMUf4" }
-  ]
+    {
+      "url": "https://youtu.be/0gQpsNqMUf4"
+    }
+  ],
+  "campaignMeta": {
+    "Création de maillot + campagne": {
+      "title": "Design maillot + shooting",
+      "credits": "Design : Alix Hubert · Photo : Alexis Patient · Retouche : Alexis Patient"
+    },
+    "Logo": {
+      "credits": "Graphisme : Alix Hubert"
+    },
+    "Templates RS": {
+      "credits": "DA & graphisme : Alix Hubert"
+    },
+    "vs. FEYTIAT": {
+      "credits": "Photo : Alexis Patient · Vidéo : Christopher Debenham · Retouche : Alexis Patient"
+    }
+  }
 }

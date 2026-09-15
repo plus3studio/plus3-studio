@@ -1,10 +1,12 @@
 {
   "title": "EDF Futsal",
   "tags": ["Photo", "Vidéo"],
-  "client": "EDF",
+  "client": "District de la Vienne de Football",
   "year": "2025",
   "decoColor": "gray",
-  "videos": [
-    { "url": "https://youtu.be/rg1MQmKYBdQ" }
-  ]
+  "description": "Réalisé pour le District de la Vienne de Football, à l'Arena Futuroscope.",
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "vs. KOSOVO": { "credits": "Vidéo : Christopher Debenham · Photo : Alexis Patient · Retouche : Alexis Patient", "videos": [{ "url": "https://youtu.be/rg1MQmKYBdQ" }] }
+  }
 }

@@ -1,38 +1,18 @@
 [
   {
-    "id": "alix",
-    "firstName": "Alix",
-    "initials": "AH",
-    "role": "Directeur artistique & graphiste",
-    "photo": "/team/Alix.jpg",
-    "email": "alix.h@plus3studio.fr",
-    "instagram_handle": "@pocho.sports",
-    "bio": "Passionné de sport et de design, je crée des identités visuelles qui marquent les esprits et racontent une histoire.",
-    "expertise": {
-      "title": "Direction artistique & branding",
-      "description": "Création d'identités visuelles fortes, chartes graphiques complètes, supports print & digitaux, motion design. De la stratégie de marque à la déclinaison sur tous les supports."
-    },
-    "specialties": ["Identité visuelle", "Affiche & Visuels", "Charte graphique", "Supports print", "Design digital", "Branding sportif", "Signalétique", "Compositing & Cadrage", "Design Maillots", "Merchandising", "Supports corporate", "Motion design", "Stratégie"],
-    "socials": {
-      "instagram": "https://www.instagram.com/pocho.sports?igsh=YXhoaXQybHlyaGY3",
-      "linkedin": "",
-      "behance": ""
-    }
-  },
-  {
     "id": "christopher",
     "firstName": "Christopher",
     "initials": "CD",
-    "role": "Vidéaste & community manager",
+    "role": "Cofondateur · Vidéaste & direction artistique",
     "photo": "/team/Christopher.jpg",
     "email": "chris.d@plus3studio.fr",
     "instagram_handle": "@cdstudio__",
-    "bio": "De la captation au montage, je donne vie aux moments sportifs et pilote les stratégies réseaux sociaux.",
+    "bio": "Cofondateur de +3 Studio. De la direction artistique à la captation et au montage, je façonne l'image de vos clubs et pilote les contenus qui la font vivre.",
     "expertise": {
-      "title": "Vidéo & social media",
-      "description": "Captation, montage, aftermovies, contenus réseaux sociaux et stratégie éditoriale. Du terrain au feed, chaque image raconte le match."
+      "title": "Direction artistique & vidéo",
+      "description": "Direction artistique, captation, montage, aftermovies et stratégie éditoriale. Du concept à l'image finale, je construis l'identité et les contenus qui font vivre vos clubs."
     },
-    "specialties": ["Captation vidéo", "Montage", "Aftermovies", "Stratégie réseaux sociaux", "Contenus éditoriaux", "Community management"],
+    "specialties": ["Direction artistique", "Captation vidéo", "Montage", "Aftermovies", "Stratégie réseaux sociaux", "Contenus éditoriaux", "Community management"],
     "socials": {
       "instagram": "https://www.instagram.com/cdstudio___",
       "linkedin": "",
@@ -43,19 +23,32 @@
     "id": "alexis",
     "firstName": "Alexis",
     "initials": "AP",
-    "role": "Photographe & Resp. partenariats",
+    "role": "Cofondateur · Photographe",
     "photo": "/team/alexis.jpg",
     "email": "alexis@plus3studio.fr",
     "instagram_handle": "@ap.photographe86",
-    "bio": "Photographe sportif, je capture l'intensité du terrain et développe les partenariats avec les clubs.",
+    "bio": "Cofondateur de +3 Studio. Photographe sportif, je capture l'intensité du terrain, du match au portrait.",
     "expertise": {
-      "title": "Photo & partenariats",
-      "description": "Reportage sportif, portraits, packshots et développement des relations avec les clubs. L'œil qui capte l'émotion brute du sport."
+      "title": "Photo",
+      "description": "Reportage sportif, portraits, packshots et photo événementielle. L'œil qui capte l'émotion brute du sport."
     },
-    "specialties": ["Reportage sportif", "Portraits", "Packshots", "Développement partenariats", "Photo événementielle", "Direction photo"],
+    "specialties": ["Reportage sportif", "Portraits", "Packshots", "Photo événementielle", "Direction photo"],
     "socials": {
       "instagram": "https://www.instagram.com/ap.photographe86?igsh=MTl0YmlqMWRpcTMxNw==",
       "linkedin": ""
     }
+  },
+  {
+    "id": "reseau",
+    "firstName": "Le réseau",
+    "initials": "+3",
+    "role": "Renfort sur tous les métiers",
+    "photo": "/reseau.svg",
+    "bio": "Autour des fondateurs, +3 Studio s'appuie sur un réseau de créatifs mobilisés selon les besoins de chaque projet.",
+    "expertise": {
+      "title": "Renfort sur tous les métiers",
+      "description": "Autour des fondateurs, +3 Studio s'appuie sur un réseau de photographes, vidéastes, graphistes, motion designers et techniciens. Du plus petit projet aux plus grands événements, on mobilise le bon profil pour chaque besoin. La bonne équipe au bon moment."
+    },
+    "specialties": ["Photographes", "Vidéastes", "Graphistes", "Motion designers", "Techniciens", "Et plus encore"]
   }
 ]

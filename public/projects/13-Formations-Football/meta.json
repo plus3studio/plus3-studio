@@ -1,11 +1,12 @@
 {
-  "title": "Soccer Edu",
+  "title": "Formations Football",
   "tags": ["Social media"],
-  "client": "SE",
+  "client": "FF",
   "year": "2026",
   "decoColor": "gray",
   "credits": "Une production +3 Studio",
   "campaignMeta": {
+    "Miniatures": { "credits": "DA & graphisme : Alix Hubert" },
     "Visuels ADS": { "credits": "DA & graphisme : Alix Hubert" }
   }
 }

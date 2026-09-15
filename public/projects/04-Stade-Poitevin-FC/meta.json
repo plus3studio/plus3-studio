@@ -3,5 +3,12 @@
   "tags": ["Branding", "Social media"],
   "client": "Stade Poitevin Football Club",
   "year": "2025",
-  "decoColor": "lime"
+  "decoColor": "lime",
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "Affiches & Visuels": { "credits": "DA & graphisme : Alix Hubert" },
+    "Campagne Maillot": { "credits": "DA & graphisme : Alix Hubert" },
+    "SPFC vs. FC Nantes (U19)": { "credits": "DA & graphisme : Alix Hubert" },
+    "Templates RS": { "credits": "DA & graphisme : Alix Hubert" }
+  }
 }

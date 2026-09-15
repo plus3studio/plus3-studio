@@ -3,5 +3,9 @@
   "tags": ["Photo"],
   "client": "UJST",
   "year": "2025",
-  "decoColor": "gray"
+  "decoColor": "gray",
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "Matchday": { "credits": "Photo : Alexis Patient · Retouche : Alexis Patient" }
+  }
 }

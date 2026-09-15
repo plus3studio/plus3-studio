@@ -1,0 +1,20 @@
+{
+  "title": "Marathon Poitiers Futuroscope",
+  "tags": ["Vidéo"],
+  "client": "Marathon Poitiers Futuroscope",
+  "year": "2026",
+  "decoColor": "gray",
+  "credits": "Une production +3 Studio",
+  "campaignMeta": {
+    "Édition 2026 — Aftermovie": {
+      "order": 1,
+      "credits": "Préproduction : Victor Gagneux & Christopher Debenham · Cadrage : Julian Gillier, Matthieu Rousseau & Christopher Debenham · Montage : Christopher Debenham · Étalonnage : Victor Gagneux",
+      "videos": [{ "url": "https://youtu.be/DDhhVmvPUPQ" }]
+    },
+    "Édition 2026 — Teaser": {
+      "order": 2,
+      "credits": "Préproduction : Victor Gagneux & Christopher Debenham · Cadrage : Julian Gillier, Matthieu Rousseau & Christopher Debenham · Montage : Victor Gagneux · Étalonnage : Victor Gagneux",
+      "videos": [{ "url": "https://youtube.com/shorts/ZR2s6K_hO4I" }]
+    }
+  }
+}
