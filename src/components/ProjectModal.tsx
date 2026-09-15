@@ -141,7 +141,7 @@ function CampaignFolder({
   const images = campaign.media
     .map((m, i) => ({ m, i }))
     .filter(({ m }) => m.type === "image");
-  const [photosOpen, setPhotosOpen] = useState(images.length <= 8);
+  const [photosOpen, setPhotosOpen] = useState(true);
 
   return (
     <div className="mb-4">
