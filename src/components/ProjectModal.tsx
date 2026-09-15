@@ -9,7 +9,7 @@ function getEmbedUrl(url: string): string {
   let match = url.match(
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]+)/,
   );
-  if (match) return `https://www.youtube.com/embed/${match[1]}`;
+  if (match) return `https://www.youtube.com/embed/${match[1]}?cc_load_policy=0&rel=0`;
   match = url.match(/vimeo\.com\/(\d+)/);
   if (match) return `https://player.vimeo.com/video/${match[1]}`;
   // Instagram reels
