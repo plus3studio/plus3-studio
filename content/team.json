@@ -61,7 +61,8 @@
     "bio": "Autour des fondateurs, +3 Studio s'appuie sur un réseau de créatifs mobilisés selon les besoins de chaque projet.",
     "expertise": {
       "title": "Photo · Vidéo · Graphisme · Motion",
-      "description": "Autour des fondateurs, un réseau de photographes, vidéastes, graphistes, motion designers et techniciens. Du plus petit projet aux plus grands événements, la bonne équipe au bon moment."
+      "description": "Autour des fondateurs, un réseau de photographes, vidéastes, graphistes, motion designers et techniciens. Du plus petit projet aux plus grands événements, la bonne équipe au bon moment.",
+      "blockTitle": "Renforts sur tous les profils"
     },
     "specialties": [
       "Photographes",
@@ -70,6 +71,7 @@
       "Motion designers",
       "Techniciens",
       "Et bien d'autres…"
-    ]
+    ],
+    "email": "contact@plus3studio.fr"
   }
 ]

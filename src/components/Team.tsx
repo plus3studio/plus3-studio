@@ -109,30 +109,11 @@ function ExpandedProfile({ member }: { member: TeamMember }) {
               Expertise
             </p>
             <h4 className="mt-2 text-lg font-bold text-white">
-              {member.expertise.title}
+              {member.expertise.blockTitle ?? member.expertise.title}
             </h4>
             <p className="mt-2 text-sm leading-relaxed text-white/70">
               {member.expertise.description}
             </p>
-          </div>
-        )}
-
-        {/* Specialties */}
-        {member.specialties && member.specialties.length > 0 && (
-          <div>
-            <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-mist-400">
-              Comp&eacute;tences
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {member.specialties.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-full border border-ink/10 bg-bone-100 px-3 py-1.5 text-[11px] font-medium text-ink"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
           </div>
         )}
 

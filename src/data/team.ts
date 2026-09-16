@@ -11,6 +11,7 @@ export type TeamMember = {
   bio?: string;
   expertise?: {
     title: string;
+    blockTitle?: string;
     description: string;
   };
   specialties?: string[];
