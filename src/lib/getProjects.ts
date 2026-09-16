@@ -83,6 +83,7 @@ function getYouTubePoster(url: string): string | undefined {
 type VideoLink = {
   url: string;
   poster?: string;
+  label?: string;
 };
 
 type CampaignMeta = {
@@ -193,7 +194,7 @@ export function getProjects(): Project[] {
         if (cm.videos && cm.videos.length > 0) {
           for (const v of cm.videos) {
             const poster = v.poster || getYouTubePoster(v.url);
-            camp.media.push({ type: "embed", url: v.url, poster });
+            camp.media.push({ type: "embed", url: v.url, poster, caption: v.label });
           }
         }
         order.set(nk, cm.order ?? 100 + seq);
@@ -275,7 +276,7 @@ export function getProjects(): Project[] {
     if (meta.videos && meta.videos.length > 0) {
       for (const v of meta.videos) {
         const poster = v.poster || getYouTubePoster(v.url);
-        gallery.push({ type: "embed", url: v.url, poster });
+        gallery.push({ type: "embed", url: v.url, poster, caption: v.label });
       }
     }
 

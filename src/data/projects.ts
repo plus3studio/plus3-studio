@@ -8,7 +8,7 @@ export type ProjectCategory =
 export type ProjectMedia =
   | { type: "image"; src: string; alt?: string }
   | { type: "video"; src: string; poster?: string }
-  | { type: "embed"; url: string; poster?: string };
+  | { type: "embed"; url: string; poster?: string; caption?: string };
 
 export type Campaign = {
   id: string;

@@ -210,7 +210,14 @@ function CampaignFolder({
             </p>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4">
               {videos.map(({ m, i }) => (
-                <MediaThumb key={i} media={m} onClick={() => onOpenLightbox(campaign.media, i)} />
+                <div key={i}>
+                  <MediaThumb media={m} onClick={() => onOpenLightbox(campaign.media, i)} />
+                  {m.type === "embed" && m.caption && (
+                    <p className="mt-1.5 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-mist-500">
+                      {m.caption}
+                    </p>
+                  )}
+                </div>
               ))}
             </div>
           </div>
