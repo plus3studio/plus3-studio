@@ -66,10 +66,12 @@ export default function ClubAmbassadeurPage() {
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
         <div className="relative mx-auto max-w-5xl px-5 py-28 text-center md:px-10 md:py-40">
-          <p className="font-display text-xl italic text-lime md:text-2xl">
-            Club Ambassadeur +3 Studio
-          </p>
-          <h1 className="mt-3 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
+          <img
+            src="/ca-liguge-logo.png"
+            alt="Ligugé — Club Ambassadeur +3 Studio"
+            className="mx-auto w-full max-w-md md:max-w-lg"
+          />
+          <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
             La Ligug&eacute;enne Football
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base text-white/60 md:text-lg">

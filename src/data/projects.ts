@@ -28,6 +28,7 @@ export type Project = {
   credits?: string;
   featured?: boolean;
   overline?: string;
+  overlineImage?: string;
   cover?: ProjectMedia;
   logo?: string;
   gallery: ProjectMedia[];

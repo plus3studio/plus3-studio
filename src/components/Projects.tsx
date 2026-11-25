@@ -33,15 +33,23 @@ function ProjectCard({
   const Inner = (
     <div className="relative h-full w-full overflow-hidden rounded-xl bg-ink md:rounded-2xl">
         {/* Kicker (projet mis en avant) */}
-        {project.overline && (
+        {(project.overlineImage || project.overline) && (
           <>
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-black/60 to-transparent"
+              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-black/70 to-transparent"
             />
-            <span className="absolute left-3 top-2.5 z-10 font-display text-sm italic leading-none text-lime drop-shadow sm:left-4 sm:top-3 sm:text-base md:text-lg">
-              {project.overline}
-            </span>
+            {project.overlineImage ? (
+              <img
+                src={project.overlineImage}
+                alt={project.overline ?? ""}
+                className="absolute left-1/2 top-3 z-10 w-[62%] max-w-[200px] -translate-x-1/2 drop-shadow sm:top-4"
+              />
+            ) : (
+              <span className="absolute left-3 top-2.5 z-10 font-display text-sm italic leading-none text-lime drop-shadow sm:left-4 sm:top-3 sm:text-base md:text-lg">
+                {project.overline}
+              </span>
+            )}
           </>
         )}
         {/* Cover */}

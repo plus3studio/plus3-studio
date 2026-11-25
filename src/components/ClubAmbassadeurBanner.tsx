@@ -24,13 +24,12 @@ export default function ClubAmbassadeurBanner() {
       />
 
       <div className="relative mx-auto max-w-5xl px-5 text-center md:px-10">
-        <p className="font-display text-lg italic text-lime sm:text-xl md:text-2xl">
-          Club Ambassadeur +3 Studio
-        </p>
-        <h2 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl">
-          La Ligug&eacute;enne Football
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-white/55 sm:text-base md:text-lg">
+        <img
+          src="/ca-liguge-logo.png"
+          alt="Ligugé — Club Ambassadeur +3 Studio"
+          className="mx-auto w-full max-w-sm md:max-w-md"
+        />
+        <p className="mx-auto mt-6 max-w-2xl text-sm text-white/55 sm:text-base md:text-lg">
           Avec le District de Football de la Vienne, +3 Studio a offert une saison
           compl&egrave;te de communication de niveau professionnel &agrave; un club
           amateur de R&eacute;gional 2. Une nouvelle identit&eacute;, un maillot

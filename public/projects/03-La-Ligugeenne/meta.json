@@ -12,6 +12,7 @@
   "credits": "Une production +3 Studio",
   "featured": true,
   "overline": "Club Ambassadeur +3 Studio",
+  "overlineImage": "/ca-liguge-logo.png",
   "campaignMeta": {
     "Appel à candidature": {
       "order": 1,

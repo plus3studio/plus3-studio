@@ -102,6 +102,7 @@ type Meta = {
   credits?: string;
   featured?: boolean;
   overline?: string;
+  overlineImage?: string;
   decoColor?: "lime" | "gray" | "black";
   logo?: string;
   videos?: VideoLink[];
@@ -302,6 +303,7 @@ export function getProjects(): Project[] {
       credits: meta.credits,
       featured: meta.featured,
       overline: meta.overline,
+      overlineImage: meta.overlineImage,
       cover,
       logo,
       gallery,
