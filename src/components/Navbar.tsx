@@ -64,19 +64,13 @@ export default function Navbar({ logoSrc }: NavbarProps) {
 
     if (l.variant === "players") {
       return (
-        <Comp
-          href={l.href}
-          className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 shadow-sm transition hover:border-black/25 hover:shadow"
-        >
+        <Comp href={l.href} aria-label="+3 Players for pros" className="inline-flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/players-logo-black.png"
-            alt="+3 Players"
-            className="h-[22px] w-auto"
+            src={isDark ? "/players-logo-black-fp.png" : "/players-logo-fp.png"}
+            alt="+3 Players for pros"
+            className="h-6 w-auto md:h-7"
           />
-          <span className="text-sm font-bold uppercase tracking-wide text-red-600">
-            for pros
-          </span>
         </Comp>
       );
     }
@@ -134,13 +128,11 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Comp
           href={l.href}
           onClick={() => setOpen(false)}
-          className="my-2 inline-flex items-center gap-2 self-start rounded-full border border-black/10 bg-white px-4 py-2.5 shadow-sm"
+          aria-label="+3 Players for pros"
+          className="flex items-center py-4"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/players-logo-black.png" alt="+3 Players" className="h-6 w-auto" />
-          <span className="text-sm font-bold uppercase tracking-wide text-red-600">
-            for pros
-          </span>
+          <img src="/players-logo-black-fp.png" alt="+3 Players for pros" className="h-8 w-auto" />
         </Comp>
       );
     }

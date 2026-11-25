@@ -39,8 +39,7 @@ const PRESSE_CAPTURES = [
 
 type ActeMedia =
   | { kind: "image"; src: string; ratio?: "4/3" | "3/4" }
-  | { kind: "instagram"; urls: string[] }
-  | { kind: "site"; url: string; label: string };
+  | { kind: "instagram"; url: string };
 
 type Acte = {
   num: string;
@@ -49,7 +48,8 @@ type Acte = {
   desc: string;
   media: ActeMedia;
   youtube?: string;
-  postLink?: string;
+  igPost?: string;
+  gallery?: boolean;
 };
 
 const ACTES: Acte[] = [
@@ -58,7 +58,7 @@ const ACTES: Acte[] = [
     title: "L’Armorial",
     sub: "Logo & identité",
     desc: "Une nouvelle identité visuelle pour le club, dévoilée le 30 juillet. Un seul visuel de logo a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
-    media: { kind: "instagram", urls: ["https://www.instagram.com/p/DbbGjEHjFBJ/"] },
+    media: { kind: "instagram", url: "https://www.instagram.com/p/DbbGjEHjFBJ/" },
   },
   {
     num: "Acte II",
@@ -67,36 +67,33 @@ const ACTES: Acte[] = [
     desc: "Un maillot collector produit avec Kappa, dévoilé le 19 août : nouveau blason, pinstripes et références au carrelage de l’abbaye de Ligugé. Une seule publication a cumulé 76 758 vues.",
     media: { kind: "image", src: "/cas-ligugeenne/maillot-1.jpg", ratio: "3/4" },
     youtube: "k9e4nmq5Xpc",
-    postLink: "https://www.instagram.com/p/DcOB_iFCFVp/",
+    igPost: "https://www.instagram.com/p/DcOB_iFCFVp/",
+    gallery: true,
   },
   {
     num: "Acte III",
     title: "Le Serment",
     sub: "Les recrues",
     desc: "La présentation des recrues de la saison, mise en scène comme un engagement envers le club et ses couleurs.",
-    media: { kind: "instagram", urls: ["https://www.instagram.com/p/DcgyAkYjOE2/"] },
+    media: { kind: "instagram", url: "https://www.instagram.com/p/DcgyAkYjOE2/" },
   },
   {
     num: "Acte IV",
     title: "Le Foyer",
     sub: "Site e-commerce & application",
     desc: "Un site internet e-commerce et une application pour donner au club sa propre boutique et son propre média. Conçu par Apollimorphie, la créatrice, avec Fluid.Collectif.",
-    media: { kind: "site", url: "https://fluidcollectif.com/", label: "Apollimorphie" },
+    media: { kind: "instagram", url: "https://www.instagram.com/p/Dc6DeFODMM2/" },
   },
   {
     num: "Acte V",
     title: "Le Prélude",
     sub: "Lancement de la saison",
-    desc: "Le coup d’envoi de la saison : un teaser pour lancer l’attente, puis un aftermovie du match d’ouverture.",
-    media: {
-      kind: "instagram",
-      urls: [
-        "https://www.instagram.com/p/Dc6PnGTsZJg/",
-        "https://www.instagram.com/p/Ddes988x84m/",
-      ],
-    },
+    desc: "Le coup d’envoi de la saison : l’aftermovie du match d’ouverture.",
+    media: { kind: "instagram", url: "https://www.instagram.com/p/Ddes988x84m/" },
   },
 ];
+
+const SHOOTING = ["maillot-2", "maillot-3", "design-1", "design-2"];
 
 function YouTube({ id, title }: { id: string; title: string }) {
   return (
@@ -224,41 +221,12 @@ export default function ClubAmbassadeurPage() {
           </h2>
 
           <div className="mt-12 space-y-16 md:space-y-24">
-            {ACTES.map((a, i) => {
-              // Acte à plusieurs vidéos (Prélude) : pleine largeur, côte à côte
-              if (a.media.kind === "instagram" && a.media.urls.length > 1) {
-                const urls = a.media.urls;
-                return (
-                  <div key={a.num}>
-                    <div className="max-w-2xl">
-                      <p className="font-display text-xl italic text-lime">{a.num}</p>
-                      <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
-                        {a.title}
-                      </h3>
-                      <p className="mt-1 text-xs uppercase tracking-[0.2em] text-mist-500">
-                        {a.sub}
-                      </p>
-                      <p className="mt-3 text-base leading-relaxed text-ink/75">
-                        {a.desc}
-                      </p>
-                    </div>
-                    <div className="mt-8 grid items-start gap-5 sm:grid-cols-2">
-                      {urls.map((u) => (
-                        <InstagramEmbed key={u} url={u} />
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <div
-                  key={a.num}
-                  className="grid items-center gap-8 md:grid-cols-2"
-                >
+            {ACTES.map((a, i) => (
+              <div key={a.num}>
+                <div className="grid items-center gap-8 md:grid-cols-2">
                   {/* Média */}
                   <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                    {a.media.kind === "image" && (
+                    {a.media.kind === "image" ? (
                       <div
                         className={`relative overflow-hidden rounded-2xl bg-ink ${
                           a.media.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
@@ -272,28 +240,10 @@ export default function ClubAmbassadeurPage() {
                           className="object-cover"
                         />
                       </div>
-                    )}
-                    {a.media.kind === "instagram" && (
-                      <div className="mx-auto max-w-[460px]">
-                        {a.media.urls.map((u) => (
-                          <InstagramEmbed key={u} url={u} />
-                        ))}
+                    ) : (
+                      <div className="mx-auto w-full max-w-[460px]">
+                        <InstagramEmbed url={a.media.url} />
                       </div>
-                    )}
-                    {a.media.kind === "site" && (
-                      <a
-                        href={a.media.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-2xl border border-bone-200 bg-bone-50 text-center transition hover:border-ink/30"
-                      >
-                        <span className="font-display text-5xl italic text-mist-300 md:text-6xl">
-                          {a.num}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
-                          {a.media.label} <span>&#8599;</span>
-                        </span>
-                      </a>
                     )}
                   </div>
 
@@ -314,36 +264,35 @@ export default function ClubAmbassadeurPage() {
                         <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
                       </div>
                     )}
-                    {a.postLink && (
-                      <a
-                        href={a.postLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink/70 transition hover:text-ink"
-                      >
-                        Voir le post <span>&#8599;</span>
-                      </a>
-                    )}
                   </div>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Galerie */}
-          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {["maillot-2", "maillot-3", "design-1", "design-2"].map((n) => (
-              <div
-                key={n}
-                className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink"
-              >
-                <Image
-                  src={`/cas-ligugeenne/${n}.jpg`}
-                  alt="La Ligugéenne — shooting maillot collector"
-                  fill
-                  sizes="(min-width: 768px) 33vw, 50vw"
-                  className="object-cover"
-                />
+                {/* Embed de la publi (Acte II) */}
+                {a.igPost && (
+                  <div className="mx-auto mt-8 w-full max-w-[460px]">
+                    <InstagramEmbed url={a.igPost} />
+                  </div>
+                )}
+
+                {/* Galerie shooting (sous l'Acte II) */}
+                {a.gallery && (
+                  <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+                    {SHOOTING.map((n) => (
+                      <div
+                        key={n}
+                        className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink"
+                      >
+                        <Image
+                          src={`/cas-ligugeenne/${n}.jpg`}
+                          alt="La Ligugéenne — shooting maillot collector"
+                          fill
+                          sizes="(min-width: 768px) 25vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -360,10 +309,10 @@ export default function ClubAmbassadeurPage() {
           <p className="mt-12 max-w-2xl text-base leading-relaxed text-white/60">
             Chez SoccerBible, un club de septi&egrave;me division fran&ccedil;aise
             publi&eacute; le m&ecirc;me jour que l&rsquo;Atl&eacute;tico de Madrid et le
-            Bayern Munich.{" "}
-            <strong className="font-semibold text-white">
-              Le tout sans aucune publicit&eacute; ni m&eacute;dia pay&eacute;.
-            </strong>
+            Bayern Munich.
+          </p>
+          <p className="mt-6 text-lg font-bold text-white md:text-xl">
+            Le tout sans aucune publicit&eacute; ni m&eacute;dia pay&eacute;.
           </p>
         </div>
       </section>
