@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InstagramEmbed from "@/components/InstagramEmbed";
+import StatsResultats from "@/components/StatsResultats";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -13,15 +14,6 @@ export const metadata: Metadata = {
     "Comment +3 Studio a offert une saison de communication de niveau professionnel à La Ligugéenne, club amateur de Régional 2. Nouvelle identité, maillot collector Kappa, 639 584 vues en un mois et une couverture presse internationale (SoccerBible, Footy Headlines, France 3).",
   alternates: { canonical: "/club-ambassadeur" },
 };
-
-const STATS = [
-  { value: "639 584", label: "vues cumulées en un mois" },
-  { value: "310 302", label: "comptes touchés" },
-  { value: "14 883", label: "interactions" },
-  { value: "×2,07", label: "de vues par publication vs saison précédente" },
-  { value: "9 pays", label: "2 continents, 13 départements" },
-  { value: "4 400", label: "sessions sur le nouveau site" },
-];
 
 const PRESSE = [
   { name: "SoccerBible", note: "Royaume-Uni · +5M de communauté" },
@@ -324,17 +316,7 @@ export default function ClubAmbassadeurPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-white/40">
             Les résultats
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Un mois, un lancement international
-          </h2>
-          <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3">
-            {STATS.map((s) => (
-              <div key={s.value}>
-                <p className="text-3xl font-bold text-lime md:text-4xl">{s.value}</p>
-                <p className="mt-2 text-sm text-white/50">{s.label}</p>
-              </div>
-            ))}
-          </div>
+          <StatsResultats />
           <p className="mt-12 max-w-2xl text-base leading-relaxed text-white/60">
             Le tout sans aucune publicit&eacute; ni m&eacute;dia pay&eacute;. Chez
             SoccerBible, un club de septi&egrave;me division fran&ccedil;aise publi&eacute;
