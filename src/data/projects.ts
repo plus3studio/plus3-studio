@@ -26,6 +26,8 @@ export type Project = {
   year?: string;
   description?: string;
   credits?: string;
+  featured?: boolean;
+  overline?: string;
   cover?: ProjectMedia;
   logo?: string;
   gallery: ProjectMedia[];

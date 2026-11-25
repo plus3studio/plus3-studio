@@ -32,7 +32,17 @@ function ProjectCard({
 
   return (
     <article onClick={onClick} className="group cursor-pointer">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink md:rounded-2xl">
+      {/* Kicker au-dessus du bloc (projet mis en avant) */}
+      {project.overline && (
+        <p className="mb-2 font-serif text-[11px] italic tracking-wide text-lime sm:text-sm md:mb-3">
+          {project.overline}
+        </p>
+      )}
+      <div
+        className={`relative aspect-[4/5] overflow-hidden rounded-xl bg-ink md:rounded-2xl ${
+          project.featured ? "ring-2 ring-white md:ring-[3px]" : ""
+        }`}
+      >
         {/* Cover */}
         {hasCover && project.cover!.type === "image" ? (
           <Image

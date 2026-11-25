@@ -100,6 +100,8 @@ type Meta = {
   year?: string;
   description?: string;
   credits?: string;
+  featured?: boolean;
+  overline?: string;
   decoColor?: "lime" | "gray" | "black";
   logo?: string;
   videos?: VideoLink[];
@@ -298,12 +300,18 @@ export function getProjects(): Project[] {
       year: meta.year,
       description: meta.description,
       credits: meta.credits,
+      featured: meta.featured,
+      overline: meta.overline,
       cover,
       logo,
       gallery,
       campaigns,
     });
   }
+
+  // Les projets mis en avant (featured) passent toujours en premier,
+  // dans l'ordre des dossiers entre eux.
+  projects.sort((a, b) => Number(b.featured ?? false) - Number(a.featured ?? false));
 
   return projects;
 }
