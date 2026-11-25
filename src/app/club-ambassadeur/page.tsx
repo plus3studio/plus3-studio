@@ -25,6 +25,18 @@ const PRESSE = [
   { name: "beIN Sports", note: "À venir · Salon VIP" },
 ];
 
+const PRESSE_CAPTURES = [
+  { src: "/cas-ligugeenne/presse/01.jpg", label: "SoccerBible" },
+  { src: "/cas-ligugeenne/presse/02.jpg", label: "Footy Headlines" },
+  { src: "/cas-ligugeenne/presse/03.jpg", label: "Football Shirt Culture" },
+  { src: "/cas-ligugeenne/presse/04.jpg", label: "Creative Soccer Culture" },
+  { src: "/cas-ligugeenne/presse/05.jpg", label: "Dégaine by So Foot" },
+  { src: "/cas-ligugeenne/presse/06.jpg", label: "France 3 Nouvelle-Aquitaine" },
+  { src: "/cas-ligugeenne/presse/07.jpg", label: "La Nouvelle République" },
+  { src: "/cas-ligugeenne/presse/08.jpg", label: "Reprises & communauté" },
+  { src: "/cas-ligugeenne/presse/09.jpg", label: "Reprises & communauté" },
+];
+
 type ActeMedia =
   | { kind: "image"; src: string; ratio?: "4/3" | "3/4" }
   | { kind: "instagram"; urls: string[] }
@@ -374,6 +386,30 @@ export default function ClubAmbassadeurPage() {
                 <p className="font-bold text-ink">{m.name}</p>
                 <p className="mt-1 text-sm text-mist-500">{m.note}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Les captures */}
+          <p className="mt-14 mb-6 text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            Les captures
+          </p>
+          <div className="[column-fill:_balance] gap-4 sm:columns-2 lg:columns-3">
+            {PRESSE_CAPTURES.map((c) => (
+              <figure
+                key={c.src}
+                className="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-bone-200 bg-white"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.src}
+                  alt={`La Ligugéenne — ${c.label}`}
+                  loading="lazy"
+                  className="w-full"
+                />
+                <figcaption className="px-4 py-3 text-xs font-medium text-mist-500">
+                  {c.label}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
