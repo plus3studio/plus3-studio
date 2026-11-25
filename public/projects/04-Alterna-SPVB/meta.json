@@ -1,18 +1,22 @@
 {
   "title": "Alterna SPVB",
-  "tags": ["Vidéo"],
+  "tags": ["Vidéo", "Photo"],
   "year": "2026",
   "decoColor": "lime",
-  "description": "Stade Poitevin Volley Ball × Adidas.",
+  "description": "Stade Poitevin Volley Ball.",
   "credits": "Une production +3 Studio",
   "campaignMeta": {
     "SPVB x Adidas": {
       "order": 1,
-      "credits": "À CONFIRMER",
+      "credits": "Vidéo : Christopher Debenham",
       "videos": [
         { "url": "https://youtu.be/7RiqM6vIZ3I", "label": "Annonce — Poitiers c'est" },
         { "url": "https://youtube.com/shorts/5-7ObrAvBwE", "label": "Teaser" }
       ]
+    },
+    "SPVB x Sète": {
+      "order": 2,
+      "credits": "Photo : Alexis Patient"
     }
   }
 }
