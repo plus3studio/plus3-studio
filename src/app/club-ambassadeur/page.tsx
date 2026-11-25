@@ -68,8 +68,8 @@ const ACTES: Acte[] = [
     num: "Acte IV",
     title: "Le Foyer",
     sub: "Site e-commerce & application",
-    desc: "Un site internet e-commerce et une application pour donner au club sa propre boutique et son propre média. Site réalisé par Apollimorphie × Fluid.Collectif.",
-    media: { kind: "site", url: "https://fluidcollectif.com/", label: "Fluid.Collectif" },
+    desc: "Un site internet e-commerce et une application pour donner au club sa propre boutique et son propre média. Conçu par Apollimorphie, la créatrice, avec Fluid.Collectif.",
+    media: { kind: "site", url: "https://fluidcollectif.com/", label: "Apollimorphie" },
   },
   {
     num: "Acte V",
@@ -212,82 +212,110 @@ export default function ClubAmbassadeurPage() {
           </h2>
 
           <div className="mt-12 space-y-16 md:space-y-24">
-            {ACTES.map((a, i) => (
-              <div
-                key={a.num}
-                className="grid items-center gap-8 md:grid-cols-2"
-              >
-                {/* Média */}
-                <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  {a.media.kind === "image" && (
-                    <div
-                      className={`relative overflow-hidden rounded-2xl bg-ink ${
-                        a.media.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
-                      }`}
-                    >
-                      <Image
-                        src={a.media.src}
-                        alt={`La Ligugéenne — ${a.title}`}
-                        fill
-                        sizes="(min-width: 768px) 50vw, 100vw"
-                        className="object-cover"
-                      />
+            {ACTES.map((a, i) => {
+              // Acte à plusieurs vidéos (Prélude) : pleine largeur, côte à côte
+              if (a.media.kind === "instagram" && a.media.urls.length > 1) {
+                const urls = a.media.urls;
+                return (
+                  <div key={a.num}>
+                    <div className="max-w-2xl">
+                      <p className="font-display text-xl italic text-lime">{a.num}</p>
+                      <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
+                        {a.title}
+                      </h3>
+                      <p className="mt-1 text-xs uppercase tracking-[0.2em] text-mist-500">
+                        {a.sub}
+                      </p>
+                      <p className="mt-3 text-base leading-relaxed text-ink/75">
+                        {a.desc}
+                      </p>
                     </div>
-                  )}
-                  {a.media.kind === "instagram" && (
-                    <div className="mx-auto max-w-[460px] space-y-5">
-                      {a.media.urls.map((u) => (
+                    <div className="mt-8 grid items-start gap-5 sm:grid-cols-2">
+                      {urls.map((u) => (
                         <InstagramEmbed key={u} url={u} />
                       ))}
                     </div>
-                  )}
-                  {a.media.kind === "site" && (
-                    <a
-                      href={a.media.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-2xl border border-bone-200 bg-bone-50 text-center transition hover:border-ink/30"
-                    >
-                      <span className="font-display text-5xl italic text-mist-300 md:text-6xl">
-                        {a.num}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
-                        {a.media.label} <span>&#8599;</span>
-                      </span>
-                    </a>
-                  )}
-                </div>
+                  </div>
+                );
+              }
 
-                {/* Texte */}
-                <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                  <p className="font-display text-xl italic text-lime">{a.num}</p>
-                  <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
-                    {a.title}
-                  </h3>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-mist-500">
-                    {a.sub}
-                  </p>
-                  <p className="mt-3 text-base leading-relaxed text-ink/75">
-                    {a.desc}
-                  </p>
-                  {a.youtube && (
-                    <div className="mt-5">
-                      <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
-                    </div>
-                  )}
-                  {a.postLink && (
-                    <a
-                      href={a.postLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink/70 transition hover:text-ink"
-                    >
-                      Voir le post <span>&#8599;</span>
-                    </a>
-                  )}
+              return (
+                <div
+                  key={a.num}
+                  className="grid items-center gap-8 md:grid-cols-2"
+                >
+                  {/* Média */}
+                  <div className={i % 2 === 1 ? "md:order-2" : ""}>
+                    {a.media.kind === "image" && (
+                      <div
+                        className={`relative overflow-hidden rounded-2xl bg-ink ${
+                          a.media.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
+                        }`}
+                      >
+                        <Image
+                          src={a.media.src}
+                          alt={`La Ligugéenne — ${a.title}`}
+                          fill
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    {a.media.kind === "instagram" && (
+                      <div className="mx-auto max-w-[460px]">
+                        {a.media.urls.map((u) => (
+                          <InstagramEmbed key={u} url={u} />
+                        ))}
+                      </div>
+                    )}
+                    {a.media.kind === "site" && (
+                      <a
+                        href={a.media.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-2xl border border-bone-200 bg-bone-50 text-center transition hover:border-ink/30"
+                      >
+                        <span className="font-display text-5xl italic text-mist-300 md:text-6xl">
+                          {a.num}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
+                          {a.media.label} <span>&#8599;</span>
+                        </span>
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Texte */}
+                  <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                    <p className="font-display text-xl italic text-lime">{a.num}</p>
+                    <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
+                      {a.title}
+                    </h3>
+                    <p className="mt-1 text-xs uppercase tracking-[0.2em] text-mist-500">
+                      {a.sub}
+                    </p>
+                    <p className="mt-3 text-base leading-relaxed text-ink/75">
+                      {a.desc}
+                    </p>
+                    {a.youtube && (
+                      <div className="mt-5">
+                        <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
+                      </div>
+                    )}
+                    {a.postLink && (
+                      <a
+                        href={a.postLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink/70 transition hover:text-ink"
+                      >
+                        Voir le post <span>&#8599;</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Galerie */}
@@ -318,9 +346,12 @@ export default function ClubAmbassadeurPage() {
           </span>
           <StatsResultats />
           <p className="mt-12 max-w-2xl text-base leading-relaxed text-white/60">
-            Le tout sans aucune publicit&eacute; ni m&eacute;dia pay&eacute;. Chez
-            SoccerBible, un club de septi&egrave;me division fran&ccedil;aise publi&eacute;
-            le m&ecirc;me jour que l&rsquo;Atl&eacute;tico de Madrid et le Bayern Munich.
+            Chez SoccerBible, un club de septi&egrave;me division fran&ccedil;aise
+            publi&eacute; le m&ecirc;me jour que l&rsquo;Atl&eacute;tico de Madrid et le
+            Bayern Munich.{" "}
+            <strong className="font-semibold text-white">
+              Le tout sans aucune publicit&eacute; ni m&eacute;dia pay&eacute;.
+            </strong>
           </p>
         </div>
       </section>

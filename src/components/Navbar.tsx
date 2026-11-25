@@ -64,14 +64,17 @@ export default function Navbar({ logoSrc }: NavbarProps) {
 
     if (l.variant === "players") {
       return (
-        <Comp href={l.href} className="inline-flex items-center gap-1.5">
+        <Comp
+          href={l.href}
+          className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 shadow-sm transition hover:border-black/25 hover:shadow"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={isDark ? "/players-logo-dark.png" : "/players-logo.png"}
+            src="/players-logo-black.png"
             alt="+3 Players"
-            className="h-[15px] w-auto md:h-[17px]"
+            className="h-[22px] w-auto"
           />
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-red-600">
+          <span className="text-sm font-bold uppercase tracking-wide text-red-600">
             for pros
           </span>
         </Comp>
@@ -131,11 +134,11 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Comp
           href={l.href}
           onClick={() => setOpen(false)}
-          className="flex items-center gap-2 py-4"
+          className="my-2 inline-flex items-center gap-2 self-start rounded-full border border-black/10 bg-white px-4 py-2.5 shadow-sm"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/players-logo-dark.png" alt="+3 Players" className="h-5 w-auto" />
-          <span className="text-xs font-semibold uppercase tracking-wide text-red-600">
+          <img src="/players-logo-black.png" alt="+3 Players" className="h-6 w-auto" />
+          <span className="text-sm font-bold uppercase tracking-wide text-red-600">
             for pros
           </span>
         </Comp>

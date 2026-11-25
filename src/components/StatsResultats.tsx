@@ -11,14 +11,6 @@ const STATS = [
   { value: "4 400", label: "sessions sur le nouveau site" },
 ];
 
-const WORDS = [
-  "locale",
-  "départementale",
-  "régionale",
-  "nationale",
-  "internationale",
-];
-
 type Parsed = { prefix: string; num: number; decimals: number; suffix: string };
 
 function parseValue(value: string): Parsed {
@@ -60,7 +52,7 @@ function Stat({ value, label, run }: { value: string; label: string; run: boolea
       <p className="text-3xl font-bold text-lime md:text-4xl">
         {parsed.prefix}
         {format(n, parsed.decimals)}
-        {parsed.suffix && <span>{parsed.suffix}</span>}
+        {parsed.suffix ? ` ${parsed.suffix}` : ""}
       </p>
       <p className="mt-2 text-sm text-white/50">{label}</p>
     </div>
@@ -70,9 +62,7 @@ function Stat({ value, label, run }: { value: string; label: string; run: boolea
 export default function StatsResultats() {
   const ref = useRef<HTMLDivElement>(null);
   const [run, setRun] = useState(false);
-  const [wordIdx, setWordIdx] = useState(0);
 
-  // Déclenche au scroll dans la vue
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -89,28 +79,11 @@ export default function StatsResultats() {
     return () => io.disconnect();
   }, []);
 
-  // Mot qui monte en échelle puis se fige sur "internationale"
-  useEffect(() => {
-    if (!run) return;
-    if (wordIdx >= WORDS.length - 1) return;
-    const t = setTimeout(() => setWordIdx((i) => i + 1), 480);
-    return () => clearTimeout(t);
-  }, [run, wordIdx]);
-
   return (
     <div ref={ref}>
-      <style>{`@keyframes caWordIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}`}</style>
       <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-        Un mois, une presse{" "}
-        <span
-          key={wordIdx}
-          className="text-lime"
-          style={{ display: "inline-block", animation: "caWordIn .32s ease" }}
-        >
-          {WORDS[wordIdx]}
-        </span>
+        Un mois, un lancement international
       </h2>
-
       <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3">
         {STATS.map((s) => (
           <Stat key={s.value} value={s.value} label={s.label} run={run} />

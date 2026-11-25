@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PresseWord from "./PresseWord";
 
 const STATS = [
   { value: "639 584", label: "vues en un mois" },
@@ -16,7 +17,7 @@ export default function ClubAmbassadeurBanner() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-top"
       />
       <div
         aria-hidden
@@ -57,7 +58,9 @@ export default function ClubAmbassadeurBanner() {
         <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
           {STATS.map((s) => (
             <div key={s.value}>
-              <p className="text-xl font-bold text-lime sm:text-2xl">{s.value}</p>
+              <p className="text-xl font-bold text-lime sm:text-2xl">
+                {s.value === "Presse internationale" ? <PresseWord /> : s.value}
+              </p>
               <p className="mt-1 text-xs text-white/40 sm:text-sm">{s.label}</p>
             </div>
           ))}
