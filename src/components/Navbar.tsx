@@ -82,9 +82,12 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       return (
         <Comp
           href={l.href}
-          className="inline-flex items-center rounded-full bg-ink px-4 py-1.5 font-display text-sm italic leading-none text-lime transition hover:brightness-110"
+          className={`relative inline-block pb-1 font-display text-base italic leading-none transition ${
+            isDark ? "text-ink" : "text-white"
+          }`}
         >
           {l.label}
+          <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-full bg-lime" />
         </Comp>
       );
     }
@@ -144,9 +147,13 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Comp
           href={l.href}
           onClick={() => setOpen(false)}
-          className="my-2 inline-flex items-center rounded-full bg-ink px-4 py-2.5 font-display text-base italic text-lime"
+          className="flex items-center justify-between py-4"
         >
-          {l.label}
+          <span className="relative inline-block pb-1 font-display text-lg italic text-ink">
+            {l.label}
+            <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-full bg-lime" />
+          </span>
+          <span className="text-mist-400 text-sm">&rarr;</span>
         </Comp>
       );
     }
