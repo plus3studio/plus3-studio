@@ -8,13 +8,13 @@ import { site } from "@/data/site";
 type NavLink = {
   label: string;
   href: string;
-  variant?: "default" | "red" | "volt" | "cta";
+  variant?: "default" | "red" | "volt" | "cta" | "players";
 };
 
 const links: NavLink[] = [
   { label: "Projets", href: "/#projets" },
   { label: "Équipe", href: "/#equipe" },
-  { label: "+3 Players", href: "/#players", variant: "red" },
+  { label: "+3 Players", href: "/#players", variant: "players" },
   { label: "Programme Club Ambassadeur", href: "/club-ambassadeur", variant: "volt" },
   { label: "Contact", href: "/#contact", variant: "cta" },
 ];
@@ -62,11 +62,27 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       );
     }
 
+    if (l.variant === "players") {
+      return (
+        <Comp href={l.href} className="inline-flex items-center gap-1.5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={isDark ? "/players-logo-dark.png" : "/players-logo.png"}
+            alt="+3 Players"
+            className="h-[15px] w-auto md:h-[17px]"
+          />
+          <span className="text-[11px] font-semibold uppercase tracking-wide text-red-600">
+            for pros
+          </span>
+        </Comp>
+      );
+    }
+
     if (l.variant === "volt") {
       return (
         <Comp
           href={l.href}
-          className="font-display text-base italic leading-none text-lime drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:brightness-110"
+          className="inline-flex items-center rounded-full bg-ink px-4 py-1.5 font-display text-sm italic leading-none text-lime transition hover:brightness-110"
         >
           {l.label}
         </Comp>
@@ -107,18 +123,41 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       );
     }
 
-    const color =
-      l.variant === "red"
-        ? "text-red-600"
-        : l.variant === "volt"
-          ? "text-lime font-display italic"
-          : "text-ink";
+    if (l.variant === "players") {
+      return (
+        <Comp
+          href={l.href}
+          onClick={() => setOpen(false)}
+          className="flex items-center gap-2 py-4"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/players-logo-dark.png" alt="+3 Players" className="h-5 w-auto" />
+          <span className="text-xs font-semibold uppercase tracking-wide text-red-600">
+            for pros
+          </span>
+        </Comp>
+      );
+    }
+
+    if (l.variant === "volt") {
+      return (
+        <Comp
+          href={l.href}
+          onClick={() => setOpen(false)}
+          className="my-2 inline-flex items-center rounded-full bg-ink px-4 py-2.5 font-display text-base italic text-lime"
+        >
+          {l.label}
+        </Comp>
+      );
+    }
 
     return (
       <Comp
         href={l.href}
         onClick={() => setOpen(false)}
-        className={`flex items-center justify-between py-4 text-lg font-semibold ${color}`}
+        className={`flex items-center justify-between py-4 text-lg font-semibold ${
+          l.variant === "red" ? "text-red-600" : "text-ink"
+        }`}
       >
         {l.label}
         <span className="text-mist-400 text-sm">&rarr;</span>

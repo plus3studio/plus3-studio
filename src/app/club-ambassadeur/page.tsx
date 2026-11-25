@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import InstagramEmbed from "@/components/InstagramEmbed";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -32,15 +33,19 @@ const PRESSE = [
   { name: "beIN Sports", note: "À venir · Salon VIP" },
 ];
 
+type ActeMedia =
+  | { kind: "image"; src: string; ratio?: "4/3" | "3/4" }
+  | { kind: "instagram"; urls: string[] }
+  | { kind: "site"; url: string; label: string };
+
 type Acte = {
   num: string;
   title: string;
   sub: string;
   desc: string;
-  image?: string;
-  ratio?: "4/3" | "3/4";
+  media: ActeMedia;
   youtube?: string;
-  links?: { url: string; label: string }[];
+  postLink?: string;
 };
 
 const ACTES: Acte[] = [
@@ -49,42 +54,43 @@ const ACTES: Acte[] = [
     title: "L’Armorial",
     sub: "Logo & identité",
     desc: "Une nouvelle identité visuelle pour le club, dévoilée le 30 juillet. Un seul visuel de logo a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
-    image: "/cas-ligugeenne/identite-1.jpg",
-    links: [{ url: "https://www.instagram.com/p/DbbGjEHjFBJ/", label: "Voir le post" }],
+    media: { kind: "instagram", urls: ["https://www.instagram.com/p/DbbGjEHjFBJ/"] },
   },
   {
     num: "Acte II",
     title: "La Tunique",
     sub: "Le maillot",
     desc: "Un maillot collector produit avec Kappa, dévoilé le 19 août : nouveau blason, pinstripes et références au carrelage de l’abbaye de Ligugé. Une seule publication a cumulé 76 758 vues.",
-    image: "/cas-ligugeenne/maillot-1.jpg",
-    ratio: "3/4",
+    media: { kind: "image", src: "/cas-ligugeenne/maillot-1.jpg", ratio: "3/4" },
     youtube: "k9e4nmq5Xpc",
-    links: [{ url: "https://www.instagram.com/p/DcOB_iFCFVp/", label: "Voir le post" }],
+    postLink: "https://www.instagram.com/p/DcOB_iFCFVp/",
   },
   {
     num: "Acte III",
     title: "Le Serment",
     sub: "Les recrues",
     desc: "La présentation des recrues de la saison, mise en scène comme un engagement envers le club et ses couleurs.",
-    links: [{ url: "https://www.instagram.com/p/DcgyAkYjOE2/", label: "Voir le post" }],
+    media: { kind: "instagram", urls: ["https://www.instagram.com/p/DcgyAkYjOE2/"] },
   },
   {
     num: "Acte IV",
     title: "Le Foyer",
     sub: "Site e-commerce & application",
     desc: "Un site internet e-commerce et une application pour donner au club sa propre boutique et son propre média. Site réalisé par Apollimorphie × Fluid.Collectif.",
-    links: [{ url: "https://fluidcollectif.com/", label: "Fluid.Collectif" }],
+    media: { kind: "site", url: "https://fluidcollectif.com/", label: "Fluid.Collectif" },
   },
   {
     num: "Acte V",
     title: "Le Prélude",
     sub: "Lancement de la saison",
     desc: "Le coup d’envoi de la saison : un teaser pour lancer l’attente, puis un aftermovie du match d’ouverture.",
-    links: [
-      { url: "https://www.instagram.com/p/Dc6PnGTsZJg/", label: "Teaser" },
-      { url: "https://www.instagram.com/p/Ddes988x84m/", label: "Aftermovie" },
-    ],
+    media: {
+      kind: "instagram",
+      urls: [
+        "https://www.instagram.com/p/Dc6PnGTsZJg/",
+        "https://www.instagram.com/p/Ddes988x84m/",
+      ],
+    },
   },
 ];
 
@@ -221,26 +227,42 @@ export default function ClubAmbassadeurPage() {
               >
                 {/* Média */}
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  {a.image ? (
+                  {a.media.kind === "image" && (
                     <div
                       className={`relative overflow-hidden rounded-2xl bg-ink ${
-                        a.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
+                        a.media.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
                       }`}
                     >
                       <Image
-                        src={a.image}
+                        src={a.media.src}
                         alt={`La Ligugéenne — ${a.title}`}
                         fill
                         sizes="(min-width: 768px) 50vw, 100vw"
                         className="object-cover"
                       />
                     </div>
-                  ) : (
-                    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-bone-200 bg-bone-50">
-                      <span className="font-display text-6xl italic text-mist-300 md:text-7xl">
+                  )}
+                  {a.media.kind === "instagram" && (
+                    <div className="mx-auto max-w-[460px] space-y-5">
+                      {a.media.urls.map((u) => (
+                        <InstagramEmbed key={u} url={u} />
+                      ))}
+                    </div>
+                  )}
+                  {a.media.kind === "site" && (
+                    <a
+                      href={a.media.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-2xl border border-bone-200 bg-bone-50 text-center transition hover:border-ink/30"
+                    >
+                      <span className="font-display text-5xl italic text-mist-300 md:text-6xl">
                         {a.num}
                       </span>
-                    </div>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
+                        {a.media.label} <span>&#8599;</span>
+                      </span>
+                    </a>
                   )}
                 </div>
 
@@ -256,25 +278,20 @@ export default function ClubAmbassadeurPage() {
                   <p className="mt-3 text-base leading-relaxed text-ink/75">
                     {a.desc}
                   </p>
-                  {a.links && (
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {a.links.map((l) => (
-                        <a
-                          key={l.url}
-                          href={l.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink transition hover:border-ink/40"
-                        >
-                          {l.label} <span>&#8599;</span>
-                        </a>
-                      ))}
-                    </div>
-                  )}
                   {a.youtube && (
                     <div className="mt-5">
                       <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
                     </div>
+                  )}
+                  {a.postLink && (
+                    <a
+                      href={a.postLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink/70 transition hover:text-ink"
+                    >
+                      Voir le post <span>&#8599;</span>
+                    </a>
                   )}
                 </div>
               </div>
