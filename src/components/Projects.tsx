@@ -43,7 +43,7 @@ function ProjectCard({
               <img
                 src={project.overlineImage}
                 alt={project.overline ?? ""}
-                className="absolute left-1/2 top-3 z-10 w-[62%] max-w-[200px] -translate-x-1/2 drop-shadow sm:top-4"
+                className="absolute left-3 top-3 z-10 w-24 max-w-[110px] drop-shadow sm:left-4 sm:top-4 sm:w-28"
               />
             ) : (
               <span className="absolute left-3 top-2.5 z-10 font-display text-sm italic leading-none text-lime drop-shadow sm:left-4 sm:top-3 sm:text-base md:text-lg">

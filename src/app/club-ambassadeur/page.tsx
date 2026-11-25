@@ -18,7 +18,7 @@ const STATS = [
   { value: "310 302", label: "comptes touchés" },
   { value: "14 883", label: "interactions" },
   { value: "×2,07", label: "de vues par publication vs saison précédente" },
-  { value: "6 nations", label: "2 continents, 13 départements" },
+  { value: "8 pays", label: "2 continents, 13 départements" },
   { value: "4 400", label: "sessions sur le nouveau site" },
 ];
 
@@ -65,16 +65,16 @@ export default function ClubAmbassadeurPage() {
           className="object-cover opacity-40"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
-        <div className="relative mx-auto max-w-5xl px-5 py-28 text-center md:px-10 md:py-40">
+        <div className="relative mx-auto max-w-5xl px-5 py-24 text-center md:px-10 md:py-32">
           <img
             src="/ca-liguge-logo.png"
             alt="Ligugé — Club Ambassadeur +3 Studio"
-            className="mx-auto w-full max-w-md md:max-w-lg"
+            className="mx-auto w-full max-w-[220px] md:max-w-xs"
           />
-          <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
+          <h1 className="mt-6 text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl md:text-6xl">
             La Ligug&eacute;enne Football
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-white/60 md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-sm text-white/60 md:text-base">
             Un club de R&eacute;gional 2, dans un village de 3 500 habitants, exist&eacute;
             au m&ecirc;me endroit que les clubs professionnels. Pas avec un budget,
             avec une m&eacute;thode.
@@ -127,14 +127,34 @@ export default function ClubAmbassadeurPage() {
         </div>
       </section>
 
-      {/* LE PROJET — ACTES */}
+      {/* LE CHOIX — ANNONCE */}
       <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            Le choix
+          </span>
+          <h2 className="mt-3 mb-8 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            L&rsquo;annonce du club ambassadeur
+          </h2>
+          <YouTube id="WDz15X1u1nU" title="La Ligugéenne — Annonce du Club Ambassadeur" />
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
+            Un choix m&eacute;ticuleux. Apr&egrave;s avoir lu les r&eacute;ponses de
+            chaque candidature et visit&eacute; les trois finalistes, La Ligug&eacute;enne
+            s&rsquo;est impos&eacute;e. L&rsquo;annonce, film&eacute;e dans le village, a
+            r&eacute;v&eacute;l&eacute; le club choisi pour l&rsquo;&eacute;dition
+            2026-2027.
+          </p>
+        </div>
+      </section>
+
+      {/* LE PROJET — ACTES */}
+      <section className="bg-bone-50 py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-5 md:px-10">
           <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Ce qu&rsquo;on a produit
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
-            Le projet, en deux actes
+            Le projet, acte par acte
           </h2>
 
           {/* Acte I */}
@@ -163,7 +183,7 @@ export default function ClubAmbassadeurPage() {
 
           {/* Acte II */}
           <div className="mt-12 grid items-center gap-8 md:grid-cols-2">
-            <div className="md:order-2 relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink">
+            <div className="md:order-2 relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink">
               <Image
                 src="/cas-ligugeenne/maillot-1.jpg"
                 alt="La Ligugéenne — maillot collector La Tunique, produit avec Kappa"
@@ -186,16 +206,10 @@ export default function ClubAmbassadeurPage() {
             </div>
           </div>
 
-          {/* Vidéos annonce + maillot */}
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            <div>
-              <YouTube id="WDz15X1u1nU" title="La Ligugéenne — Annonce du Club Ambassadeur" />
-              <p className="mt-3 text-sm text-mist-500">Annonce du Club Ambassadeur</p>
-            </div>
-            <div>
-              <YouTube id="k9e4nmq5Xpc" title="La Ligugéenne — Acte II, La Tunique" />
-              <p className="mt-3 text-sm text-mist-500">Acte II — La Tunique</p>
-            </div>
+          {/* Vidéo maillot */}
+          <div className="mt-16">
+            <YouTube id="k9e4nmq5Xpc" title="La Ligugéenne — Acte II, La Tunique" />
+            <p className="mt-3 text-sm text-mist-500">Acte II — La Tunique</p>
           </div>
 
           {/* Galerie */}
@@ -225,7 +239,7 @@ export default function ClubAmbassadeurPage() {
             Les résultats
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Un mois, une port&eacute;e internationale
+            Un mois, un lancement international
           </h2>
           <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3">
             {STATS.map((s) => (
@@ -277,10 +291,10 @@ export default function ClubAmbassadeurPage() {
           </h2>
           <p className="mt-6 text-base leading-relaxed text-ink/80 md:text-lg">
             Ouvert &agrave; la vente le 18 ao&ucirc;t, le maillot collector a &eacute;t&eacute;
-            command&eacute; depuis six pays (France, &Eacute;cosse, Angleterre, Finlande,
-            Allemagne, &Eacute;tats-Unis) et treize d&eacute;partements fran&ccedil;ais.
-            Le stock initial a &eacute;t&eacute; &eacute;coul&eacute;, et une seconde
-            s&eacute;rie Kappa de 100 exemplaires a suivi, en quantit&eacute; limit&eacute;e.
+            command&eacute; depuis huit pays et treize d&eacute;partements fran&ccedil;ais.
+            Le stock initial a &eacute;t&eacute; &eacute;coul&eacute;. Une seconde
+            s&eacute;rie Kappa de 100 exemplaires a suivi, elle aussi aujourd&rsquo;hui
+            en rupture.
           </p>
         </div>
       </section>

@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
 const links = [
-  { label: "Projets", href: "#projets" },
-  { label: "Équipe", href: "#equipe" },
-  { label: "Contact", href: "#contact" },
+  { label: "Projets", href: "/#projets" },
+  { label: "Équipe", href: "/#equipe" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 type NavbarProps = {
@@ -76,23 +77,31 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-9">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className={`group relative text-sm transition-colors ${
-                  isDark
-                    ? "text-ink/80 hover:text-ink"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                {l.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-lime transition-all duration-300 group-hover:w-full" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className={`group relative text-sm transition-colors ${
+                    isDark
+                      ? "text-ink/80 hover:text-ink"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-lime transition-all duration-300 group-hover:w-full" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/club-ambassadeur"
+            className="inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2 font-display text-base italic leading-none text-ink transition hover:brightness-95"
+          >
+            Programme Club Ambassadeur
+          </Link>
+        </div>
 
         {/* Mobile burger */}
         <button
@@ -144,9 +153,18 @@ export default function Navbar({ logoSrc }: NavbarProps) {
                 {l.label}
                 <span className="text-mist-400 text-sm">→</span>
               </a>
-              <div className="h-px bg-bone-200 last:hidden" />
+              <div className="h-px bg-bone-200" />
             </li>
           ))}
+          <li className="pt-4">
+            <Link
+              href="/club-ambassadeur"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-center rounded-full bg-lime px-5 py-3.5 font-display text-lg italic leading-none text-ink"
+            >
+              Programme Club Ambassadeur
+            </Link>
+          </li>
         </ul>
       </div>
     </header>

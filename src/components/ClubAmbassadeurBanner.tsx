@@ -27,7 +27,7 @@ export default function ClubAmbassadeurBanner() {
         <img
           src="/ca-liguge-logo.png"
           alt="Ligugé — Club Ambassadeur +3 Studio"
-          className="mx-auto w-full max-w-sm md:max-w-md"
+          className="mx-auto w-full max-w-[240px] md:max-w-xs"
         />
         <p className="mx-auto mt-6 max-w-2xl text-sm text-white/55 sm:text-base md:text-lg">
           En novembre 2025, +3 Studio a lanc&eacute; son programme Club Ambassadeur :
@@ -36,7 +36,7 @@ export default function ClubAmbassadeurBanner() {
           La Ligug&eacute;enne a &eacute;t&eacute; le club choisi. &Agrave; la cl&eacute; :
           une nouvelle identit&eacute;, un nouveau logo, un site e-commerce, un maillot
           collector avec Kappa, et une port&eacute;e qui a d&eacute;pass&eacute; les
-          fronti&egrave;res. Et ce n&rsquo;est pas fini.
+          fronti&egrave;res.
         </p>
 
         {/* Chiffres clés */}
@@ -48,6 +48,10 @@ export default function ClubAmbassadeurBanner() {
             </div>
           ))}
         </div>
+
+        <p className="mt-8 font-display text-xl italic text-lime sm:text-2xl">
+          Et ce n&rsquo;est pas fini.
+        </p>
 
         <Link
           href="/club-ambassadeur"
