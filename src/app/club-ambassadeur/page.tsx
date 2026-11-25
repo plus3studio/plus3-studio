@@ -16,25 +16,13 @@ export const metadata: Metadata = {
 };
 
 const PRESSE = [
-  { name: "SoccerBible", note: "Royaume-Uni · +5M de communauté" },
-  { name: "Dégaine by So Foot", note: "France · référence maillots" },
-  { name: "Footy Headlines", note: "International · maillots" },
-  { name: "Football Shirts Culture", note: "International" },
-  { name: "France 3 Nouvelle-Aquitaine", note: "Article" },
-  { name: "La Nouvelle République", note: "Vienne" },
-  { name: "beIN Sports", note: "À venir · Salon VIP" },
-];
-
-const PRESSE_CAPTURES = [
-  { src: "/cas-ligugeenne/presse/01.jpg", label: "SoccerBible" },
-  { src: "/cas-ligugeenne/presse/02.jpg", label: "Footy Headlines" },
-  { src: "/cas-ligugeenne/presse/03.jpg", label: "Football Shirt Culture" },
-  { src: "/cas-ligugeenne/presse/04.jpg", label: "Creative Soccer Culture" },
-  { src: "/cas-ligugeenne/presse/05.jpg", label: "Dégaine by So Foot" },
-  { src: "/cas-ligugeenne/presse/06.jpg", label: "France 3 Nouvelle-Aquitaine" },
-  { src: "/cas-ligugeenne/presse/07.jpg", label: "La Nouvelle République" },
-  { src: "/cas-ligugeenne/presse/08.jpg", label: "Reprises & communauté" },
-  { src: "/cas-ligugeenne/presse/09.jpg", label: "Reprises & communauté" },
+  { name: "SoccerBible", note: "Royaume-Uni · Creative Soccer Culture", caps: ["01", "02"] },
+  { name: "Footy Headlines", note: "International · maillots", caps: ["03"] },
+  { name: "Football Shirt Culture", note: "International", caps: ["04"] },
+  { name: "Dégaine by So Foot", note: "France · référence maillots", caps: ["05"] },
+  { name: "France 3 Nouvelle-Aquitaine", note: "Article", caps: ["06"] },
+  { name: "La Nouvelle République", note: "Vienne", caps: ["07"] },
+  { name: "Felipe Saad", note: "Réactions", caps: ["08"] },
 ];
 
 type ActeMedia =
@@ -326,37 +314,50 @@ export default function ClubAmbassadeurPage() {
           <h2 className="mt-3 mb-10 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
             Les retomb&eacute;es presse
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PRESSE.map((m) => (
-              <div
-                key={m.name}
-                className="rounded-2xl border border-bone-200 bg-white p-5"
-              >
-                <p className="font-bold text-ink">{m.name}</p>
-                <p className="mt-1 text-sm text-mist-500">{m.note}</p>
-              </div>
-            ))}
+
+          {/* Extrait beIN — vidéo auto-hébergée (lecture sans cookie) */}
+          <div className="mb-12 flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-7">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster="/cas-ligugeenne/bein-poster.jpg"
+              className="w-full max-w-[260px] rounded-2xl border border-bone-200 bg-ink"
+            >
+              <source src="/cas-ligugeenne/bein.mp4" type="video/mp4" />
+            </video>
+            <div className="text-center sm:pt-3 sm:text-left">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+                Sur grand écran
+              </p>
+              <p className="mt-2 text-xl font-bold text-ink">beIN Sports</p>
+              <p className="mt-1 max-w-sm text-sm text-mist-500">
+                L&rsquo;extrait du reportage, en lecture directe sur le site.
+              </p>
+            </div>
           </div>
 
-          {/* Les captures */}
-          <p className="mt-14 mb-6 text-[10px] uppercase tracking-[0.25em] text-mist-500">
-            Les captures
-          </p>
-          <div className="[column-fill:_balance] gap-4 sm:columns-2 lg:columns-3">
-            {PRESSE_CAPTURES.map((c) => (
+          <div className="[column-fill:_balance] gap-5 sm:columns-2 lg:columns-3">
+            {PRESSE.map((m) => (
               <figure
-                key={c.src}
-                className="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-bone-200 bg-white"
+                key={m.name}
+                className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-bone-200 bg-white shadow-sm"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={c.src}
-                  alt={`La Ligugéenne — ${c.label}`}
-                  loading="lazy"
-                  className="w-full"
-                />
-                <figcaption className="px-4 py-3 text-xs font-medium text-mist-500">
-                  {c.label}
+                <div className="divide-y divide-bone-200">
+                  {m.caps.map((c) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={c}
+                      src={`/cas-ligugeenne/presse/${c}.jpg`}
+                      alt={`La Ligugéenne — ${m.name}`}
+                      loading="lazy"
+                      className="w-full"
+                    />
+                  ))}
+                </div>
+                <figcaption className="px-4 py-3">
+                  <p className="font-bold text-ink">{m.name}</p>
+                  <p className="mt-0.5 text-xs text-mist-500">{m.note}</p>
                 </figcaption>
               </figure>
             ))}
