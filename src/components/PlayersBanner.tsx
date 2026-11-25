@@ -9,7 +9,10 @@ export default function PlayersBanner() {
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#0a0a0a] py-16 md:py-20 lg:py-28">
+    <section
+      id="players"
+      className="relative overflow-hidden bg-[#0a0a0a] py-16 md:py-20 lg:py-28"
+    >
       {/* Red accent glow */}
       <div
         aria-hidden

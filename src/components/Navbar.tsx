@@ -5,10 +5,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
-const links = [
+type NavLink = {
+  label: string;
+  href: string;
+  variant?: "default" | "red" | "volt" | "cta";
+};
+
+const links: NavLink[] = [
   { label: "Projets", href: "/#projets" },
   { label: "Équipe", href: "/#equipe" },
-  { label: "Contact", href: "/#contact" },
+  { label: "+3 Players", href: "/#players", variant: "red" },
+  { label: "Programme Club Ambassadeur", href: "/club-ambassadeur", variant: "volt" },
+  { label: "Contact", href: "/#contact", variant: "cta" },
 ];
 
 type NavbarProps = {
@@ -38,6 +46,86 @@ export default function Navbar({ logoSrc }: NavbarProps) {
   // Couleurs adaptatives : blanc sur le hero (transparent), sombre quand scrolled
   const isDark = scrolled || open;
 
+  function DesktopLink({ l }: { l: NavLink }) {
+    const isRoute = !l.href.includes("#");
+    const Comp = isRoute ? Link : "a";
+
+    if (l.variant === "cta") {
+      return (
+        <Comp
+          href={l.href}
+          className="inline-flex items-center gap-1.5 rounded-full bg-lime px-5 py-2 text-sm font-semibold text-ink transition hover:brightness-95"
+        >
+          {l.label}
+          <span>&rarr;</span>
+        </Comp>
+      );
+    }
+
+    if (l.variant === "volt") {
+      return (
+        <Comp
+          href={l.href}
+          className="font-display text-base italic leading-none text-lime drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:brightness-110"
+        >
+          {l.label}
+        </Comp>
+      );
+    }
+
+    const color =
+      l.variant === "red"
+        ? "text-red-600 hover:text-red-500"
+        : isDark
+          ? "text-ink/80 hover:text-ink"
+          : "text-white/80 hover:text-white";
+    const underline = l.variant === "red" ? "bg-red-600" : "bg-lime";
+
+    return (
+      <Comp href={l.href} className={`group relative text-sm transition-colors ${color}`}>
+        {l.label}
+        <span
+          className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full ${underline}`}
+        />
+      </Comp>
+    );
+  }
+
+  function MobileLink({ l }: { l: NavLink }) {
+    const isRoute = !l.href.includes("#");
+    const Comp = isRoute ? Link : "a";
+
+    if (l.variant === "cta") {
+      return (
+        <Comp
+          href={l.href}
+          onClick={() => setOpen(false)}
+          className="mt-2 flex items-center justify-center gap-2 rounded-full bg-lime px-5 py-3.5 text-base font-semibold text-ink"
+        >
+          {l.label} <span>&rarr;</span>
+        </Comp>
+      );
+    }
+
+    const color =
+      l.variant === "red"
+        ? "text-red-600"
+        : l.variant === "volt"
+          ? "text-lime font-display italic"
+          : "text-ink";
+
+    return (
+      <Comp
+        href={l.href}
+        onClick={() => setOpen(false)}
+        className={`flex items-center justify-between py-4 text-lg font-semibold ${color}`}
+      >
+        {l.label}
+        <span className="text-mist-400 text-sm">&rarr;</span>
+      </Comp>
+    );
+  }
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -47,9 +135,9 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-10 md:py-5">
-        {/* Logo */}
-        <a
-          href="#top"
+        {/* Logo → accueil */}
+        <Link
+          href="/"
           aria-label={`${site.name} — accueil`}
           className="flex items-center gap-2"
         >
@@ -74,33 +162,13 @@ export default function Navbar({ logoSrc }: NavbarProps) {
               {site.name}
             </span>
           )}
-        </a>
+        </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-8">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className={`group relative text-sm transition-colors ${
-                    isDark
-                      ? "text-ink/80 hover:text-ink"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                >
-                  {l.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-lime transition-all duration-300 group-hover:w-full" />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/club-ambassadeur"
-            className="inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2 font-display text-base italic leading-none text-ink transition hover:brightness-95"
-          >
-            Programme Club Ambassadeur
-          </Link>
+        <div className="hidden md:flex items-center gap-7 lg:gap-8">
+          {links.map((l) => (
+            <DesktopLink key={l.href} l={l} />
+          ))}
         </div>
 
         {/* Mobile burger */}
@@ -139,33 +207,19 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       {/* Mobile panel */}
       <div
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-out ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col border-t border-bone-200 bg-white px-5 py-4">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-between py-4 text-lg font-semibold text-ink active:text-lime"
-              >
-                {l.label}
-                <span className="text-mist-400 text-sm">→</span>
-              </a>
-              <div className="h-px bg-bone-200" />
-            </li>
+        <div className="flex flex-col border-t border-bone-200 bg-white px-5 py-4">
+          {links.map((l, i) => (
+            <div key={l.href}>
+              <MobileLink l={l} />
+              {i < links.length - 1 && l.variant !== "cta" && (
+                <div className="h-px bg-bone-200" />
+              )}
+            </div>
           ))}
-          <li className="pt-4">
-            <Link
-              href="/club-ambassadeur"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center rounded-full bg-lime px-5 py-3.5 font-display text-lg italic leading-none text-ink"
-            >
-              Programme Club Ambassadeur
-            </Link>
-          </li>
-        </ul>
+        </div>
       </div>
     </header>
   );

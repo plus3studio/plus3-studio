@@ -1,14 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const STATS = [
   { value: "639 584", label: "vues en un mois" },
-  { value: "8 pays", label: "de ventes de maillots · 13 départements français" },
-  { value: "Presse internationale", label: "SoccerBible, Footy Headlines, Dégaine by So Foot" },
+  { value: "9 pays", label: "de ventes de maillots · 13 départements français" },
+  { value: "Presse internationale", label: "SoccerBible, Footy Headlines, Dégaine, France 3" },
 ];
 
 export default function ClubAmbassadeurBanner() {
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a] py-16 md:py-20 lg:py-28">
+      {/* Fond photo */}
+      <Image
+        src="/cas-ligugeenne/banner-ca.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_70%_90%_at_50%_50%,rgba(10,10,10,0.84)_0%,rgba(10,10,10,0.6)_55%,rgba(10,10,10,0.74)_100%)]"
+      />
+
       {/* Volt accents */}
       <div
         aria-hidden

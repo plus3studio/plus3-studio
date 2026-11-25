@@ -43,7 +43,7 @@ export default function MentionsLegales() {
                 freelances
               </li>
               <li>
-                <strong>Responsable de la publication :</strong> Alix HUBERT
+                <strong>Responsable de la publication :</strong> Christopher DEBENHAM
               </li>
               <li>
                 <strong>Email :</strong>{" "}

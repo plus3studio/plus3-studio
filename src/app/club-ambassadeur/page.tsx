@@ -18,7 +18,7 @@ const STATS = [
   { value: "310 302", label: "comptes touchés" },
   { value: "14 883", label: "interactions" },
   { value: "×2,07", label: "de vues par publication vs saison précédente" },
-  { value: "8 pays", label: "2 continents, 13 départements" },
+  { value: "9 pays", label: "2 continents, 13 départements" },
   { value: "4 400", label: "sessions sur le nouveau site" },
 ];
 
@@ -30,6 +30,62 @@ const PRESSE = [
   { name: "France 3 Nouvelle-Aquitaine", note: "Article" },
   { name: "La Nouvelle République", note: "Vienne" },
   { name: "beIN Sports", note: "À venir · Salon VIP" },
+];
+
+type Acte = {
+  num: string;
+  title: string;
+  sub: string;
+  desc: string;
+  image?: string;
+  ratio?: "4/3" | "3/4";
+  youtube?: string;
+  links?: { url: string; label: string }[];
+};
+
+const ACTES: Acte[] = [
+  {
+    num: "Acte I",
+    title: "L’Armorial",
+    sub: "Logo & identité",
+    desc: "Une nouvelle identité visuelle pour le club, dévoilée le 30 juillet. Un seul visuel de logo a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
+    image: "/cas-ligugeenne/identite-1.jpg",
+    links: [{ url: "https://www.instagram.com/p/DbbGjEHjFBJ/", label: "Voir le post" }],
+  },
+  {
+    num: "Acte II",
+    title: "La Tunique",
+    sub: "Le maillot",
+    desc: "Un maillot collector produit avec Kappa, dévoilé le 19 août : nouveau blason, pinstripes et références au carrelage de l’abbaye de Ligugé. Une seule publication a cumulé 76 758 vues.",
+    image: "/cas-ligugeenne/maillot-1.jpg",
+    ratio: "3/4",
+    youtube: "k9e4nmq5Xpc",
+    links: [{ url: "https://www.instagram.com/p/DcOB_iFCFVp/", label: "Voir le post" }],
+  },
+  {
+    num: "Acte III",
+    title: "Le Serment",
+    sub: "Les recrues",
+    desc: "La présentation des recrues de la saison, mise en scène comme un engagement envers le club et ses couleurs.",
+    links: [{ url: "https://www.instagram.com/p/DcgyAkYjOE2/", label: "Voir le post" }],
+  },
+  {
+    num: "Acte IV",
+    title: "Le Foyer",
+    sub: "Site e-commerce & application",
+    desc: "Un site internet e-commerce et une application pour donner au club sa propre boutique et son propre média. Site réalisé par Apollimorphie × Fluid.Collectif.",
+    links: [{ url: "https://fluidcollectif.com/", label: "Fluid.Collectif" }],
+  },
+  {
+    num: "Acte V",
+    title: "Le Prélude",
+    sub: "Lancement de la saison",
+    desc: "Le coup d’envoi de la saison : un teaser pour lancer l’attente, puis un aftermovie du match d’ouverture.",
+    links: [
+      { url: "https://www.instagram.com/p/Dc6PnGTsZJg/", label: "Teaser" },
+      { url: "https://www.instagram.com/p/Ddes988x84m/", label: "Aftermovie" },
+    ],
+  },
 ];
 
 function YouTube({ id, title }: { id: string; title: string }) {
@@ -157,63 +213,76 @@ export default function ClubAmbassadeurPage() {
             Le projet, acte par acte
           </h2>
 
-          {/* Acte I */}
-          <div className="mt-12 grid items-center gap-8 md:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink">
-              <Image
-                src="/cas-ligugeenne/identite-1.jpg"
-                alt="La Ligugéenne — nouvelle identité visuelle, l'Armorial"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <p className="font-display text-xl italic text-lime">Acte I</p>
-              <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
-                L&rsquo;Armorial
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-ink/75">
-                Une nouvelle identit&eacute; visuelle pour le club, d&eacute;voil&eacute;e
-                le 30 juillet. Un seul visuel de logo a cumul&eacute; 33 205 vues, sept
-                fois la moyenne d&rsquo;une publication du club.
-              </p>
-            </div>
-          </div>
+          <div className="mt-12 space-y-16 md:space-y-24">
+            {ACTES.map((a, i) => (
+              <div
+                key={a.num}
+                className="grid items-center gap-8 md:grid-cols-2"
+              >
+                {/* Média */}
+                <div className={i % 2 === 1 ? "md:order-2" : ""}>
+                  {a.image ? (
+                    <div
+                      className={`relative overflow-hidden rounded-2xl bg-ink ${
+                        a.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
+                      }`}
+                    >
+                      <Image
+                        src={a.image}
+                        alt={`La Ligugéenne — ${a.title}`}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-bone-200 bg-bone-50">
+                      <span className="font-display text-6xl italic text-mist-300 md:text-7xl">
+                        {a.num}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-          {/* Acte II */}
-          <div className="mt-12 grid items-center gap-8 md:grid-cols-2">
-            <div className="md:order-2 relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink">
-              <Image
-                src="/cas-ligugeenne/maillot-1.jpg"
-                alt="La Ligugéenne — maillot collector La Tunique, produit avec Kappa"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="md:order-1">
-              <p className="font-display text-xl italic text-lime">Acte II</p>
-              <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
-                La Tunique
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-ink/75">
-                Un maillot collector produit avec Kappa, d&eacute;voil&eacute; le 19
-                ao&ucirc;t : nouveau blason, pinstripes et r&eacute;f&eacute;rences au
-                carrelage de l&rsquo;abbaye de Ligug&eacute;. Une seule publication a
-                cumul&eacute; 76 758 vues.
-              </p>
-            </div>
-          </div>
-
-          {/* Vidéo maillot */}
-          <div className="mt-16">
-            <YouTube id="k9e4nmq5Xpc" title="La Ligugéenne — Acte II, La Tunique" />
-            <p className="mt-3 text-sm text-mist-500">Acte II — La Tunique</p>
+                {/* Texte */}
+                <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                  <p className="font-display text-xl italic text-lime">{a.num}</p>
+                  <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
+                    {a.title}
+                  </h3>
+                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-mist-500">
+                    {a.sub}
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-ink/75">
+                    {a.desc}
+                  </p>
+                  {a.links && (
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {a.links.map((l) => (
+                        <a
+                          key={l.url}
+                          href={l.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink transition hover:border-ink/40"
+                        >
+                          {l.label} <span>&#8599;</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  {a.youtube && (
+                    <div className="mt-5">
+                      <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Galerie */}
-          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3">
             {["maillot-2", "maillot-3", "design-1", "design-2"].map((n) => (
               <div
                 key={n}
@@ -291,10 +360,11 @@ export default function ClubAmbassadeurPage() {
           </h2>
           <p className="mt-6 text-base leading-relaxed text-ink/80 md:text-lg">
             Ouvert &agrave; la vente le 18 ao&ucirc;t, le maillot collector a &eacute;t&eacute;
-            command&eacute; depuis huit pays et treize d&eacute;partements fran&ccedil;ais.
-            Le stock initial a &eacute;t&eacute; &eacute;coul&eacute;. Une seconde
-            s&eacute;rie Kappa de 100 exemplaires a suivi, elle aussi aujourd&rsquo;hui
-            en rupture.
+            command&eacute; depuis neuf pays (France, &Eacute;cosse, Irlande, Angleterre,
+            Finlande, Allemagne, &Eacute;tats-Unis, Br&eacute;sil, Trinit&eacute;-et-Tobago)
+            et treize d&eacute;partements fran&ccedil;ais. Le stock initial a &eacute;t&eacute;
+            &eacute;coul&eacute;. Une seconde s&eacute;rie Kappa de 100 exemplaires a suivi,
+            elle aussi aujourd&rsquo;hui en rupture.
           </p>
         </div>
       </section>
