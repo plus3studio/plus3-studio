@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const STATS = [
   { value: "639 584", label: "vues en un mois" },
-  { value: "6 nations", label: "2 continents, 13 départements" },
-  { value: "Presse internationale", label: "SoccerBible, Footy Headlines, France 3" },
+  { value: "8 pays", label: "de ventes de maillots · 13 départements français" },
+  { value: "Presse internationale", label: "SoccerBible, Footy Headlines, Dégaine by So Foot" },
 ];
 
 export default function ClubAmbassadeurBanner() {
@@ -30,11 +30,13 @@ export default function ClubAmbassadeurBanner() {
           className="mx-auto w-full max-w-sm md:max-w-md"
         />
         <p className="mx-auto mt-6 max-w-2xl text-sm text-white/55 sm:text-base md:text-lg">
-          Avec le District de Football de la Vienne, +3 Studio a offert une saison
-          compl&egrave;te de communication de niveau professionnel &agrave; un club
-          amateur de R&eacute;gional 2. Une nouvelle identit&eacute;, un maillot
+          En novembre 2025, +3 Studio a lanc&eacute; son programme Club Ambassadeur :
+          offrir &agrave; un club amateur une saison enti&egrave;re de communication de
+          niveau professionnel. Apr&egrave;s plus d&rsquo;une centaine de candidatures,
+          La Ligug&eacute;enne a &eacute;t&eacute; le club choisi. &Agrave; la cl&eacute; :
+          une nouvelle identit&eacute;, un nouveau logo, un site e-commerce, un maillot
           collector avec Kappa, et une port&eacute;e qui a d&eacute;pass&eacute; les
-          fronti&egrave;res.
+          fronti&egrave;res. Et ce n&rsquo;est pas fini.
         </p>
 
         {/* Chiffres clés */}
