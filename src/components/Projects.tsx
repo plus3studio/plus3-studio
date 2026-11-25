@@ -30,19 +30,20 @@ function ProjectCard({
 }) {
   const hasCover = Boolean(project.cover);
 
-  return (
-    <article onClick={onClick} className="group cursor-pointer">
-      {/* Kicker au-dessus du bloc (projet mis en avant) */}
-      {project.overline && (
-        <p className="mb-2 font-serif text-[11px] italic tracking-wide text-lime sm:text-sm md:mb-3">
-          {project.overline}
-        </p>
-      )}
-      <div
-        className={`relative aspect-[4/5] overflow-hidden rounded-xl bg-ink md:rounded-2xl ${
-          project.featured ? "ring-2 ring-white md:ring-[3px]" : ""
-        }`}
-      >
+  const Inner = (
+    <div className="relative h-full w-full overflow-hidden rounded-xl bg-ink md:rounded-2xl">
+        {/* Kicker (projet mis en avant) */}
+        {project.overline && (
+          <>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-black/60 to-transparent"
+            />
+            <span className="absolute left-3 top-2.5 z-10 font-display text-sm italic leading-none text-lime drop-shadow sm:left-4 sm:top-3 sm:text-base md:text-lg">
+              {project.overline}
+            </span>
+          </>
+        )}
         {/* Cover */}
         {hasCover && project.cover!.type === "image" ? (
           <Image
@@ -116,6 +117,21 @@ function ProjectCard({
             Voir le projet →
           </span>
         </div>
+      </div>
+  );
+
+  return (
+    <article onClick={onClick} className="group cursor-pointer">
+      {/* Même emprise (aspect 4/5) pour toutes les cartes → alignées */}
+      <div className="relative aspect-[4/5]">
+        {project.featured ? (
+          // Cadre blanc épais et détaché de la photo
+          <div className="absolute inset-0 rounded-xl border-[3px] border-white p-1.5 md:rounded-2xl md:border-4 md:p-2.5">
+            {Inner}
+          </div>
+        ) : (
+          <div className="absolute inset-0">{Inner}</div>
+        )}
       </div>
     </article>
   );

@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Team from "@/components/Team";
 import PlayersBanner from "@/components/PlayersBanner";
-import Studio3Banner from "@/components/Studio3Banner";
+import ClubAmbassadeurBanner from "@/components/ClubAmbassadeurBanner";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import RevealMount from "@/components/RevealMount";
@@ -20,7 +20,7 @@ export default function Home() {
       <Navbar logoSrc={logoSrc} />
       <Hero />
       <Projects projects={projects} />
-      <Studio3Banner />
+      <ClubAmbassadeurBanner />
       <Team />
       <PlayersBanner />
       <CTA />

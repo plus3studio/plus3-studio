@@ -1,0 +1,317 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { getLogoPath } from "@/lib/getLogo";
+
+export const metadata: Metadata = {
+  title:
+    "Club Ambassadeur +3 Studio — La Ligugéenne Football | Étude de cas",
+  description:
+    "Comment +3 Studio a offert une saison de communication de niveau professionnel à La Ligugéenne, club amateur de Régional 2. Nouvelle identité, maillot collector Kappa, 639 584 vues en un mois et une couverture presse internationale (SoccerBible, Footy Headlines, France 3).",
+  alternates: { canonical: "/club-ambassadeur" },
+};
+
+const STATS = [
+  { value: "639 584", label: "vues cumulées en un mois" },
+  { value: "310 302", label: "comptes touchés" },
+  { value: "14 883", label: "interactions" },
+  { value: "×2,07", label: "de vues par publication vs saison précédente" },
+  { value: "6 nations", label: "2 continents, 13 départements" },
+  { value: "4 400", label: "sessions sur le nouveau site" },
+];
+
+const PRESSE = [
+  { name: "SoccerBible", note: "Royaume-Uni · +5M de communauté" },
+  { name: "Dégaine by So Foot", note: "France · référence maillots" },
+  { name: "Footy Headlines", note: "International · maillots" },
+  { name: "Football Shirts Culture", note: "International" },
+  { name: "France 3 Nouvelle-Aquitaine", note: "Article" },
+  { name: "La Nouvelle République", note: "Vienne" },
+  { name: "beIN Sports", note: "À venir · Salon VIP" },
+];
+
+function YouTube({ id, title }: { id: string; title: string }) {
+  return (
+    <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-ink md:rounded-2xl">
+      <iframe
+        className="absolute inset-0 h-full w-full"
+        src={`https://www.youtube.com/embed/${id}?cc_load_policy=0&rel=0`}
+        title={title}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  );
+}
+
+export default function ClubAmbassadeurPage() {
+  const logoSrc = getLogoPath();
+
+  return (
+    <main className="relative min-h-screen bg-white">
+      <Navbar logoSrc={logoSrc} />
+
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-ink text-white">
+        <Image
+          src="/cas-ligugeenne/hero.jpg"
+          alt="La Ligugéenne — maillot collector Club Ambassadeur +3 Studio"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-40"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
+        <div className="relative mx-auto max-w-5xl px-5 py-28 text-center md:px-10 md:py-40">
+          <p className="font-display text-xl italic text-lime md:text-2xl">
+            Club Ambassadeur +3 Studio
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
+            La Ligug&eacute;enne Football
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-white/60 md:text-lg">
+            Un club de R&eacute;gional 2, dans un village de 3 500 habitants, exist&eacute;
+            au m&ecirc;me endroit que les clubs professionnels. Pas avec un budget,
+            avec une m&eacute;thode.
+          </p>
+        </div>
+      </section>
+
+      {/* LE PROGRAMME */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            Le programme
+          </span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            Une saison de communication offerte &agrave; un club amateur
+          </h2>
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-ink/80 md:text-lg">
+            <p>
+              Le Club Ambassadeur est un programme con&ccedil;u par +3 Studio avec le
+              District de Football de la Vienne. Le principe : offrir &agrave; un club
+              amateur une saison compl&egrave;te de communication de niveau
+              professionnel, gratuitement, pour prouver qu&rsquo;un petit club peut
+              exister comme les grands.
+            </p>
+            <p>
+              &Agrave; l&rsquo;issue d&rsquo;un appel &agrave; candidature, La Ligug&eacute;enne
+              Football, club de R&eacute;gional 2 bas&eacute; &agrave; Ligug&eacute; (Vienne,
+              3 500 habitants, 250 licenci&eacute;s), a &eacute;t&eacute; choisie pour
+              l&rsquo;&eacute;dition 2026-2027.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* L'APPEL À CANDIDATURE */}
+      <section className="bg-bone-50 py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            Le point de départ
+          </span>
+          <h2 className="mt-3 mb-8 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            L&rsquo;appel &agrave; candidature
+          </h2>
+          <YouTube id="jw55adhZCKE" title="Club Ambassadeur — Appel à candidature" />
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
+            Une vid&eacute;o manifeste pour lancer le programme et inviter les clubs du
+            territoire &agrave; candidater. Cadrage Victor Gagneux, montage Christopher
+            Debenham, direction artistique Christopher Debenham &amp; Alix Hubert.
+          </p>
+        </div>
+      </section>
+
+      {/* LE PROJET — ACTES */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            Ce qu&rsquo;on a produit
+          </span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            Le projet, en deux actes
+          </h2>
+
+          {/* Acte I */}
+          <div className="mt-12 grid items-center gap-8 md:grid-cols-2">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink">
+              <Image
+                src="/cas-ligugeenne/identite-1.jpg"
+                alt="La Ligugéenne — nouvelle identité visuelle, l'Armorial"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="font-display text-xl italic text-lime">Acte I</p>
+              <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
+                L&rsquo;Armorial
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-ink/75">
+                Une nouvelle identit&eacute; visuelle pour le club, d&eacute;voil&eacute;e
+                le 30 juillet. Un seul visuel de logo a cumul&eacute; 33 205 vues, sept
+                fois la moyenne d&rsquo;une publication du club.
+              </p>
+            </div>
+          </div>
+
+          {/* Acte II */}
+          <div className="mt-12 grid items-center gap-8 md:grid-cols-2">
+            <div className="md:order-2 relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink">
+              <Image
+                src="/cas-ligugeenne/maillot-1.jpg"
+                alt="La Ligugéenne — maillot collector La Tunique, produit avec Kappa"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="md:order-1">
+              <p className="font-display text-xl italic text-lime">Acte II</p>
+              <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
+                La Tunique
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-ink/75">
+                Un maillot collector produit avec Kappa, d&eacute;voil&eacute; le 19
+                ao&ucirc;t : nouveau blason, pinstripes et r&eacute;f&eacute;rences au
+                carrelage de l&rsquo;abbaye de Ligug&eacute;. Une seule publication a
+                cumul&eacute; 76 758 vues.
+              </p>
+            </div>
+          </div>
+
+          {/* Vidéos annonce + maillot */}
+          <div className="mt-16 grid gap-6 md:grid-cols-2">
+            <div>
+              <YouTube id="WDz15X1u1nU" title="La Ligugéenne — Annonce du Club Ambassadeur" />
+              <p className="mt-3 text-sm text-mist-500">Annonce du Club Ambassadeur</p>
+            </div>
+            <div>
+              <YouTube id="k9e4nmq5Xpc" title="La Ligugéenne — Acte II, La Tunique" />
+              <p className="mt-3 text-sm text-mist-500">Acte II — La Tunique</p>
+            </div>
+          </div>
+
+          {/* Galerie */}
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
+            {["maillot-2", "maillot-3", "design-1", "design-2"].map((n) => (
+              <div
+                key={n}
+                className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink"
+              >
+                <Image
+                  src={`/cas-ligugeenne/${n}.jpg`}
+                  alt="La Ligugéenne — shooting maillot collector"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LES RÉSULTATS */}
+      <section className="bg-ink py-20 text-white md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-white/40">
+            Les résultats
+          </span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+            Un mois, une port&eacute;e internationale
+          </h2>
+          <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3">
+            {STATS.map((s) => (
+              <div key={s.value}>
+                <p className="text-3xl font-bold text-lime md:text-4xl">{s.value}</p>
+                <p className="mt-2 text-sm text-white/50">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-12 max-w-2xl text-base leading-relaxed text-white/60">
+            Le tout sans aucune publicit&eacute; ni m&eacute;dia pay&eacute;. Chez
+            SoccerBible, un club de septi&egrave;me division fran&ccedil;aise publi&eacute;
+            le m&ecirc;me jour que l&rsquo;Atl&eacute;tico de Madrid et le Bayern Munich.
+          </p>
+        </div>
+      </section>
+
+      {/* LA PRESSE */}
+      <section className="bg-bone-50 py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            On en a parlé
+          </span>
+          <h2 className="mt-3 mb-10 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            Les retomb&eacute;es presse
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PRESSE.map((m) => (
+              <div
+                key={m.name}
+                className="rounded-2xl border border-bone-200 bg-white p-5"
+              >
+                <p className="font-bold text-ink">{m.name}</p>
+                <p className="mt-1 text-sm text-mist-500">{m.note}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LES VENTES */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-5 md:px-10">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            Le maillot
+          </span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            Une boutique qui a franchi les fronti&egrave;res
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-ink/80 md:text-lg">
+            Ouvert &agrave; la vente le 18 ao&ucirc;t, le maillot collector a &eacute;t&eacute;
+            command&eacute; depuis six pays (France, &Eacute;cosse, Angleterre, Finlande,
+            Allemagne, &Eacute;tats-Unis) et treize d&eacute;partements fran&ccedil;ais.
+            Le stock initial a &eacute;t&eacute; &eacute;coul&eacute;, et une seconde
+            s&eacute;rie Kappa de 100 exemplaires a suivi, en quantit&eacute; limit&eacute;e.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-ink py-20 text-center text-white md:py-28">
+        <div className="mx-auto max-w-3xl px-5 md:px-10">
+          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            Un projet &agrave; porter plus haut&nbsp;?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base text-white/55 md:text-lg">
+            On produit pour des clubs et des marques du sport, du club amateur au
+            niveau national. Ce dispositif n&rsquo;&eacute;tait pas un budget,
+            c&rsquo;&eacute;tait une m&eacute;thode.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink transition hover:brightness-95"
+            >
+              Nous contacter &rarr;
+            </Link>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white hover:text-ink"
+            >
+              Retour &agrave; l&rsquo;accueil
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

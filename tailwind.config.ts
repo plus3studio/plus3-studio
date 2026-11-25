@@ -30,6 +30,7 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-body)", "system-ui", "sans-serif"],
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
       },
       letterSpacing: {
         tightest: "-0.04em",
