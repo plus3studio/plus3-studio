@@ -24,6 +24,37 @@ type NavbarProps = {
   logoSrc: string | null;
 };
 
+/** Ovale de contour qui se dessine au survol (stroke-dashoffset). */
+function HoverRing({ id, from, to }: { id: string; from: string; to: string }) {
+  return (
+    <svg
+      aria-hidden
+      className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={from} />
+          <stop offset="100%" stopColor={to} />
+        </linearGradient>
+      </defs>
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="49"
+        ry="46"
+        pathLength={1}
+        fill="none"
+        stroke={`url(#${id})`}
+        strokeWidth={1.5}
+        vectorEffect="non-scaling-stroke"
+        className="[stroke-dasharray:1] [stroke-dashoffset:1] [transition:stroke-dashoffset_0.55s_ease] group-hover:[stroke-dashoffset:0]"
+      />
+    </svg>
+  );
+}
+
 export default function Navbar({ logoSrc }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -67,7 +98,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Comp
           href={l.href}
           aria-label="+3 Players for pros"
-          className="inline-flex items-center rounded-full border border-transparent px-3 py-1.5 transition hover:border-red-600"
+          className="group relative inline-flex items-center rounded-full px-3 py-1.5"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -75,6 +106,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
             alt="+3 Players for pros"
             className="h-6 w-auto md:h-7"
           />
+          <HoverRing id="ring-players" from="#ff6a6a" to="#dc2626" />
         </Comp>
       );
     }
@@ -83,12 +115,13 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       return (
         <Comp
           href={l.href}
-          className={`group relative rounded-full border border-transparent px-3 py-1.5 text-sm transition hover:border-lime ${
+          className={`group relative rounded-full px-3 py-1.5 text-sm ${
             isDark ? "text-ink" : "text-white"
           }`}
         >
           {l.label}
-          <span className="absolute inset-x-3 bottom-1 h-[3px] rounded-full bg-lime transition-opacity duration-200 group-hover:opacity-0" />
+          <span className="absolute inset-x-3 bottom-1 h-[3px] rounded-full bg-lime transition-opacity duration-300 group-hover:opacity-0" />
+          <HoverRing id="ring-ca" from="#d4ff4d" to="#bbff00" />
         </Comp>
       );
     }
