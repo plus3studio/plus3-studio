@@ -64,7 +64,11 @@ export default function Navbar({ logoSrc }: NavbarProps) {
 
     if (l.variant === "players") {
       return (
-        <Comp href={l.href} aria-label="+3 Players for pros" className="inline-flex items-center">
+        <Comp
+          href={l.href}
+          aria-label="+3 Players for pros"
+          className="inline-flex items-center rounded-full border border-transparent px-3 py-1.5 transition hover:border-red-600"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={isDark ? "/players-logo-light.png" : "/players-logo.png"}
@@ -79,12 +83,11 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       return (
         <Comp
           href={l.href}
-          className={`relative inline-block pb-1 text-sm transition ${
+          className={`rounded-full border border-transparent px-3 py-1.5 text-sm transition hover:border-lime ${
             isDark ? "text-ink" : "text-white"
           }`}
         >
           {l.label}
-          <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-full bg-lime" />
         </Comp>
       );
     }

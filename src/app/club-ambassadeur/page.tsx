@@ -27,7 +27,8 @@ const PRESSE = [
 
 type ActeMedia =
   | { kind: "image"; src: string; ratio?: "4/3" | "3/4" }
-  | { kind: "instagram"; url: string };
+  | { kind: "instagram"; url: string }
+  | { kind: "youtube"; id: string };
 
 type Acte = {
   num: string;
@@ -75,7 +76,7 @@ const ACTES: Acte[] = [
     title: "Le Prélude",
     sub: "Lancement de la saison",
     desc: "Le coup d’envoi de la saison : l’aftermovie du match d’ouverture.",
-    media: { kind: "instagram", url: "https://www.instagram.com/p/Ddes988x84m/" },
+    media: { kind: "youtube", id: "wDk8zQQ1pjg" },
   },
 ];
 
@@ -212,7 +213,7 @@ export default function ClubAmbassadeurPage() {
                 <div className="grid items-center gap-8 md:grid-cols-2">
                   {/* Média */}
                   <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                    {a.media.kind === "image" ? (
+                    {a.media.kind === "image" && (
                       <div
                         className={`relative overflow-hidden rounded-2xl bg-ink ${
                           a.media.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
@@ -226,7 +227,11 @@ export default function ClubAmbassadeurPage() {
                           className="object-cover"
                         />
                       </div>
-                    ) : (
+                    )}
+                    {a.media.kind === "youtube" && (
+                      <YouTube id={a.media.id} title={`La Ligugéenne — ${a.title}`} />
+                    )}
+                    {a.media.kind === "instagram" && (
                       <div className="mx-auto w-full max-w-[460px]">
                         <InstagramEmbed url={a.media.url} />
                       </div>
@@ -308,15 +313,18 @@ export default function ClubAmbassadeurPage() {
 
           {/* Extrait beIN — vidéo auto-hébergée (lecture sans cookie) */}
           <div className="mb-12 flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-7">
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster="/cas-ligugeenne/bein-poster.jpg"
-              className="w-full max-w-[260px] rounded-2xl border border-bone-200 bg-ink"
-            >
-              <source src="/cas-ligugeenne/bein.mp4" type="video/mp4" />
-            </video>
+            <div className="w-full max-w-[260px] overflow-hidden rounded-2xl border border-bone-200 bg-ink">
+              <div className="relative aspect-[9/16]">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/V5FTckJjhtc?rel=0"
+                  title="beIN Sports — La Ligugéenne"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
             <div className="text-center sm:pt-3 sm:text-left">
               <p className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
                 Sur grand écran
