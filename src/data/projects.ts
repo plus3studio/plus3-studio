@@ -29,6 +29,7 @@ export type Project = {
   featured?: boolean;
   overline?: string;
   overlineImage?: string;
+  caseStudyUrl?: string;
   cover?: ProjectMedia;
   logo?: string;
   gallery: ProjectMedia[];

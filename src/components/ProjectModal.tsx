@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import type { Project, ProjectMedia, Campaign } from "@/data/projects";
 import Lightbox from "./Lightbox";
@@ -358,6 +359,15 @@ export default function ProjectModal({
               <p className="mt-3 text-[11px] uppercase tracking-[0.15em] text-mist-400">
                 {project.credits}
               </p>
+            )}
+            {project.caseStudyUrl && (
+              <Link
+                href={project.caseStudyUrl}
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
+              >
+                En savoir plus sur le projet
+                <span>&rarr;</span>
+              </Link>
             )}
           </div>
 

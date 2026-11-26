@@ -103,6 +103,7 @@ type Meta = {
   featured?: boolean;
   overline?: string;
   overlineImage?: string;
+  caseStudyUrl?: string;
   decoColor?: "lime" | "gray" | "black";
   logo?: string;
   videos?: VideoLink[];
@@ -304,6 +305,7 @@ export function getProjects(): Project[] {
       featured: meta.featured,
       overline: meta.overline,
       overlineImage: meta.overlineImage,
+      caseStudyUrl: meta.caseStudyUrl,
       cover,
       logo,
       gallery,

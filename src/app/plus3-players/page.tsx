@@ -187,7 +187,12 @@ export default function Plus3PlayersPage() {
             {CERCLE.map((c, i) => (
               <div key={c} className="flex items-center gap-2 md:flex-1 md:flex-col">
                 <div className="flex h-full w-full flex-col justify-center rounded-2xl border border-bone-200 bg-white p-5 text-center">
-                  <span className="text-xl font-bold text-red-600">{i + 1}</span>
+                  <span
+                    className="text-xl font-bold"
+                    style={{ color: `rgba(220,38,38,${0.4 + i * 0.15})` }}
+                  >
+                    {i + 1}
+                  </span>
                   <span className="mt-2 text-sm font-medium">{c}</span>
                 </div>
                 {i < CERCLE.length - 1 && (
@@ -249,7 +254,7 @@ export default function Plus3PlayersPage() {
           {/* Références OM */}
           <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
             <p className="text-xs uppercase tracking-wider text-white/40">
-              On a aussi réalisé des reels pour des joueurs de l&rsquo;Olympique de
+              On a aussi tourné et monté des reels de joueurs de l&rsquo;Olympique de
               Marseille
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
@@ -289,17 +294,7 @@ export default function Plus3PlayersPage() {
                 >
                   Pack {p.name}
                 </p>
-                <p className="mt-3 text-3xl font-bold">
-                  {p.price}
-                  <span
-                    className={`text-base font-medium ${
-                      p.featured ? "text-white/50" : "text-mist-500"
-                    }`}
-                  >
-                    {" "}
-                    / mois
-                  </span>
-                </p>
+                <p className="mt-3 text-2xl font-bold">Prix sur demande</p>
                 <ul className="mt-6 space-y-3 text-sm">
                   {p.points.map((pt) => (
                     <li key={pt} className="flex gap-2">
