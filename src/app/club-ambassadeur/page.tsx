@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 };
 
 const PRESSE = [
-  { name: "SoccerBible", note: "Royaume-Uni · Creative Soccer Culture", caps: ["01", "02"] },
-  { name: "Footy Headlines", note: "International · maillots", caps: ["03"] },
+  { name: "SoccerBible", note: "International", caps: ["01", "02"] },
+  { name: "Footy Headlines", note: "International", caps: ["03"] },
   { name: "Football Shirt Culture", note: "International", caps: ["04"] },
-  { name: "Dégaine by So Foot", note: "France · référence maillots", caps: ["05"] },
-  { name: "France 3 Nouvelle-Aquitaine", note: "Article", caps: ["06"] },
-  { name: "La Nouvelle République", note: "Vienne", caps: ["07"] },
+  { name: "Dégaine by So Foot", note: "France", caps: ["05"] },
+  { name: "France 3 Nouvelle-Aquitaine", note: "France", caps: ["06"] },
+  { name: "La Nouvelle République", note: "France · Vienne", caps: ["07"] },
   { name: "Felipe Saad", note: "Réactions", caps: ["08"] },
 ];
 
@@ -36,7 +36,6 @@ type Acte = {
   desc: string;
   media: ActeMedia;
   youtube?: string;
-  igPost?: string;
   gallery?: boolean;
 };
 
@@ -53,9 +52,8 @@ const ACTES: Acte[] = [
     title: "La Tunique",
     sub: "Le maillot",
     desc: "Un maillot collector produit avec Kappa, dévoilé le 19 août : nouveau blason, pinstripes et références au carrelage de l’abbaye de Ligugé. Une seule publication a cumulé 76 758 vues.",
-    media: { kind: "image", src: "/cas-ligugeenne/maillot-1.jpg", ratio: "3/4" },
+    media: { kind: "instagram", url: "https://www.instagram.com/p/DcOB_iFCFVp/" },
     youtube: "k9e4nmq5Xpc",
-    igPost: "https://www.instagram.com/p/DcOB_iFCFVp/",
     gallery: true,
   },
   {
@@ -255,13 +253,6 @@ export default function ClubAmbassadeurPage() {
                   </div>
                 </div>
 
-                {/* Embed de la publi (Acte II) */}
-                {a.igPost && (
-                  <div className="mx-auto mt-8 w-full max-w-[460px]">
-                    <InstagramEmbed url={a.igPost} />
-                  </div>
-                )}
-
                 {/* Galerie shooting (sous l'Acte II) */}
                 {a.gallery && (
                   <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -309,10 +300,10 @@ export default function ClubAmbassadeurPage() {
       <section className="bg-bone-50 py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-5 md:px-10">
           <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
-            On en a parlé
+            Ils en parlent
           </span>
           <h2 className="mt-3 mb-10 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
-            Les retomb&eacute;es presse
+            On parle de nous
           </h2>
 
           {/* Extrait beIN — vidéo auto-hébergée (lecture sans cookie) */}
@@ -343,7 +334,13 @@ export default function ClubAmbassadeurPage() {
                 key={m.name}
                 className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-bone-200 bg-white shadow-sm"
               >
-                <div className="divide-y divide-bone-200">
+                <figcaption className="flex items-baseline justify-between gap-2 px-4 pb-3 pt-4">
+                  <p className="font-bold text-ink">{m.name}</p>
+                  <p className="text-xs uppercase tracking-wider text-mist-500">
+                    {m.note}
+                  </p>
+                </figcaption>
+                <div className="divide-y divide-bone-200 border-t border-bone-200">
                   {m.caps.map((c) => (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -355,10 +352,6 @@ export default function ClubAmbassadeurPage() {
                     />
                   ))}
                 </div>
-                <figcaption className="px-4 py-3">
-                  <p className="font-bold text-ink">{m.name}</p>
-                  <p className="mt-0.5 text-xs text-mist-500">{m.note}</p>
-                </figcaption>
               </figure>
             ))}
           </div>

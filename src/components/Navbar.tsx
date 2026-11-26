@@ -14,8 +14,8 @@ type NavLink = {
 const links: NavLink[] = [
   { label: "Projets", href: "/#projets" },
   { label: "Équipe", href: "/#equipe" },
-  { label: "+3 Players", href: "/#players", variant: "players" },
   { label: "Programme Club Ambassadeur", href: "/club-ambassadeur", variant: "volt" },
+  { label: "+3 Players", href: "/#players", variant: "players" },
   { label: "Contact", href: "/#contact", variant: "cta" },
 ];
 
@@ -67,7 +67,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Comp href={l.href} aria-label="+3 Players for pros" className="inline-flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={isDark ? "/players-logo-black-fp.png" : "/players-logo-fp.png"}
+            src={isDark ? "/players-logo-light.png" : "/players-logo.png"}
             alt="+3 Players for pros"
             className="h-6 w-auto md:h-7"
           />
@@ -79,7 +79,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       return (
         <Comp
           href={l.href}
-          className={`relative inline-block pb-1 font-display text-base italic leading-none transition ${
+          className={`relative inline-block pb-1 text-sm transition ${
             isDark ? "text-ink" : "text-white"
           }`}
         >
@@ -132,7 +132,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
           className="flex items-center py-4"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/players-logo-black-fp.png" alt="+3 Players for pros" className="h-8 w-auto" />
+          <img src="/players-logo-light.png" alt="+3 Players for pros" className="h-8 w-auto" />
         </Comp>
       );
     }
@@ -144,7 +144,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
           onClick={() => setOpen(false)}
           className="flex items-center justify-between py-4"
         >
-          <span className="relative inline-block pb-1 font-display text-lg italic text-ink">
+          <span className="relative inline-block pb-1 text-lg font-semibold text-ink">
             {l.label}
             <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-full bg-lime" />
           </span>

@@ -12,7 +12,8 @@ export default function InstagramEmbed({ url }: { url: string }) {
   const [height, setHeight] = useState(560);
 
   const code = url.match(/\/(?:p|reel|tv)\/([^/?#]+)/)?.[1] ?? "";
-  const src = `https://www.instagram.com/p/${code}/embed/captioned`;
+  // /embed (sans "captioned") => média seul, pas de pavé de légende
+  const src = `https://www.instagram.com/p/${code}/embed`;
 
   useEffect(() => {
     function onMessage(e: MessageEvent) {
