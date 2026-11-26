@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
-const PLAQUETTE_URL = "/plaquette-plus3-players.pdf";
+const PLAYERS_PAGE = "/plus3-players";
 const PLAYERS_LOGO = "/players-logo.png";
 
 export default function PlayersBanner() {
@@ -68,33 +69,15 @@ export default function PlayersBanner() {
 
           {/* CTA */}
           <div className="flex flex-col items-center gap-4">
-            <a
-              href={PLAQUETTE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={PLAYERS_PAGE}
               className="group inline-flex items-center gap-3 rounded-full bg-red-600 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-red-500 hover:shadow-lg hover:shadow-red-600/25"
             >
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                />
-              </svg>
-              Voir la plaquette
+              Découvrir +3 Players
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
               </span>
-            </a>
-            <span className="text-xs text-white/25">
-              Ouvre le PDF dans le navigateur
-            </span>
+            </Link>
           </div>
         </div>
       </div>

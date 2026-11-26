@@ -15,7 +15,7 @@ const links: NavLink[] = [
   { label: "Projets", href: "/#projets" },
   { label: "Équipe", href: "/#equipe" },
   { label: "Programme Club Ambassadeur", href: "/club-ambassadeur", variant: "volt" },
-  { label: "+3 Players", href: "/#players", variant: "players" },
+  { label: "+3 Players", href: "/plus3-players", variant: "players" },
   { label: "Contact", href: "/#contact", variant: "cta" },
 ];
 
