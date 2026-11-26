@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import PresseWord from "./PresseWord";
-
-const STATS = [
-  { value: "639 584", label: "vues en un mois" },
-  { value: "9 pays", label: "de ventes de maillots · 13 départements français" },
-  { value: "Presse internationale", label: "SoccerBible, Footy Headlines, Dégaine, France 3" },
-];
+import BanniereStats from "./BanniereStats";
 
 export default function ClubAmbassadeurBanner() {
   return (
@@ -55,16 +49,7 @@ export default function ClubAmbassadeurBanner() {
         </p>
 
         {/* Chiffres clés */}
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
-          {STATS.map((s) => (
-            <div key={s.value}>
-              <p className="text-xl font-bold text-lime sm:text-2xl">
-                {s.value === "Presse internationale" ? <PresseWord /> : s.value}
-              </p>
-              <p className="mt-1 text-xs text-white/40 sm:text-sm">{s.label}</p>
-            </div>
-          ))}
-        </div>
+        <BanniereStats />
 
         <p className="mt-8 font-display text-xl italic text-lime sm:text-2xl">
           Et ce n&rsquo;est pas fini.

@@ -308,7 +308,7 @@ export default function ClubAmbassadeurPage() {
             Ils en parlent
           </span>
           <h2 className="mt-3 mb-10 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
-            On parle de nous
+            La Ligug&eacute;enne sous les projecteurs
           </h2>
 
           {/* Extrait beIN — vidéo auto-hébergée (lecture sans cookie) */}
@@ -331,7 +331,8 @@ export default function ClubAmbassadeurPage() {
               </p>
               <p className="mt-2 text-xl font-bold text-ink">beIN Sports</p>
               <p className="mt-1 max-w-sm text-sm text-mist-500">
-                L&rsquo;extrait du reportage, en lecture directe sur le site.
+                Le maillot &agrave; l&rsquo;honneur dans l&rsquo;&eacute;mission Salon VIP
+                de beIN Sports.
               </p>
             </div>
           </div>

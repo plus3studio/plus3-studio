@@ -12,8 +12,8 @@ type NavLink = {
 };
 
 const links: NavLink[] = [
-  { label: "Projets", href: "/#projets" },
-  { label: "Équipe", href: "/#equipe" },
+  { label: "L'agence", href: "/agence" },
+  { label: "Nos projets", href: "/#projets" },
   { label: "Programme Club Ambassadeur", href: "/club-ambassadeur", variant: "volt" },
   { label: "+3 Players", href: "/plus3-players", variant: "players" },
   { label: "Contact", href: "/#contact", variant: "cta" },
@@ -29,7 +29,7 @@ function HoverRing({ id, from, to }: { id: string; from: string; to: string }) {
   return (
     <svg
       aria-hidden
-      className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+      className="nav-hover-ring pointer-events-none absolute -inset-y-1 inset-x-0 h-[calc(100%+0.5rem)] w-full overflow-visible"
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
     >
@@ -42,14 +42,13 @@ function HoverRing({ id, from, to }: { id: string; from: string; to: string }) {
       <ellipse
         cx="50"
         cy="50"
-        rx="49"
-        ry="46"
-        pathLength={1}
+        rx="48"
+        ry="44"
+        pathLength={100}
         fill="none"
         stroke={`url(#${id})`}
         strokeWidth={1.5}
         vectorEffect="non-scaling-stroke"
-        className="[stroke-dasharray:1] [stroke-dashoffset:1] [transition:stroke-dashoffset_0.55s_ease] group-hover:[stroke-dashoffset:0]"
       />
     </svg>
   );
@@ -98,7 +97,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Comp
           href={l.href}
           aria-label="+3 Players for pros"
-          className="group relative inline-flex items-center rounded-full px-3 py-1.5"
+          className="group relative inline-flex items-center rounded-full px-4 py-2"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -115,12 +114,12 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       return (
         <Comp
           href={l.href}
-          className={`group relative rounded-full px-3 py-1.5 text-sm ${
+          className={`group relative rounded-full px-4 py-2 text-sm ${
             isDark ? "text-ink" : "text-white"
           }`}
         >
           {l.label}
-          <span className="absolute inset-x-3 bottom-1 h-[3px] rounded-full bg-lime transition-opacity duration-300 group-hover:opacity-0" />
+          <span className="absolute inset-x-4 bottom-1.5 h-[3px] rounded-full bg-lime transition-opacity duration-300 group-hover:opacity-0" />
           <HoverRing id="ring-ca" from="#d4ff4d" to="#bbff00" />
         </Comp>
       );
@@ -212,6 +211,10 @@ export default function Navbar({ logoSrc }: NavbarProps) {
           : "bg-transparent border-b border-transparent"
       }`}
     >
+      <style>{`
+        .nav-hover-ring ellipse{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .6s ease}
+        .group:hover .nav-hover-ring ellipse{stroke-dashoffset:0}
+      `}</style>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-10 md:py-5">
         {/* Logo → accueil */}
         <Link
