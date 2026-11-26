@@ -83,11 +83,12 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       return (
         <Comp
           href={l.href}
-          className={`rounded-full border border-transparent px-3 py-1.5 text-sm transition hover:border-lime ${
+          className={`group relative rounded-full border border-transparent px-3 py-1.5 text-sm transition hover:border-lime ${
             isDark ? "text-ink" : "text-white"
           }`}
         >
           {l.label}
+          <span className="absolute inset-x-3 bottom-1 h-[3px] rounded-full bg-lime transition-opacity duration-200 group-hover:opacity-0" />
         </Comp>
       );
     }
