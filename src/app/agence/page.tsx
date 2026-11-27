@@ -300,13 +300,13 @@ export default function AgencePage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink transition hover:brightness-95"
             >
               Nous contacter &rarr;
             </Link>
             <Link
-              href="/#projets"
+              href="/projets"
               className="inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white hover:text-ink"
             >
               Voir nos projets

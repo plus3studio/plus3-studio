@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/projets", priority: 0.9 },
     { path: "/plus3-players", priority: 0.9 },
     { path: "/club-ambassadeur", priority: 0.9 },
+    { path: "/contact", priority: 0.8 },
     { path: "/mentions-legales", priority: 0.3 },
   ];
   return routes.map((r) => ({

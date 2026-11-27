@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CercleVertueux from "@/components/CercleVertueux";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -13,50 +14,62 @@ export const metadata: Metadata = {
 };
 
 const PROMESSES = [
-  "Développer votre notoriété dans le monde du sport",
-  "Professionnaliser votre communication pour une meilleure e-réputation",
-  "Créer de meilleures opportunités sportives",
-  "Accroître vos revenus grâce à des contrats de sponsoring",
-  "Vous aider à atteindre de nouveaux sommets",
-];
-
-const CERCLE = [
-  "Investissement dans la communication",
-  "Visibilité accrue",
-  "Intérêt des médias & meilleure e-réputation",
-  "Intérêt des clubs et des agents",
-  "Meilleures opportunités sportives",
+  {
+    t: "Développer votre notoriété dans le monde du sport",
+    img: "/plus3-players/benef-notoriete.jpg",
+    pos: "50% 30%",
+  },
+  {
+    t: "Professionnaliser votre communication pour une meilleure e-réputation",
+    img: "/plus3-players/benef-ereputation.jpg",
+    pos: "50% 40%",
+  },
+  {
+    t: "Créer de meilleures opportunités sportives",
+    img: "/plus3-players/benef-opportunites.jpg",
+    pos: "50% 30%",
+  },
+  {
+    t: "Accroître vos revenus grâce à des contrats de sponsoring",
+    img: "/plus3-players/benef-sponsoring.jpg",
+    pos: "50% 40%",
+  },
+  {
+    t: "Vous aider à atteindre de nouveaux sommets",
+    img: "/plus3-players/benef-sommets.jpg",
+    pos: "50% 35%",
+  },
 ];
 
 const JOUEURS = [
   {
     name: "Achraf Berriss",
-    tag: "Futsal · CEUTI & FFF",
-    desc: "Match de qualification pour l'EURO de Futsal 2026 : un aftermovie, un reel/TikTok et un reel joueur (tournage + montage).",
+    tag: "Vlog · YouTube",
+    desc: "Format VLOG destiné à YouTube (tournage + montage) : 13 épisodes de 30 à 50 minutes.",
     img: "/plus3-players/reels/achraf.jpg",
     url: "https://www.youtube.com/watch?v=O9OjlJu48-w",
-    stats: [
-      { v: "64,2K", l: "vues cumulées" },
-      { v: "3,8K", l: "interactions" },
-    ],
-  },
-  {
-    name: "Amin Benslama",
-    tag: "SO Châtellerault · YouTube",
-    desc: "Format VLOG destiné à YouTube (tournage + montage) : 13 épisodes de 30 à 50 minutes.",
-    img: "/plus3-players/reels/amin.jpg",
-    url: "https://www.instagram.com/reel/DF-8e1ysR2i/",
     stats: [
       { v: "393K", l: "vues cumulées" },
       { v: "80K", l: "meilleure vidéo" },
     ],
   },
+  {
+    name: "Amin Benslama",
+    tag: "Futsal · Équipe de France",
+    desc: "Match de qualification pour l'EURO de Futsal 2026 : un aftermovie, un reel/TikTok et un reel joueur (tournage + montage).",
+    img: "/plus3-players/reels/amin.jpg",
+    url: "https://www.instagram.com/reel/DF-8e1ysR2i/",
+    stats: [
+      { v: "64,2K", l: "vues cumulées" },
+      { v: "3,8K", l: "interactions" },
+    ],
+  },
 ];
 
 const OM_REELS = [
-  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", url: "https://www.instagram.com/reel/DOrC1o0iPJd/" },
-  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", url: "https://www.instagram.com/reel/DOobIeUCaq4/" },
-  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", url: "https://www.instagram.com/reel/DI1Zqv1sCMh/" },
+  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "32% 50%", url: "https://youtube.com/shorts/CYiuvPHRZHc" },
+  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "50% 50%", url: "https://youtube.com/shorts/tMCmyKcxCeU" },
+  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "55% 50%", url: "https://youtube.com/shorts/5kxUYk3ZByw" },
 ];
 
 const PACKS = [
@@ -132,7 +145,8 @@ export default function Plus3PlayersPage() {
             className="mx-auto w-full max-w-[280px] md:max-w-sm"
           />
           <h1 className="mt-8 text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl md:text-6xl">
-            Chaque joueur mérite <span className="text-red-600">son image.</span>
+            Chaque joueur mérite
+            <span className="block text-red-600">son image.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-sm text-white/60 md:text-lg">
             La branche de +3 Studio dédiée aux joueurs. On construit votre image comme un
@@ -166,12 +180,28 @@ export default function Plus3PlayersPage() {
             Un seul objectif : faire passer un cap à votre image.
           </h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PROMESSES.map((p) => (
+            {PROMESSES.map((p, i) => (
               <div
-                key={p}
-                className="rounded-2xl border border-bone-200 bg-bone-50 p-5 text-base font-medium"
+                key={p.t}
+                className={`group relative overflow-hidden rounded-2xl bg-ink ${
+                  i === 0 ? "sm:col-span-2 lg:col-span-1" : ""
+                }`}
               >
-                {p}
+                <div className="relative aspect-[4/5] lg:aspect-[3/4]">
+                  <Image
+                    src={p.img}
+                    alt={p.t}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    style={{ objectPosition: p.pos }}
+                    className="object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <span className="mb-2 inline-block h-1 w-8 rounded-full bg-red-600" />
+                  <p className="text-base font-semibold leading-snug text-white">{p.t}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -192,24 +222,13 @@ export default function Plus3PlayersPage() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             Le cercle vertueux
           </h2>
-          <div className="mt-10 flex flex-col gap-3 md:flex-row md:items-stretch md:gap-2">
-            {CERCLE.map((c, i) => (
-              <div key={c} className="flex items-center gap-2 md:flex-1 md:flex-col">
-                <div className="flex h-full w-full flex-col justify-center rounded-2xl border border-bone-200 bg-white p-5 text-center">
-                  <span
-                    className="text-xl font-bold"
-                    style={{ color: `rgba(220,38,38,${0.4 + i * 0.15})` }}
-                  >
-                    {i + 1}
-                  </span>
-                  <span className="mt-2 text-sm font-medium">{c}</span>
-                </div>
-                {i < CERCLE.length - 1 && (
-                  <span className="text-red-600 md:-rotate-90">&darr;</span>
-                )}
-              </div>
-            ))}
-          </div>
+          <p className="mt-5 max-w-2xl text-base text-ink/70 md:text-lg">
+            Investir dans sa communication, ce n&rsquo;est pas une dépense, c&rsquo;est un
+            moteur. Plus de visibilité attire les médias, les clubs et les agents, ouvre
+            des opportunités et des contrats de sponsoring. Ces revenus se réinvestissent
+            dans la com&rsquo; : le cercle repart, en plus grand.
+          </p>
+          <CercleVertueux />
         </div>
       </section>
 
@@ -220,7 +239,7 @@ export default function Plus3PlayersPage() {
             Nos joueurs
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Ceux qu&rsquo;on accompagne
+            On a travaillé avec eux
           </h2>
 
           {/* Ambassadeur — Kandet Diawara */}
@@ -301,6 +320,7 @@ export default function Plus3PlayersPage() {
                     alt={`Reel ${r.name}`}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
+                    style={{ objectPosition: r.pos }}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-ink/20 transition group-hover:bg-ink/40">

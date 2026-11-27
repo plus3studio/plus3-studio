@@ -10,8 +10,7 @@ const LOGOS = [
   { src: "/trust/marathon.png", alt: "Marathon Poitiers-Futuroscope", href: "/#projets" },
   { src: "/trust/district-vienne.png", alt: "District de la Vienne de Football", href: "/#projets" },
   { src: "/trust/spvb.png", alt: "Alterna SPVB", href: "/#projets" },
-  { src: "/trust/soccer-edu.png", alt: "Soccer Edu", href: "/#projets" },
-  { src: "/trust/formations-football.png", alt: "Formations Football", href: "/#projets" },
+  { src: "/trust/formations-football.png", alt: "Formation Football", href: "/#projets" },
 ];
 
 export default function TrustBand() {
