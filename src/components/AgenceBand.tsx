@@ -5,18 +5,21 @@ const DOMAINES = [
   {
     title: "Clubs & institutions",
     desc: "Identité, contenu et couverture de match, du club amateur au niveau national.",
-    img: "/projects/02-Stade-Rochelais/cover.jpg",
+    img: "/agence/clubs.jpg",
+    top: true,
   },
   {
     title: "Joueurs",
     players: true,
     desc: "Personal branding, shooting et vidéo pour les athlètes.",
     img: "/projects/01-Olympique-de-marseille/cover.jpg",
+    top: true,
   },
   {
     title: "Marques & événements",
     desc: "Les lieux et les événements du sport et de l'événementiel : films de marque, captation, aftermovies.",
-    img: "/projects/06-Arena-Futuroscope/cover.jpg",
+    img: "/agence/marques.jpg",
+    top: false,
   },
 ];
 
@@ -51,7 +54,7 @@ export default function AgenceBand() {
                   alt={d.title}
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover"
+                  className={`object-cover ${d.top ? "object-top" : "object-center"}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
               </div>

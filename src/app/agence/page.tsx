@@ -26,19 +26,22 @@ const DOMAINES = [
     title: "Clubs & institutions",
     players: false,
     desc: "Identité visuelle, contenu de saison, couverture de match et stratégie de communication, du club amateur au niveau national.",
-    img: "/projects/02-Stade-Rochelais/cover.jpg",
+    img: "/agence/clubs.jpg",
+    top: true,
   },
   {
     title: "Joueurs",
     players: true,
     desc: "Personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux pour les athlètes.",
     img: "/projects/01-Olympique-de-marseille/cover.jpg",
+    top: true,
   },
   {
     title: "Marques & événements",
     players: false,
     desc: "Les lieux et les événements du sport et de l'événementiel : films de marque, captation, reportages et aftermovies.",
-    img: "/projects/06-Arena-Futuroscope/cover.jpg",
+    img: "/agence/marques.jpg",
+    top: false,
   },
 ];
 
@@ -180,7 +183,7 @@ export default function AgencePage() {
                     alt={d.title}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover"
+                    className={`object-cover ${d.top ? "object-top" : "object-center"}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                 </div>
