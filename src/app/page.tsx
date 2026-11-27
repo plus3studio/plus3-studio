@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TrustBand from "@/components/TrustBand";
 import AgenceBand from "@/components/AgenceBand";
 import Projects from "@/components/Projects";
 import Team from "@/components/Team";
@@ -20,6 +21,7 @@ export default function Home() {
       <RevealMount />
       <Navbar logoSrc={logoSrc} />
       <Hero />
+      <TrustBand />
       <AgenceBand />
       <Projects projects={projects} />
       <ClubAmbassadeurBanner />
