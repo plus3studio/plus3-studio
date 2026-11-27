@@ -107,13 +107,13 @@ export default function AgencePage() {
       {/* STORYTELLING */}
       <section className="bg-white py-20 text-ink md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Notre histoire
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             Parti d&rsquo;un constat, sur un terrain.
           </h2>
-          <div className="mt-6 space-y-4 text-base leading-relaxed text-ink/80 md:text-lg">
+          <div className="reveal reveal-delay-2 mt-6 space-y-4 text-base leading-relaxed text-ink/80 md:text-lg">
             <p>
               Tout commence dans un club de football semi-pro, là où se croisent celles
               et ceux qui deviendront les fondateurs de +3 Studio. Même passion du sport,
@@ -183,13 +183,13 @@ export default function AgencePage() {
       {/* 3 DOMAINES */}
       <section className="bg-white py-20 text-ink md:py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Pour qui on travaille
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             3 domaines d&rsquo;activité
           </h2>
-          <p className="mt-4 max-w-2xl text-base text-ink/60">
+          <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-base text-ink/60">
             Cliquez sur un domaine pour voir en détail ce qu&rsquo;on y fait.
           </p>
           <DomainesAgence />
@@ -200,10 +200,10 @@ export default function AgencePage() {
       <section className="bg-bone-50 py-20 text-ink md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-[1.2fr_1fr] md:px-10">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+            <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
               Ce qu&rsquo;on fait
             </span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
               Nos services
             </h2>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -233,10 +233,10 @@ export default function AgencePage() {
       {/* QUI EST DERRIÈRE */}
       <section className="bg-white py-20 text-ink md:py-28">
         <div className="mx-auto max-w-5xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Qui est derrière +3 Studio
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             L&rsquo;équipe
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StatsResultats from "@/components/StatsResultats";
 import ActesAccordion, { type Acte } from "@/components/ActesAccordion";
+import RevealMount from "@/components/RevealMount";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -85,6 +86,7 @@ export default function ClubAmbassadeurPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
+      <RevealMount />
       <Navbar logoSrc={logoSrc} />
 
       {/* HERO */}
@@ -119,10 +121,10 @@ export default function ClubAmbassadeurPage() {
       {/* LE PROGRAMME */}
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Le programme
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
             Une saison de communication offerte &agrave; un club amateur
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-ink/80 md:text-lg">
@@ -184,10 +186,10 @@ export default function ClubAmbassadeurPage() {
       {/* LE PROJET — ACTES */}
       <section className="bg-bone-50 py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Ce qu&rsquo;on a produit
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+          <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
             Le projet, acte par acte
           </h2>
 

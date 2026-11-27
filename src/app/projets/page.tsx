@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import EtudesDeCas from "@/components/EtudesDeCas";
+import RevealMount from "@/components/RevealMount";
 import { getProjects } from "@/lib/getProjects";
 import { getLogoPath } from "@/lib/getLogo";
 
@@ -20,6 +21,7 @@ export default function ProjetsPage() {
 
   return (
     <main className="relative min-h-screen bg-ink text-white">
+      <RevealMount />
       <Navbar logoSrc={logoSrc} />
 
       {/* HERO */}

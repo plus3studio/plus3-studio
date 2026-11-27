@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import RevealMount from "@/components/RevealMount";
 import FranceMap from "@/components/FranceMap";
 import FaqAccordion, { type FaqItem } from "@/components/FaqAccordion";
 import { getLogoPath } from "@/lib/getLogo";
@@ -80,6 +81,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <RevealMount />
       <Navbar logoSrc={logoSrc} />
 
       {/* HERO + LOCALISATION (fond sombre) */}
