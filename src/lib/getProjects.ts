@@ -91,6 +91,7 @@ type CampaignMeta = {
   credits?: string;
   videos?: VideoLink[];
   order?: number;
+  carousel?: boolean;
 };
 
 type Meta = {
@@ -195,6 +196,7 @@ export function getProjects(): Project[] {
         }
         if (cm.title) camp.title = cm.title;
         if (cm.credits) camp.credits = cm.credits;
+        if (cm.carousel) camp.carousel = true;
         if (cm.videos && cm.videos.length > 0) {
           for (const v of cm.videos) {
             const poster = v.poster || getYouTubePoster(v.url);

@@ -90,7 +90,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
             className="h-6 w-auto md:h-7"
           />
           {active && (
-            <span className="absolute inset-x-4 -bottom-1 h-px rounded-full bg-red-600" />
+            <span className="absolute inset-x-4 -bottom-2 h-px rounded-full bg-red-600" />
           )}
           <HoverRing color="border-red-600" />
         </Comp>

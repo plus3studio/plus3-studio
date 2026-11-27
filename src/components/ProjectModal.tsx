@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import type { Project, ProjectMedia, Campaign } from "@/data/projects";
 import Lightbox from "./Lightbox";
+import MediaCarousel from "./MediaCarousel";
 
 function getEmbedUrl(url: string): string {
   let match = url.match(
@@ -203,6 +204,10 @@ function CampaignFolder({
           </p>
         )}
 
+        {campaign.carousel ? (
+          <MediaCarousel media={campaign.media} />
+        ) : (
+          <>
         {/* Vidéos d'abord */}
         {videos.length > 0 && (
           <div className="mb-4">
@@ -253,6 +258,8 @@ function CampaignFolder({
               </div>
             )}
           </div>
+        )}
+          </>
         )}
       </div>
     </div>

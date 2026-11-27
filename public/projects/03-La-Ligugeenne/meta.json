@@ -48,7 +48,8 @@
     },
     "Logo & identité visuelle": {
       "order": 5,
-      "credits": "Logo & identité : Alix Hubert"
+      "credits": "Logo & identité : Alix Hubert",
+      "carousel": true
     }
   }
 }

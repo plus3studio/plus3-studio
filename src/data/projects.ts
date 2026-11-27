@@ -15,6 +15,7 @@ export type Campaign = {
   title: string;
   credits?: string;
   media: ProjectMedia[];
+  carousel?: boolean;
 };
 
 export type Project = {
