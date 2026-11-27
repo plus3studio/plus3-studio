@@ -16,6 +16,7 @@ export type Acte = {
   media: ActeMedia;
   youtube?: string;
   gallery?: boolean;
+  credit?: string;
 };
 
 const SHOOTING = ["maillot-2", "maillot-3", "design-1", "design-2"];
@@ -103,6 +104,11 @@ export default function ActesAccordion({ actes }: { actes: Acte[] }) {
                   {/* Texte */}
                   <div>
                     <p className="text-base leading-relaxed text-ink/75">{a.desc}</p>
+                    {a.credit && (
+                      <p className="mt-4 text-xs uppercase tracking-[0.18em] text-mist-500">
+                        {a.credit}
+                      </p>
+                    )}
                     {a.youtube && (
                       <div className="mt-5">
                         <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />

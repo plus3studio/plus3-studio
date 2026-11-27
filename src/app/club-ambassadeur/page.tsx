@@ -40,6 +40,7 @@ const ACTES: Acte[] = [
     media: { kind: "instagram", url: "https://www.instagram.com/p/DcOB_iFCFVp/" },
     youtube: "k9e4nmq5Xpc",
     gallery: true,
+    credit: "Un maillot conçu avec Kappa · direction artistique +3 Studio",
   },
   {
     num: "Acte III",
@@ -94,6 +95,7 @@ export default function ClubAmbassadeurPage() {
           fill
           priority
           sizes="100vw"
+          style={{ objectPosition: "50% 18%" }}
           className="object-cover opacity-40"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
@@ -190,14 +192,18 @@ export default function ClubAmbassadeurPage() {
           </h2>
 
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
-            Cinq actes, du blason au coup d&rsquo;envoi de la saison. Cliquez sur chaque
-            acte pour le d&eacute;rouler.
+            Cinq actes, du blason au coup d&rsquo;envoi de la saison. Chaque acte a
+            &eacute;t&eacute; pens&eacute; pour d&eacute;voiler le projet petit &agrave;
+            petit, teaser et faire monter l&rsquo;attente jusqu&rsquo;au d&eacute;but de
+            la saison. Les noms, eux, ont &eacute;t&eacute; puis&eacute;s dans
+            l&rsquo;identit&eacute; du club, pour rester fid&egrave;les &agrave; son
+            histoire &agrave; chaque &eacute;tape.
           </p>
 
           <ActesAccordion actes={ACTES} />
 
-          <p className="mt-10 text-xs uppercase tracking-[0.2em] text-mist-500">
-            Un maillot con&ccedil;u avec Kappa &middot; direction artistique +3 Studio
+          <p className="mt-6 text-xs italic text-mist-400">
+            Cliquez sur chaque acte pour le d&eacute;rouler.
           </p>
         </div>
       </section>
@@ -288,21 +294,33 @@ export default function ClubAmbassadeurPage() {
 
       {/* LES VENTES */}
       <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
-            Le maillot
-          </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
-            Une boutique qui a franchi les fronti&egrave;res
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-ink/80 md:text-lg">
-            Ouvert &agrave; la vente le 18 ao&ucirc;t, le maillot collector a &eacute;t&eacute;
-            command&eacute; depuis neuf pays (France, &Eacute;cosse, Irlande, Angleterre,
-            Finlande, Allemagne, &Eacute;tats-Unis, Br&eacute;sil, Trinit&eacute;-et-Tobago)
-            et treize d&eacute;partements fran&ccedil;ais. Le stock initial a &eacute;t&eacute;
-            &eacute;coul&eacute;. Une seconde s&eacute;rie Kappa de 100 exemplaires a suivi,
-            elle aussi aujourd&rsquo;hui en rupture.
-          </p>
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 md:grid-cols-2 md:px-10">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl bg-ink">
+            <Image
+              src="/cas-ligugeenne/merci.jpg"
+              alt="Le maillot collector de La Ligugéenne — merci"
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+              Le maillot
+            </span>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+              Une boutique qui a franchi les fronti&egrave;res
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-ink/80 md:text-lg">
+              Ouvert &agrave; la vente le 18 ao&ucirc;t, le maillot collector a
+              &eacute;t&eacute; command&eacute; depuis neuf pays (France, &Eacute;cosse,
+              Irlande, Angleterre, Finlande, Allemagne, &Eacute;tats-Unis, Br&eacute;sil,
+              Trinit&eacute;-et-Tobago) et treize d&eacute;partements fran&ccedil;ais. Le
+              stock initial a &eacute;t&eacute; &eacute;coul&eacute;. Une seconde
+              s&eacute;rie Kappa de 100 exemplaires a suivi, elle aussi
+              aujourd&rsquo;hui en rupture.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -314,8 +332,11 @@ export default function ClubAmbassadeurPage() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-white/55 md:text-lg">
             On produit pour des clubs et des marques du sport, du club amateur au
-            niveau national. Ce dispositif n&rsquo;&eacute;tait pas un budget,
-            c&rsquo;&eacute;tait une m&eacute;thode.
+            niveau national.
+            <span className="mt-2 block font-semibold text-white">
+              Ce dispositif n&rsquo;&eacute;tait pas un budget, c&rsquo;&eacute;tait une
+              m&eacute;thode.
+            </span>
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link

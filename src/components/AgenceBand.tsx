@@ -5,21 +5,21 @@ const DOMAINES = [
   {
     title: "Clubs & institutions",
     desc: "Identité, contenu et couverture de match, du club amateur au niveau national.",
-    img: "/agence/clubs.jpg",
-    top: true,
+    img: "/agence/clubs-home.jpg",
+    pos: "50% 45%",
   },
   {
     title: "Joueurs",
     players: true,
     desc: "Personal branding, shooting et vidéo pour les athlètes.",
     img: "/agence/joueurs.jpg",
-    top: false,
+    pos: "50% 0%",
   },
   {
     title: "Marques & événements",
     desc: "Captation, films de marque et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
-    img: "/agence/marques.jpg",
-    top: false,
+    img: "/agence/marques-home.jpg",
+    pos: "50% 42%",
   },
 ];
 
@@ -54,7 +54,8 @@ export default function AgenceBand() {
                   alt={d.title}
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
-                  className={`object-cover ${d.top ? "object-top" : "object-center"}`}
+                  style={{ objectPosition: d.pos }}
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
               </div>
