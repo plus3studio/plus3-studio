@@ -55,7 +55,7 @@ export default function ProjetsPage() {
           </h2>
           <p className="mt-4 max-w-2xl text-base text-white/60 md:text-lg">
             Trois projets racontés de l&rsquo;intérieur : la demande, l&rsquo;intention,
-            la réflexion et les livrables. Cliquez pour dérouler.
+            la réflexion et les livrables.
           </p>
 
           <EtudesDeCas />

@@ -18,20 +18,6 @@ export default function ClubAmbassadeurBanner() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_70%_90%_at_50%_50%,rgba(10,10,10,0.84)_0%,rgba(10,10,10,0.6)_55%,rgba(10,10,10,0.74)_100%)]"
       />
 
-      {/* Volt accents */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-lime/15 blur-[120px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-lime/10 blur-[100px]"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-lime to-transparent"
-      />
-
       <div className="relative mx-auto max-w-5xl px-5 text-center md:px-10">
         <img
           src="/ca-liguge-logo.png"

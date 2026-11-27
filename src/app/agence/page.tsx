@@ -20,7 +20,7 @@ const TROIS = [
   { v: "3", l: "fondateurs réunis autour d'une même idée" },
   { v: "3", l: "domaines d'activité : clubs, joueurs, marques" },
   { v: "3 points", l: "le tir qui change un match, au basket" },
-  { v: "3-5-2", l: "un système, une organisation, une identité" },
+  { v: "3 sets", l: "au volley, la victoire se joue en trois sets gagnants" },
   { v: "Hat-trick", l: "les 3 buts qui font entrer dans la légende" },
   { v: "+3", l: "l'écart qu'on veut créer pour nos clients" },
 ];

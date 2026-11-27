@@ -319,8 +319,7 @@ export default function ClubAmbassadeurPage() {
               Irlande, Angleterre, Finlande, Allemagne, &Eacute;tats-Unis, Br&eacute;sil,
               Trinit&eacute;-et-Tobago) et treize d&eacute;partements fran&ccedil;ais. Le
               stock initial a &eacute;t&eacute; &eacute;coul&eacute;. Une seconde
-              s&eacute;rie Kappa de 100 exemplaires a suivi, elle aussi
-              aujourd&rsquo;hui en rupture.
+              s&eacute;rie a suivi, elle aussi aujourd&rsquo;hui en rupture.
             </p>
           </div>
         </div>
