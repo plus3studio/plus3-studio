@@ -25,33 +25,13 @@ type NavbarProps = {
   logoSrc: string | null;
 };
 
-/** Ovale de contour qui se dessine au survol (stroke-dashoffset). */
-function HoverRing({ id, from, to }: { id: string; from: string; to: string }) {
+/** Ovale de contour qui apparaît proprement au survol (fade + léger zoom). */
+function HoverRing({ color }: { color: string }) {
   return (
-    <svg
+    <span
       aria-hidden
-      className="nav-hover-ring pointer-events-none absolute -inset-y-1 inset-x-0 h-[calc(100%+0.5rem)] w-full overflow-visible"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor={from} />
-          <stop offset="100%" stopColor={to} />
-        </linearGradient>
-      </defs>
-      <ellipse
-        cx="50"
-        cy="50"
-        rx="48"
-        ry="44"
-        pathLength={100}
-        fill="none"
-        stroke={`url(#${id})`}
-        strokeWidth={1.5}
-        vectorEffect="non-scaling-stroke"
-      />
-    </svg>
+      className={`pointer-events-none absolute inset-0 scale-90 rounded-full border-2 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 ${color}`}
+    />
   );
 }
 
@@ -112,7 +92,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
           {active && (
             <span className="absolute inset-x-4 bottom-1 h-[3px] rounded-full bg-red-600" />
           )}
-          <HoverRing id="ring-players" from="#ff6a6a" to="#dc2626" />
+          <HoverRing color="border-red-600" />
         </Comp>
       );
     }
@@ -127,7 +107,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         >
           {l.label}
           <span className="absolute inset-x-4 bottom-1.5 h-[3px] rounded-full bg-lime transition-opacity duration-300 group-hover:opacity-0" />
-          <HoverRing id="ring-ca" from="#d4ff4d" to="#bbff00" />
+          <HoverRing color="border-lime" />
         </Comp>
       );
     }
@@ -220,10 +200,6 @@ export default function Navbar({ logoSrc }: NavbarProps) {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <style>{`
-        .nav-hover-ring ellipse{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .6s ease}
-        .group:hover .nav-hover-ring ellipse{stroke-dashoffset:0}
-      `}</style>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-10 md:py-5">
         {/* Logo → accueil */}
         <Link
