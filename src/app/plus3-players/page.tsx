@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CercleVertueux from "@/components/CercleVertueux";
+import LazyVideo from "@/components/LazyVideo";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -17,17 +18,17 @@ const PROMESSES = [
   {
     t: "Développer votre notoriété dans le monde du sport",
     img: "/plus3-players/benef-notoriete.jpg",
-    pos: "50% 30%",
+    pos: "50% 25%",
   },
   {
     t: "Professionnaliser votre communication pour une meilleure e-réputation",
     img: "/plus3-players/benef-ereputation.jpg",
-    pos: "50% 40%",
+    pos: "50% 35%",
   },
   {
     t: "Créer de meilleures opportunités sportives",
-    img: "/plus3-players/benef-opportunites.jpg",
-    pos: "50% 30%",
+    img: "/plus3-players/benef-sommets.jpg",
+    pos: "50% 35%",
   },
   {
     t: "Accroître vos revenus grâce à des contrats de sponsoring",
@@ -36,7 +37,12 @@ const PROMESSES = [
   },
   {
     t: "Vous aider à atteindre de nouveaux sommets",
-    img: "/plus3-players/benef-sommets.jpg",
+    img: "/plus3-players/benef-opportunites.jpg",
+    pos: "50% 25%",
+  },
+  {
+    t: "Faire de chaque match un moment de contenu fort",
+    img: "/illustrations/om-ballon.jpg",
     pos: "50% 35%",
   },
 ];
@@ -47,7 +53,8 @@ const JOUEURS = [
     tag: "Vlog · YouTube",
     desc: "Format VLOG destiné à YouTube (tournage + montage) : 13 épisodes de 30 à 50 minutes.",
     img: "/plus3-players/reels/achraf.jpg",
-    url: "https://www.youtube.com/watch?v=O9OjlJu48-w",
+    kind: "youtube" as const,
+    vid: "O9OjlJu48-w",
     stats: [
       { v: "393K", l: "vues cumulées" },
       { v: "80K", l: "meilleure vidéo" },
@@ -58,7 +65,8 @@ const JOUEURS = [
     tag: "Futsal · Équipe de France",
     desc: "Match de qualification pour l'EURO de Futsal 2026 : un aftermovie, un reel/TikTok et un reel joueur (tournage + montage).",
     img: "/plus3-players/reels/amin.jpg",
-    url: "https://www.instagram.com/reel/DF-8e1ysR2i/",
+    kind: "instagram" as const,
+    vid: "https://www.instagram.com/reel/DF-8e1ysR2i/",
     stats: [
       { v: "64,2K", l: "vues cumulées" },
       { v: "3,8K", l: "interactions" },
@@ -67,9 +75,9 @@ const JOUEURS = [
 ];
 
 const OM_REELS = [
-  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "32% 50%", url: "https://youtube.com/shorts/CYiuvPHRZHc" },
-  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "50% 50%", url: "https://youtube.com/shorts/tMCmyKcxCeU" },
-  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "55% 50%", url: "https://youtube.com/shorts/5kxUYk3ZByw" },
+  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "32% 50%", vid: "CYiuvPHRZHc" },
+  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "50% 50%", vid: "tMCmyKcxCeU" },
+  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "55% 50%", vid: "5kxUYk3ZByw" },
 ];
 
 const PACKS = [
@@ -125,6 +133,19 @@ export default function Plus3PlayersPage() {
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0a0a0a]">
+        <Image
+          src="/illustrations/players-header.jpg"
+          alt="+3 Studio au bord du terrain"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectPosition: "50% 35%" }}
+          className="object-cover opacity-25"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/85 to-[#0a0a0a]"
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-red-600/25 blur-[130px]"
@@ -179,37 +200,46 @@ export default function Plus3PlayersPage() {
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-5xl">
             Un seul objectif : faire passer un cap à votre image.
           </h2>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PROMESSES.map((p, i) => (
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {PROMESSES.map((p) => (
               <div
                 key={p.t}
-                className={`group relative overflow-hidden rounded-2xl bg-ink ${
-                  i === 0 ? "sm:col-span-2 lg:col-span-1" : ""
-                }`}
+                className="group flex items-stretch overflow-hidden rounded-2xl border border-bone-200 bg-white transition hover:border-red-600/40 hover:shadow-sm"
               >
-                <div className="relative aspect-[4/5] lg:aspect-[3/4]">
+                <div className="relative w-28 shrink-0 overflow-hidden bg-ink sm:w-40">
                   <Image
                     src={p.img}
                     alt={p.t}
                     fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="160px"
                     style={{ objectPosition: p.pos }}
-                    className="object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                    className="object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <span className="mb-2 inline-block h-1 w-8 rounded-full bg-red-600" />
-                  <p className="text-base font-semibold leading-snug text-white">{p.t}</p>
+                <div className="flex flex-1 items-center p-5">
+                  <div>
+                    <span className="mb-2 inline-block h-1 w-8 rounded-full bg-red-600" />
+                    <p className="text-base font-semibold leading-snug text-ink">
+                      {p.t}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-8 max-w-2xl text-base text-ink/70 md:text-lg">
-            <span className="font-semibold text-ink">Pour qui ?</span> Les sportifs et
-            athlètes qui veulent franchir un cap et améliorer leur image sur les
-            réseaux sociaux.
-          </p>
+
+          {/* POUR QUI — bloc dédié */}
+          <div className="mt-8 overflow-hidden rounded-3xl bg-ink text-white">
+            <div className="grid items-center gap-6 p-8 md:grid-cols-[auto_1fr] md:gap-10 md:p-12">
+              <p className="font-display text-5xl italic text-red-600 md:text-7xl">
+                Pour qui&nbsp;?
+              </p>
+              <p className="text-lg leading-relaxed text-white/80 md:text-2xl">
+                Les joueurs et athlètes qui veulent franchir un cap : exister sur les
+                réseaux, soigner leur image et créer les opportunités qui vont avec.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -260,27 +290,16 @@ export default function Plus3PlayersPage() {
           {/* Joueurs accompagnés */}
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {JOUEURS.map((j) => (
-              <a
+              <div
                 key={j.name}
-                href={j.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-red-600/50"
+                className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
               >
-                <div className="relative aspect-video">
-                  <Image
-                    src={j.img}
-                    alt={`Reel ${j.name}`}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-ink/20 transition group-hover:bg-ink/40">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-lg text-white">
-                      &#9654;
-                    </span>
-                  </div>
-                </div>
+                <LazyVideo
+                  kind={j.kind}
+                  src={j.vid}
+                  thumb={j.img}
+                  title={`${j.name} — ${j.tag}`}
+                />
                 <div className="p-6">
                   <p className="text-xs uppercase tracking-wider text-red-600">{j.tag}</p>
                   <h3 className="mt-1 text-2xl font-bold">{j.name}</h3>
@@ -294,7 +313,7 @@ export default function Plus3PlayersPage() {
                     ))}
                   </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 
@@ -307,30 +326,19 @@ export default function Plus3PlayersPage() {
           </h3>
           <div className="mt-6 grid gap-5 sm:grid-cols-3">
             {OM_REELS.map((r) => (
-              <a
+              <div
                 key={r.name}
-                href={r.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-red-600/50"
+                className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
               >
-                <div className="relative aspect-video">
-                  <Image
-                    src={r.img}
-                    alt={`Reel ${r.name}`}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    style={{ objectPosition: r.pos }}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-ink/20 transition group-hover:bg-ink/40">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-sm text-white">
-                      &#9654;
-                    </span>
-                  </div>
-                </div>
+                <LazyVideo
+                  kind="youtube"
+                  src={r.vid}
+                  thumb={r.img}
+                  title={`Reel ${r.name}`}
+                  pos={r.pos}
+                />
                 <p className="px-4 py-3 text-sm font-semibold">{r.name}</p>
-              </a>
+              </div>
             ))}
           </div>
         </div>
