@@ -12,7 +12,7 @@ const DOMAINES = [
     title: "Joueurs",
     players: true,
     desc: "Personal branding, shooting et vidéo pour les athlètes.",
-    img: "/projects/01-Olympique-de-marseille/cover.jpg",
+    img: "/agence/joueurs.jpg",
     top: false,
   },
   {

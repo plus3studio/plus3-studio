@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import InstagramEmbed from "@/components/InstagramEmbed";
 import StatsResultats from "@/components/StatsResultats";
+import ActesAccordion, { type Acte } from "@/components/ActesAccordion";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -23,21 +23,6 @@ const PRESSE = [
   { name: "La Nouvelle République", note: "France · Vienne", caps: ["07"] },
   { name: "Felipe Saad", note: "Réactions", caps: ["08"] },
 ];
-
-type ActeMedia =
-  | { kind: "image"; src: string; ratio?: "4/3" | "3/4" }
-  | { kind: "instagram"; url: string }
-  | { kind: "youtube"; id: string };
-
-type Acte = {
-  num: string;
-  title: string;
-  sub: string;
-  desc: string;
-  media: ActeMedia;
-  youtube?: string;
-  gallery?: boolean;
-};
 
 const ACTES: Acte[] = [
   {
@@ -78,8 +63,6 @@ const ACTES: Acte[] = [
     media: { kind: "youtube", id: "wDk8zQQ1pjg" },
   },
 ];
-
-const SHOOTING = ["maillot-2", "maillot-3", "design-1", "design-2"];
 
 function YouTube({ id, title }: { id: string; title: string }) {
   return (
@@ -206,79 +189,16 @@ export default function ClubAmbassadeurPage() {
             Le projet, acte par acte
           </h2>
 
-          <div className="mt-12 space-y-16 md:space-y-24">
-            {ACTES.map((a, i) => (
-              <div key={a.num}>
-                <div className="grid items-center gap-8 md:grid-cols-2">
-                  {/* Média */}
-                  <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                    {a.media.kind === "image" && (
-                      <div
-                        className={`relative overflow-hidden rounded-2xl bg-ink ${
-                          a.media.ratio === "3/4" ? "aspect-[3/4]" : "aspect-[4/3]"
-                        }`}
-                      >
-                        <Image
-                          src={a.media.src}
-                          alt={`La Ligugéenne — ${a.title}`}
-                          fill
-                          sizes="(min-width: 768px) 50vw, 100vw"
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    {a.media.kind === "youtube" && (
-                      <YouTube id={a.media.id} title={`La Ligugéenne — ${a.title}`} />
-                    )}
-                    {a.media.kind === "instagram" && (
-                      <div className="mx-auto w-full max-w-[460px]">
-                        <InstagramEmbed url={a.media.url} />
-                      </div>
-                    )}
-                  </div>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
+            Cinq actes, du blason au coup d&rsquo;envoi de la saison. Cliquez sur chaque
+            acte pour le d&eacute;rouler.
+          </p>
 
-                  {/* Texte */}
-                  <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                    <p className="font-display text-xl italic text-lime">{a.num}</p>
-                    <h3 className="mt-1 text-2xl font-bold text-ink md:text-3xl">
-                      {a.title}
-                    </h3>
-                    <p className="mt-1 text-xs uppercase tracking-[0.2em] text-mist-500">
-                      {a.sub}
-                    </p>
-                    <p className="mt-3 text-base leading-relaxed text-ink/75">
-                      {a.desc}
-                    </p>
-                    {a.youtube && (
-                      <div className="mt-5">
-                        <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
-                      </div>
-                    )}
-                  </div>
-                </div>
+          <ActesAccordion actes={ACTES} />
 
-                {/* Galerie shooting (sous l'Acte II) */}
-                {a.gallery && (
-                  <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-                    {SHOOTING.map((n) => (
-                      <div
-                        key={n}
-                        className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink"
-                      >
-                        <Image
-                          src={`/cas-ligugeenne/${n}.jpg`}
-                          alt="La Ligugéenne — shooting maillot collector"
-                          fill
-                          sizes="(min-width: 768px) 25vw, 50vw"
-                          className="object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <p className="mt-10 text-xs uppercase tracking-[0.2em] text-mist-500">
+            Un maillot con&ccedil;u avec Kappa &middot; direction artistique +3 Studio
+          </p>
         </div>
       </section>
 

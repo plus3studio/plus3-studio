@@ -28,21 +28,21 @@ const DOMAINES = [
     title: "Clubs & institutions",
     players: false,
     desc: "Identité visuelle, contenu de saison, couverture de match et stratégie de communication, du club amateur au niveau national.",
-    img: "/agence/clubs.jpg",
+    img: "/projects/02-Stade-Rochelais/cover.jpg",
     top: true,
   },
   {
     title: "Joueurs",
     players: true,
     desc: "Personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux pour les athlètes.",
-    img: "/projects/01-Olympique-de-marseille/cover.jpg",
+    img: "/projects/04-Alterna-SPVB/cover.jpg",
     top: false,
   },
   {
     title: "Marques & événements",
     players: false,
     desc: "Captation, films de marque, reportages et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
-    img: "/agence/marques.jpg",
+    img: "/projects/05-CATP/cover.jpg",
     top: false,
   },
 ];
@@ -263,10 +263,15 @@ export default function AgencePage() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center p-6 text-center">
-                      <span className="font-display text-3xl italic text-lime">
-                        Réseau +3 Studio
-                      </span>
+                    <div className="flex h-full w-full items-center justify-center bg-ink">
+                      <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/15">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src="/logo.png"
+                          alt="+3 Studio"
+                          className="h-8 w-auto invert"
+                        />
+                      </div>
                     </div>
                   )}
                 </div>
