@@ -13,13 +13,13 @@ const DOMAINES = [
     players: true,
     desc: "Personal branding, shooting et vidéo pour les athlètes.",
     img: "/agence/joueurs.jpg",
-    pos: "50% 0%",
+    pos: "50% 78%",
   },
   {
     title: "Marques & événements",
     desc: "Captation, films de marque et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
     img: "/agence/marques-home.jpg",
-    pos: "50% 42%",
+    pos: "50% 45%",
   },
 ];
 
