@@ -13,11 +13,11 @@ const DOMAINES = [
     players: true,
     desc: "Personal branding, shooting et vidéo pour les athlètes.",
     img: "/projects/01-Olympique-de-marseille/cover.jpg",
-    top: true,
+    top: false,
   },
   {
     title: "Marques & événements",
-    desc: "Les lieux et les événements du sport et de l'événementiel : films de marque, captation, aftermovies.",
+    desc: "Captation, films de marque et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
     img: "/agence/marques.jpg",
     top: false,
   },

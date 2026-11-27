@@ -1,15 +1,17 @@
+import Link from "next/link";
+
 const LOGOS = [
-  { src: "/trust/fff.png", alt: "Fédération Française de Football — FFF" },
-  { src: "/trust/om.png", alt: "Olympique de Marseille" },
-  { src: "/trust/arena.png", alt: "Arena Futuroscope" },
-  { src: "/trust/liguge.png", alt: "La Ligugéenne" },
-  { src: "/trust/catp.png", alt: "Crédit Agricole Touraine Poitou" },
-  { src: "/trust/stade-rochelais.png", alt: "Stade Rochelais" },
-  { src: "/trust/marathon.png", alt: "Marathon Poitiers-Futuroscope" },
-  { src: "/trust/district-vienne.png", alt: "District de la Vienne de Football" },
-  { src: "/trust/spvb.png", alt: "Alterna SPVB" },
-  { src: "/trust/soccer-edu.png", alt: "Soccer Edu" },
-  { src: "/trust/formations-football.png", alt: "Formations Football" },
+  { src: "/trust/fff.png", alt: "Fédération Française de Football — FFF", href: "/#projets" },
+  { src: "/trust/om.png", alt: "Olympique de Marseille", href: "/#projets" },
+  { src: "/trust/arena.png", alt: "Arena Futuroscope", href: "/#projets" },
+  { src: "/trust/liguge.png", alt: "La Ligugéenne", href: "/club-ambassadeur" },
+  { src: "/trust/catp.png", alt: "Crédit Agricole Touraine Poitou", href: "/#projets" },
+  { src: "/trust/stade-rochelais.png", alt: "Stade Rochelais", href: "/#projets" },
+  { src: "/trust/marathon.png", alt: "Marathon Poitiers-Futuroscope", href: "/#projets" },
+  { src: "/trust/district-vienne.png", alt: "District de la Vienne de Football", href: "/#projets" },
+  { src: "/trust/spvb.png", alt: "Alterna SPVB", href: "/#projets" },
+  { src: "/trust/soccer-edu.png", alt: "Soccer Edu", href: "/#projets" },
+  { src: "/trust/formations-football.png", alt: "Formations Football", href: "/#projets" },
 ];
 
 export default function TrustBand() {
@@ -19,16 +21,22 @@ export default function TrustBand() {
         <p className="text-center text-[10px] uppercase tracking-[0.25em] text-white/40">
           Ils nous ont fait confiance
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-10 md:mt-12 md:gap-x-16">
+        <div className="mt-10 flex items-center gap-x-12 overflow-x-auto pb-2 md:mt-12 md:justify-center md:gap-x-16 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {LOGOS.map((l) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Link
               key={l.src}
-              src={l.src}
-              alt={l.alt}
-              loading="lazy"
-              className="h-11 w-auto opacity-75 transition hover:opacity-100 md:h-14"
-            />
+              href={l.href}
+              className="shrink-0"
+              aria-label={l.alt}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={l.src}
+                alt={l.alt}
+                loading="lazy"
+                className="h-11 w-auto max-w-none opacity-75 transition hover:opacity-100 md:h-14"
+              />
+            </Link>
           ))}
         </div>
       </div>

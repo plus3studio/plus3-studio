@@ -34,12 +34,12 @@ const DOMAINES = [
     players: true,
     desc: "Personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux pour les athlètes.",
     img: "/projects/01-Olympique-de-marseille/cover.jpg",
-    top: true,
+    top: false,
   },
   {
     title: "Marques & événements",
     players: false,
-    desc: "Les lieux et les événements du sport et de l'événementiel : films de marque, captation, reportages et aftermovies.",
+    desc: "Captation, films de marque, reportages et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
     img: "/agence/marques.jpg",
     top: false,
   },
@@ -62,11 +62,17 @@ const EQUIPE = [
   {
     name: "Christopher Debenham",
     role: "Direction créative · Vidéo & community management",
+    photo: "/team/Christopher.jpg",
   },
-  { name: "Alexis Patient", role: "Photographie & partenariats" },
+  {
+    name: "Alexis Patient",
+    role: "Photographie & partenariats",
+    photo: "/team/alexis.jpg",
+  },
   {
     name: "Un réseau de freelances",
     role: "Graphistes et photographes sélectionnés pour renforcer chaque projet",
+    photo: null,
   },
 ];
 
@@ -238,14 +244,33 @@ export default function AgencePage() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             L&rsquo;équipe
           </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {EQUIPE.map((m) => (
               <div
                 key={m.name}
-                className="rounded-2xl border border-bone-200 bg-bone-50 p-6"
+                className="overflow-hidden rounded-2xl border border-bone-200 bg-bone-50"
               >
-                <p className="text-lg font-bold text-ink">{m.name}</p>
-                <p className="mt-2 text-sm text-ink/70">{m.role}</p>
+                <div className="relative aspect-[4/5] bg-ink">
+                  {m.photo ? (
+                    <Image
+                      src={m.photo}
+                      alt={m.name}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center p-6 text-center">
+                      <span className="font-display text-3xl italic text-lime">
+                        Réseau +3 Studio
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-5">
+                  <p className="text-lg font-bold text-ink">{m.name}</p>
+                  <p className="mt-1 text-sm text-ink/70">{m.role}</p>
+                </div>
               </div>
             ))}
           </div>
