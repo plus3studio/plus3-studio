@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Projects from "@/components/Projects";
+import { getProjects } from "@/lib/getProjects";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
@@ -78,6 +80,7 @@ const EQUIPE = [
 
 export default function AgencePage() {
   const logoSrc = getLogoPath();
+  const projects = getProjects();
 
   return (
     <main className="relative min-h-screen bg-white">
@@ -276,6 +279,9 @@ export default function AgencePage() {
           </div>
         </div>
       </section>
+
+      {/* Aperçu projets (cross-link) */}
+      <Projects projects={projects} preview moreHref="/projets" />
 
       {/* CTA */}
       <section className="bg-ink py-20 text-center text-white md:py-28">

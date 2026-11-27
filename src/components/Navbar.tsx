@@ -14,7 +14,7 @@ type NavLink = {
 
 const links: NavLink[] = [
   { label: "L'agence", href: "/agence" },
-  { label: "Nos projets", href: "/#projets" },
+  { label: "Nos projets", href: "/projets" },
   { label: "Programme Club Ambassadeur", href: "/club-ambassadeur", variant: "volt" },
   { label: "+3 Players", href: "/plus3-players", variant: "players" },
   { label: "Contact", href: "/#contact", variant: "cta" },

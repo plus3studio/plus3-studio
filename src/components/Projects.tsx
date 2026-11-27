@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 import {
   projectFilters,
@@ -145,7 +146,17 @@ function ProjectCard({
   );
 }
 
-export default function Projects({ projects }: { projects: Project[] }) {
+export default function Projects({
+  projects,
+  preview = false,
+  moreHref = "/projets",
+  showHeading = true,
+}: {
+  projects: Project[];
+  preview?: boolean;
+  moreHref?: string;
+  showHeading?: boolean;
+}) {
   const [active, setActive] = useState<Filter>("Tous");
   const [page, setPage] = useState(0);
   const [openProject, setOpenProject] = useState<Project | null>(null);
@@ -164,7 +175,9 @@ export default function Projects({ projects }: { projects: Project[] }) {
   }, []);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const visible = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  const visible = preview
+    ? filtered.slice(0, 3)
+    : filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
   const canPrev = page > 0;
   const canNext = page < totalPages - 1;
 
@@ -176,17 +189,23 @@ export default function Projects({ projects }: { projects: Project[] }) {
       >
         <div className="mx-auto max-w-7xl px-5 md:px-10">
           {/* Heading */}
-          <div className="reveal mb-8 flex flex-col gap-3 md:mb-16 md:gap-4">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-white/50">
-              Portfolio
-            </span>
-            <h2 className="text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl md:text-6xl">
-              Nos projets
-            </h2>
-          </div>
+          {showHeading && (
+            <div className="reveal mb-8 flex flex-col gap-3 md:mb-16 md:gap-4">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-white/50">
+                Portfolio
+              </span>
+              <h2 className="text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl md:text-6xl">
+                Nos projets
+              </h2>
+            </div>
+          )}
 
-          {/* Filters — scrollable on mobile */}
-          <div className="reveal reveal-delay-1 -mx-5 mb-8 overflow-x-auto px-5 md:mx-0 md:mb-12 md:overflow-visible md:px-0">
+          {/* Filters — scrollable on mobile (masqués en aperçu) */}
+          <div
+            className={`reveal reveal-delay-1 -mx-5 mb-8 overflow-x-auto px-5 md:mx-0 md:mb-12 md:overflow-visible md:px-0 ${
+              preview ? "hidden" : ""
+            }`}
+          >
             <div className="flex gap-2.5 pb-2 md:flex-wrap md:gap-3 md:pb-0">
               {projectFilters.map((filter) => {
                 const isActive = active === filter;
@@ -228,8 +247,23 @@ export default function Projects({ projects }: { projects: Project[] }) {
             </div>
           )}
 
+          {/* Aperçu : bouton vers tous les projets */}
+          {preview && (
+            <div className="mt-10 flex justify-center md:mt-14">
+              <Link
+                href={moreHref}
+                className="group inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink transition hover:brightness-95"
+              >
+                Voir tous nos projets
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </Link>
+            </div>
+          )}
+
           {/* Navigation arrows below the grid */}
-          {totalPages > 1 && (
+          {!preview && totalPages > 1 && (
             <div className="mt-8 flex items-center justify-center gap-4 md:mt-12">
               <button
                 type="button"

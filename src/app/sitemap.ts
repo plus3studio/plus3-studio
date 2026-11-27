@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: "", priority: 1 },
     { path: "/agence", priority: 0.9 },
+    { path: "/projets", priority: 0.9 },
     { path: "/plus3-players", priority: 0.9 },
     { path: "/club-ambassadeur", priority: 0.9 },
     { path: "/mentions-legales", priority: 0.3 },

@@ -23,7 +23,7 @@ export default function Home() {
       <Hero />
       <TrustBand />
       <AgenceBand />
-      <Projects projects={projects} />
+      <Projects projects={projects} preview moreHref="/projets" />
       <ClubAmbassadeurBanner />
       <Team />
       <PlayersBanner />
