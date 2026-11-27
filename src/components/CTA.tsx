@@ -92,6 +92,23 @@ export default function CTA() {
           </p>
         </div>
 
+        {/* Message de confirmation / erreur */}
+        {sent && (
+          <div className="reveal mt-10 flex items-center gap-3 rounded-2xl border border-lime/40 bg-lime/10 px-5 py-4 text-sm font-medium text-ink">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-lime text-ink">
+              &#10003;
+            </span>
+            Merci ! Votre message a bien &eacute;t&eacute; envoy&eacute;. On revient vers
+            vous rapidement.
+          </div>
+        )}
+        {error && (
+          <div className="mt-10 rounded-2xl border border-red-300 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
+            Une erreur est survenue. R&eacute;essayez, ou &eacute;crivez-nous
+            directement &agrave; {site.email}.
+          </div>
+        )}
+
         {/* Form */}
         <form
           onSubmit={handleSubmit}

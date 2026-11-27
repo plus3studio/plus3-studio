@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/data/site";
+import SocialIcons from "@/components/SocialIcons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -18,23 +19,7 @@ export default function Footer() {
         </div>
 
         {/* Socials */}
-        <ul className="flex flex-wrap items-center gap-6">
-          {site.socials.map((s) => (
-            <li key={s.label}>
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 text-xs uppercase tracking-wider text-white/60 transition hover:text-lime"
-              >
-                {s.label}
-                <span className="opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">
-                  ↗
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <SocialIcons variant="light" />
 
         {/* Legal */}
         <Link

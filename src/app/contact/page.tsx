@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,8 +7,8 @@ import CTA from "@/components/CTA";
 import RevealMount from "@/components/RevealMount";
 import FranceMap from "@/components/FranceMap";
 import FaqAccordion, { type FaqItem } from "@/components/FaqAccordion";
+import SocialIcons from "@/components/SocialIcons";
 import { getLogoPath } from "@/lib/getLogo";
-import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact — Agence vidéo & photo sport près de Poitiers",
@@ -66,10 +67,11 @@ const faqJsonLd = {
 };
 
 const TRAJETS = [
-  { ville: "Paris", temps: "≈ 1h30 en TGV" },
-  { ville: "Bordeaux", temps: "≈ 1h en TGV" },
-  { ville: "Nantes", temps: "≈ 2h en train" },
-  { ville: "International", temps: "Espagne et ailleurs" },
+  { ville: "Paris", temps: "1h30 en TGV" },
+  { ville: "Bordeaux", temps: "1h en TGV" },
+  { ville: "Nantes", temps: "~2h" },
+  { ville: "Lyon", temps: "train ou avion" },
+  { ville: "International", temps: "Espagne & ailleurs" },
 ];
 
 export default function ContactPage() {
@@ -108,19 +110,9 @@ export default function ContactPage() {
           </p>
 
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center">
-            {/* Colonne gauche : coordonnées */}
+            {/* Colonne gauche : localisation + réseaux */}
             <div>
               <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">
-                Par email
-              </p>
-              <a
-                href={`mailto:${site.email}`}
-                className="mt-2 inline-block text-2xl font-semibold text-white transition hover:text-lime md:text-3xl"
-              >
-                {site.email}
-              </a>
-
-              <p className="mt-10 text-[10px] uppercase tracking-[0.25em] text-white/40">
                 Où nous trouver
               </p>
               <p className="mt-3 max-w-md text-base leading-relaxed text-white/70">
@@ -130,34 +122,22 @@ export default function ContactPage() {
                 {" "}et à l&rsquo;international.
               </p>
 
-              <div className="mt-6 grid max-w-md grid-cols-2 gap-3">
+              <div className="mt-6 flex max-w-md flex-wrap gap-2">
                 {TRAJETS.map((t) => (
-                  <div
+                  <span
                     key={t.ville}
-                    className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3"
+                    className="inline-flex items-baseline gap-1.5 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2"
                   >
-                    <p className="text-sm font-semibold text-white">{t.ville}</p>
-                    <p className="mt-0.5 text-xs text-white/55">{t.temps}</p>
-                  </div>
+                    <span className="text-sm font-semibold text-white">{t.ville}</span>
+                    <span className="text-xs text-white/50">{t.temps}</span>
+                  </span>
                 ))}
               </div>
 
               <p className="mt-10 text-[10px] uppercase tracking-[0.25em] text-white/40">
                 Sur les réseaux
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {site.socials.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/75 transition hover:border-lime hover:text-lime"
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </div>
+              <SocialIcons variant="light" className="mt-4" />
             </div>
 
             {/* Colonne droite : carte France */}
@@ -171,49 +151,74 @@ export default function ContactPage() {
       {/* DEUX ENTRÉES */}
       <section className="bg-bone-50 py-16 md:py-20">
         <div className="mx-auto grid max-w-5xl gap-5 px-5 md:grid-cols-2 md:px-10">
-          <a
-            href="#contact"
-            className="group rounded-2xl border border-bone-200 bg-white p-7 transition hover:border-lime hover:shadow-sm"
-          >
-            <p className="text-lg font-bold text-ink">
-              Club, institution ou marque
-            </p>
-            <p className="mt-2 text-sm text-ink/65">
-              Communication, identité, couverture de match, contenu de saison : on
-              construit votre image dans le sport. Remplissez le formulaire ci-dessous.
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-ink">
-              Décrire mon projet
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </span>
-          </a>
-          <Link
-            href="/plus3-players"
-            className="group rounded-2xl border border-bone-200 bg-white p-7 transition hover:border-red-600 hover:shadow-sm"
-          >
-            <p className="flex items-center gap-2 text-lg font-bold text-ink">
-              Vous êtes un joueur
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/players-logo.png" alt="+3 Players" className="h-4 w-auto" />
-            </p>
-            <p className="mt-2 text-sm text-ink/65">
-              Personal branding, contenu réseaux, visuels match day et vidéo lifestyle :
-              découvrez l&rsquo;offre +3 Players dédiée aux athlètes.
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-red-600">
-              Découvrir +3 Players
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </span>
-          </Link>
+          {/* Club / institution / marque */}
+          <div className="group flex flex-col overflow-hidden rounded-3xl border border-bone-200 bg-white transition hover:shadow-md">
+            <div className="relative aspect-[16/9] overflow-hidden">
+              <Image
+                src="/illustrations/tribune-fumis.jpg"
+                alt="Ambiance de match"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+            </div>
+            <div className="flex flex-1 flex-col p-7">
+              <p className="text-lg font-bold text-ink">Club, institution ou marque</p>
+              <p className="mt-2 flex-1 text-sm text-ink/65">
+                Communication, identité, couverture de match, contenu de saison : on
+                construit votre image dans le sport.
+              </p>
+              <a
+                href="#contact"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
+              >
+                Décrire mon projet &rarr;
+              </a>
+            </div>
+          </div>
+
+          {/* Joueur */}
+          <div className="group flex flex-col overflow-hidden rounded-3xl border border-bone-200 bg-white transition hover:shadow-md">
+            <div className="relative aspect-[16/9] overflow-hidden">
+              <Image
+                src="/agence/joueur-auba.jpg"
+                alt="Joueur accompagné par +3 Players"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                style={{ objectPosition: "50% 25%" }}
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+            </div>
+            <div className="flex flex-1 flex-col p-7">
+              <p className="flex items-center gap-2 text-lg font-bold text-ink">
+                Vous êtes un joueur
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/players-logo-dark.png" alt="+3 Players" className="h-5 w-auto" />
+              </p>
+              <p className="mt-2 flex-1 text-sm text-ink/65">
+                Personal branding, contenu réseaux, visuels match day et vidéo
+                lifestyle : l&rsquo;offre +3 Players est faite pour vous.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-red-500"
+                >
+                  Nous contacter &rarr;
+                </a>
+                <Link
+                  href="/plus3-players"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-bone-200 px-6 py-3 text-sm font-semibold text-ink transition hover:border-ink"
+                >
+                  Découvrir +3 Players
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* FORMULAIRE (id=contact, réutilise le bloc existant) */}
-      <CTA />
 
       {/* FAQ */}
       <section className="bg-white py-20 md:py-28">
@@ -227,6 +232,9 @@ export default function ContactPage() {
           <FaqAccordion items={FAQ} />
         </div>
       </section>
+
+      {/* FORMULAIRE (id=contact) */}
+      <CTA />
 
       <Footer />
     </main>
