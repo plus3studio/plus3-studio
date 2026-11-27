@@ -4,6 +4,8 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
+import DomainesAgence from "@/components/DomainesAgence";
+import RevealMount from "@/components/RevealMount";
 import { getProjects } from "@/lib/getProjects";
 import { getLogoPath } from "@/lib/getLogo";
 
@@ -21,30 +23,6 @@ const TROIS = [
   { v: "3-5-2", l: "un système, une organisation, une identité" },
   { v: "Hat-trick", l: "les 3 buts qui font entrer dans la légende" },
   { v: "+3", l: "l'écart qu'on veut créer pour nos clients" },
-];
-
-const DOMAINES = [
-  {
-    title: "Clubs & institutions",
-    players: false,
-    desc: "Identité visuelle, contenu de saison, couverture de match et stratégie de communication, du club amateur au niveau national.",
-    img: "/projects/02-Stade-Rochelais/cover.jpg",
-    top: true,
-  },
-  {
-    title: "Joueurs",
-    players: true,
-    desc: "Personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux pour les athlètes.",
-    img: "/projects/04-Alterna-SPVB/cover.jpg",
-    top: false,
-  },
-  {
-    title: "Marques & événements",
-    players: false,
-    desc: "Captation, films de marque, reportages et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
-    img: "/projects/05-CATP/cover.jpg",
-    top: false,
-  },
 ];
 
 const SERVICES = [
@@ -71,9 +49,9 @@ const EQUIPE = [
     role: "Photographie & partenariats",
     photo: "/team/alexis.jpg",
   },
-  {
+    {
     name: "Un réseau de freelances",
-    role: "Graphistes et photographes sélectionnés pour renforcer chaque projet",
+    role: "Graphistes, photographes, motion designers, développeurs web… On a tous les profils sous la main et on mobilise le bon selon chaque projet.",
     photo: null,
   },
 ];
@@ -84,10 +62,24 @@ export default function AgencePage() {
 
   return (
     <main className="relative min-h-screen bg-white">
+      <RevealMount />
       <Navbar logoSrc={logoSrc} />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
+        <Image
+          src="/illustrations/plus3-poitiers.jpg"
+          alt="+3 Studio en tournage"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectPosition: "50% 35%" }}
+          className="object-cover opacity-25"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/85 to-[#0a0a0a]/70"
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-lime/15 blur-[130px]"
@@ -97,13 +89,13 @@ export default function AgencePage() {
           className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-lime to-transparent"
         />
         <div className="relative mx-auto max-w-5xl px-5 py-28 md:px-10 md:py-40">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-lime">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-lime">
             L&rsquo;agence · 360° sports agency
           </span>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
+          <h1 className="reveal reveal-delay-1 mt-4 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl">
             L&rsquo;agence créative qui fait passer un cap au sport.
           </h1>
-          <p className="mt-6 max-w-2xl text-base text-white/60 md:text-lg">
+          <p className="reveal reveal-delay-2 mt-6 max-w-2xl text-base text-white/60 md:text-lg">
             +3 Studio est une agence de communication dédiée au sport, basée près de
             Poitiers. On travaille la vidéo, la photo, la direction créative et le
             graphisme pour les joueurs pros, les clubs, les institutions et les marques,
@@ -141,30 +133,47 @@ export default function AgencePage() {
       </section>
 
       {/* LE CHIFFRE 3 */}
-      <section className="bg-ink py-20 text-white md:py-28">
-        <div className="mx-auto max-w-5xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-lime">
-            Pourquoi +3
-          </span>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-5xl">
-            Le 3 est partout dans le sport. Nous aussi.
-          </h2>
-          <p className="mt-5 max-w-2xl text-white/60">
-            Le 3, c&rsquo;est le chiffre qui fait basculer un match, qui structure une
-            équipe, qui fait entrer dans la légende. C&rsquo;est aussi le nôtre : trois
-            fondateurs, trois domaines d&rsquo;activité, et l&rsquo;envie de toujours
-            créer un écart. +3.
-          </p>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {TROIS.map((t) => (
+      <section className="relative overflow-hidden bg-ink py-20 text-white md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-lime/10 blur-[120px]"
+        />
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* Colonne gauche : intro + grand 3 */}
+          <div className="relative">
+            <span className="reveal text-[10px] uppercase tracking-[0.25em] text-lime">
+              Pourquoi +3
+            </span>
+            <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
+              Le 3 est partout dans le sport.
+              <span className="block text-lime">Nous aussi.</span>
+            </h2>
+            <p className="reveal reveal-delay-2 mt-6 max-w-md text-white/60">
+              Le chiffre qui fait basculer un match, qui structure une équipe, qui fait
+              entrer dans la légende. C&rsquo;est aussi le nôtre : trois fondateurs,
+              trois domaines, et l&rsquo;envie de toujours créer un écart.
+            </p>
+            <div aria-hidden className="pointer-events-none relative mt-6 hidden lg:block">
+              <span className="font-display text-[13rem] italic leading-none text-lime">
+                +3
+              </span>
+            </div>
+          </div>
+
+          {/* Colonne droite : les sens du 3, alignés et animés */}
+          <div className="flex flex-col justify-center">
+            {TROIS.map((t, i) => (
               <div
                 key={t.l}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                className="reveal group flex items-center gap-5 border-b border-white/10 py-5 first:border-t"
+                style={{ transitionDelay: `${i * 70}ms` }}
               >
-                <p className="font-display text-3xl italic text-lime md:text-4xl">
+                <span className="w-24 shrink-0 font-display text-2xl italic text-lime md:text-3xl">
                   {t.v}
-                </p>
-                <p className="mt-2 text-sm text-white/70">{t.l}</p>
+                </span>
+                <span className="text-sm text-white/70 transition-colors duration-300 group-hover:text-white md:text-base">
+                  {t.l}
+                </span>
               </div>
             ))}
           </div>
@@ -180,60 +189,43 @@ export default function AgencePage() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             3 domaines d&rsquo;activité
           </h2>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {DOMAINES.map((d) => (
-              <div
-                key={d.title}
-                className="relative overflow-hidden rounded-2xl bg-ink"
-              >
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={d.img}
-                    alt={d.title}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className={`object-cover ${d.top ? "object-top" : "object-center"}`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-                </div>
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                  <h3 className="flex items-center gap-2 text-lg font-bold">
-                    {d.title}
-                    {d.players && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src="/players-logo.png"
-                        alt="+3 Players"
-                        className="h-4 w-auto"
-                      />
-                    )}
-                  </h3>
-                  <p className="mt-1 text-sm text-white/75">{d.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="mt-4 max-w-2xl text-base text-ink/60">
+            Cliquez sur un domaine pour voir en détail ce qu&rsquo;on y fait.
+          </p>
+          <DomainesAgence />
         </div>
       </section>
 
       {/* NOS SERVICES */}
       <section className="bg-bone-50 py-20 text-ink md:py-28">
-        <div className="mx-auto max-w-5xl px-5 md:px-10">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
-            Ce qu&rsquo;on fait
-          </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Nos services
-          </h2>
-          <div className="mt-10 flex flex-wrap gap-3">
-            {SERVICES.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-bone-200 bg-white px-5 py-2.5 text-sm font-medium text-ink"
-              >
-                {s}
-              </span>
-            ))}
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-[1.2fr_1fr] md:px-10">
+          <div>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
+              Ce qu&rsquo;on fait
+            </span>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+              Nos services
+            </h2>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {SERVICES.map((s) => (
+                <span
+                  key={s}
+                  className="rounded-full border border-bone-200 bg-white px-5 py-2.5 text-sm font-medium text-ink"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink">
+            <Image
+              src="/illustrations/videaste-rode.jpg"
+              alt="+3 Studio en tournage vidéo"
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              style={{ objectPosition: "50% 30%" }}
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -263,15 +255,21 @@ export default function AgencePage() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-ink">
-                      <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/15">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src="/logo.png"
-                          alt="+3 Studio"
-                          className="h-8 w-auto invert"
-                        />
-                      </div>
+                    <div className="relative flex h-full w-full items-center justify-center bg-ink">
+                      <span
+                        aria-hidden
+                        className="absolute inset-4 rounded-2xl ring-2 ring-lime"
+                      />
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/15 blur-[60px]"
+                      />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/logo.png"
+                        alt="+3 Studio"
+                        className="relative h-14 w-auto px-6 invert md:h-16"
+                      />
                     </div>
                   )}
                 </div>
