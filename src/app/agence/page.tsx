@@ -68,13 +68,13 @@ export default function AgencePage() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
         <Image
-          src="/illustrations/plus3-poitiers.jpg"
-          alt="+3 Studio en tournage"
+          src="/illustrations/agence-header.jpg"
+          alt="+3 Studio en couverture de l'équipe de France de futsal"
           fill
           priority
           sizes="100vw"
-          style={{ objectPosition: "50% 35%" }}
-          className="object-cover opacity-25"
+          style={{ objectPosition: "50% 40%" }}
+          className="object-cover opacity-30"
         />
         <div
           aria-hidden
@@ -128,6 +128,15 @@ export default function AgencePage() {
               à exister en dehors du terrain. Faire parler d&rsquo;un territoire bien
               au-delà de ses frontières.
             </p>
+          </div>
+          <div className="reveal relative mt-10 aspect-[3/2] overflow-hidden rounded-2xl bg-ink">
+            <Image
+              src="/illustrations/equipe-photocall.jpg"
+              alt="Les fondateurs de +3 Studio"
+              fill
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -190,42 +199,43 @@ export default function AgencePage() {
             3 domaines d&rsquo;activité
           </h2>
           <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-base text-ink/60">
-            Cliquez sur un domaine pour voir en détail ce qu&rsquo;on y fait.
+            Clubs, joueurs, marques : trois univers, une même exigence de création
+            au service de votre image.
           </p>
           <DomainesAgence />
         </div>
       </section>
 
       {/* NOS SERVICES */}
-      <section className="bg-bone-50 py-20 text-ink md:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-[1.2fr_1fr] md:px-10">
-          <div>
-            <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
-              Ce qu&rsquo;on fait
-            </span>
-            <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-              Nos services
-            </h2>
-            <div className="mt-10 flex flex-wrap gap-3">
-              {SERVICES.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-full border border-bone-200 bg-white px-5 py-2.5 text-sm font-medium text-ink"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink">
-            <Image
-              src="/illustrations/videaste-rode.jpg"
-              alt="+3 Studio en tournage vidéo"
-              fill
-              sizes="(min-width: 768px) 40vw, 100vw"
-              style={{ objectPosition: "50% 30%" }}
-              className="object-cover"
-            />
+      <section className="relative overflow-hidden bg-ink py-20 text-white md:py-28">
+        <Image
+          src="/illustrations/chris-basket.jpg"
+          alt="+3 Studio en tournage"
+          fill
+          sizes="100vw"
+          style={{ objectPosition: "80% 50%" }}
+          className="object-cover opacity-40"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60"
+        />
+        <div className="relative mx-auto max-w-6xl px-5 md:px-10">
+          <span className="reveal text-[10px] uppercase tracking-[0.25em] text-lime">
+            Ce qu&rsquo;on fait
+          </span>
+          <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+            Nos services
+          </h2>
+          <div className="reveal reveal-delay-2 mt-10 flex max-w-3xl flex-wrap gap-3">
+            {SERVICES.map((s) => (
+              <span
+                key={s}
+                className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm"
+              >
+                {s}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -255,20 +265,20 @@ export default function AgencePage() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="relative flex h-full w-full items-center justify-center bg-ink">
+                    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-ink">
                       <span
                         aria-hidden
-                        className="absolute inset-4 rounded-2xl ring-2 ring-lime"
+                        className="pointer-events-none absolute h-60 w-60 rounded-full border border-dashed border-lime/25"
                       />
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/15 blur-[60px]"
+                        className="pointer-events-none absolute h-44 w-44 rounded-full bg-lime/10 blur-[55px]"
                       />
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="/logo.png"
+                        src="/reseau.png"
                         alt="+3 Studio"
-                        className="relative h-14 w-auto px-6 invert md:h-16"
+                        className="relative h-36 w-36 object-contain md:h-40 md:w-40"
                       />
                     </div>
                   )}

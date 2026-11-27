@@ -18,47 +18,45 @@ type Domaine = {
 const DOMAINES: Domaine[] = [
   {
     title: "Clubs & institutions",
-    teaser:
-      "Identité, contenu et couverture de match, du club amateur au niveau national.",
+    teaser: "De la création d'identité à la couverture de toute une saison.",
     img: "/projects/02-Stade-Rochelais/cover.jpg",
-    pos: "50% 30%",
+    pos: "50% 22%",
     includes: [
-      "Identité visuelle & branding",
-      "Contenu de saison",
-      "Couverture de match & reportages",
-      "Gestion des réseaux sociaux",
-      "Stratégie & relations presse",
+      "Un nouveau logo ou une refonte d'identité visuelle",
+      "Le lancement d'un maillot ou d'une collection",
+      "La couverture d'un match ou d'un événement",
+      "L'annonce d'une recrue ou d'un partenariat",
+      "Le contenu et les réseaux de toute une saison",
     ],
     note: "Du club amateur au niveau national.",
   },
   {
     title: "Joueurs",
     players: true,
-    teaser: "Personal branding, shooting et vidéo pour les athlètes.",
+    teaser: "Construire l'image d'un athlète, sur et en dehors du terrain.",
     img: "/agence/joueur-pavard.jpg",
-    pos: "50% 18%",
+    pos: "50% 8%",
     includes: [
-      "Personal branding & direction artistique",
-      "Shooting photo & vidéo lifestyle",
-      "Visuels match day",
-      "Gestion des réseaux sociaux",
-      "Annonces de transfert & collaborations de marque",
+      "Un shooting de personal branding",
+      "L'annonce d'un transfert ou d'une signature",
+      "Les visuels match day",
+      "Du contenu lifestyle et réseaux",
+      "Une collaboration de marque",
     ],
     note: "Une offre dédiée : +3 Players.",
     href: "/plus3-players",
   },
   {
     title: "Marques & événements",
-    teaser:
-      "Captation, films de marque et aftermovies, dans le sport comme au-delà.",
+    teaser: "Faire vivre une marque ou un événement en image.",
     img: "/agence/arena.jpg",
-    pos: "50% 40%",
+    pos: "50% 95%",
     includes: [
-      "Captation & couverture d'événement",
-      "Films de marque & publicité",
-      "Reportages & aftermovies",
-      "Contenu réseaux",
-      "Corporate & tous secteurs avec CD Studio",
+      "Un film de marque ou une publicité",
+      "La captation d'un événement",
+      "Un aftermovie",
+      "Un reportage",
+      "Une activation terrain et son contenu réseaux",
     ],
     note: "Dans le sport comme au-delà.",
   },
@@ -107,7 +105,7 @@ export default function DomainesAgence() {
                   </h3>
                   <p className="mt-1 text-sm text-white/75">{d.teaser}</p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-lime">
-                    {isOpen ? "Réduire" : "Voir le détail"}
+                    {isOpen ? "Réduire" : "Ce qu'on crée pour eux"}
                     <span className={`transition-transform ${isOpen ? "rotate-180" : ""}`}>
                       ↓
                     </span>
