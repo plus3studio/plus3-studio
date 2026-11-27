@@ -60,10 +60,10 @@ export default function PlayersBanner() {
               <span className="text-red-600">son image.</span>
             </h2>
             <p className="mt-3 max-w-xl text-sm text-white/50 sm:text-base md:mt-4 md:text-lg">
-              Personal branding, shooting photo, vid&eacute;o lifestyle et match,
-              contenus r&eacute;seaux, identit&eacute; visuelle &mdash; +3 Players
-              construit l&rsquo;image des athl&egrave;tes qui veulent se
-              d&eacute;marquer en dehors du terrain.
+              La branche de +3 Studio qui ne s&rsquo;occupe que des joueurs. On construit
+              votre image comme un club construit la sienne : contenu de match, lifestyle
+              et vraie direction artistique, pour exister autant en dehors du terrain que
+              dessus.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export default function PlayersBanner() {
               href={PLAYERS_PAGE}
               className="group inline-flex items-center gap-3 rounded-full bg-red-600 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-red-500 hover:shadow-lg hover:shadow-red-600/25"
             >
-              Découvrir +3 Players
+              Passez un cap avec +3 Players
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
               </span>

@@ -5,16 +5,17 @@ const DOMAINES = [
   {
     title: "Clubs & institutions",
     desc: "Identité, contenu et couverture de match, du club amateur au niveau national.",
-    img: "/projects/01-Olympique-de-marseille/cover.jpg",
+    img: "/projects/02-Stade-Rochelais/cover.jpg",
   },
   {
     title: "Joueurs",
+    players: true,
     desc: "Personal branding, shooting et vidéo pour les athlètes.",
-    img: "/projects/04-Alterna-SPVB/cover.jpg",
+    img: "/projects/01-Olympique-de-marseille/cover.jpg",
   },
   {
     title: "Marques & événements",
-    desc: "Films de marque, captation et aftermovies pour les acteurs du sport.",
+    desc: "Les lieux et les événements du sport et de l'événementiel : films de marque, captation, aftermovies.",
     img: "/projects/06-Arena-Futuroscope/cover.jpg",
   },
 ];
@@ -55,7 +56,17 @@ export default function AgenceBand() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                <h3 className="text-lg font-bold">{d.title}</h3>
+                <h3 className="flex items-center gap-2 text-lg font-bold">
+                  {d.title}
+                  {"players" in d && d.players && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src="/players-logo.png"
+                      alt="+3 Players"
+                      className="h-4 w-auto"
+                    />
+                  )}
+                </h3>
                 <p className="mt-1 text-sm text-white/75">{d.desc}</p>
               </div>
             </div>

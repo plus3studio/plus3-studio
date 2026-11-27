@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
-  title: "+3 Players — L'agence pour les joueurs | +3 Studio",
+  title: "+3 Players — Communication & personal branding pour joueurs",
   description:
     "+3 Players, la branche de +3 Studio dédiée aux joueurs et athlètes : personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux. Packs mensuels, de l'espoir au joueur confirmé.",
   alternates: { canonical: "/plus3-players" },
@@ -126,9 +126,9 @@ export default function Plus3PlayersPage() {
             Chaque joueur mérite <span className="text-red-600">son image.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-sm text-white/60 md:text-lg">
-            Personal branding, shooting photo, vidéo lifestyle et match, contenus
-            réseaux, identité visuelle. +3 Players construit l'image des athlètes qui
-            veulent se démarquer en dehors du terrain.
+            La branche de +3 Studio dédiée aux joueurs. On construit votre image comme un
+            club construit la sienne : contenu de match, lifestyle, direction artistique
+            et réseaux. Pour exister autant en dehors du terrain que dessus.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Link

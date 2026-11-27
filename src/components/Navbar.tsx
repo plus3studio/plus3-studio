@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
@@ -55,8 +56,11 @@ function HoverRing({ id, from, to }: { id: string; from: string; to: string }) {
 }
 
 export default function Navbar({ logoSrc }: NavbarProps) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const isActive = (l: NavLink) => !l.href.includes("#") && pathname === l.href;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -76,7 +80,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
   // Couleurs adaptatives : blanc sur le hero (transparent), sombre quand scrolled
   const isDark = scrolled || open;
 
-  function DesktopLink({ l }: { l: NavLink }) {
+  function DesktopLink({ l, active }: { l: NavLink; active: boolean }) {
     const isRoute = !l.href.includes("#");
     const Comp = isRoute ? Link : "a";
 
@@ -105,6 +109,9 @@ export default function Navbar({ logoSrc }: NavbarProps) {
             alt="+3 Players for pros"
             className="h-6 w-auto md:h-7"
           />
+          {active && (
+            <span className="absolute inset-x-4 bottom-1 h-[3px] rounded-full bg-red-600" />
+          )}
           <HoverRing id="ring-players" from="#ff6a6a" to="#dc2626" />
         </Comp>
       );
@@ -137,7 +144,9 @@ export default function Navbar({ logoSrc }: NavbarProps) {
       <Comp href={l.href} className={`group relative text-sm transition-colors ${color}`}>
         {l.label}
         <span
-          className={`absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full ${underline}`}
+          className={`absolute -bottom-1 left-0 h-px transition-all duration-300 ${
+            active ? "w-full" : "w-0 group-hover:w-full"
+          } ${underline}`}
         />
       </Comp>
     );
@@ -248,7 +257,7 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7 lg:gap-8">
           {links.map((l) => (
-            <DesktopLink key={l.href} l={l} />
+            <DesktopLink key={l.href} l={l} active={isActive(l)} />
           ))}
         </div>
 

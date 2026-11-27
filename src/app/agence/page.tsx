@@ -6,8 +6,7 @@ import Footer from "@/components/Footer";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
-  title:
-    "L'agence — +3 Studio, agence de communication sportive 360° à Poitiers",
+  title: "L'agence — Agence de communication sportive 360° à Poitiers",
   description:
     "+3 Studio est une agence créative dédiée au sport, basée près de Poitiers (Vienne, Nouvelle-Aquitaine). Vidéo, photo, direction créative et graphisme pour les joueurs pros, les clubs, les institutions et les marques du sport, du club amateur au niveau national.",
   alternates: { canonical: "/agence" },
@@ -25,17 +24,20 @@ const TROIS = [
 const DOMAINES = [
   {
     title: "Clubs & institutions",
+    players: false,
     desc: "Identité visuelle, contenu de saison, couverture de match et stratégie de communication, du club amateur au niveau national.",
+    img: "/projects/02-Stade-Rochelais/cover.jpg",
+  },
+  {
+    title: "Joueurs",
+    players: true,
+    desc: "Personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux pour les athlètes.",
     img: "/projects/01-Olympique-de-marseille/cover.jpg",
   },
   {
-    title: "Joueurs — +3 Players",
-    desc: "Personal branding, shooting photo, vidéo lifestyle et match, visuels match day et gestion des réseaux pour les athlètes.",
-    img: "/projects/04-Alterna-SPVB/cover.jpg",
-  },
-  {
     title: "Marques & événements",
-    desc: "Films de marque, captation, reportages et aftermovies pour les acteurs, les lieux et les événements du sport.",
+    players: false,
+    desc: "Les lieux et les événements du sport et de l'événementiel : films de marque, captation, reportages et aftermovies.",
     img: "/projects/06-Arena-Futuroscope/cover.jpg",
   },
 ];
@@ -164,7 +166,7 @@ export default function AgencePage() {
             Pour qui on travaille
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Trois domaines, une même exigence.
+            3 domaines d&rsquo;activité
           </h2>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {DOMAINES.map((d) => (
@@ -183,7 +185,17 @@ export default function AgencePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                  <h3 className="text-lg font-bold">{d.title}</h3>
+                  <h3 className="flex items-center gap-2 text-lg font-bold">
+                    {d.title}
+                    {d.players && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src="/players-logo.png"
+                        alt="+3 Players"
+                        className="h-4 w-auto"
+                      />
+                    )}
+                  </h3>
                   <p className="mt-1 text-sm text-white/75">{d.desc}</p>
                 </div>
               </div>

@@ -48,22 +48,22 @@ export default function ClubAmbassadeurBanner() {
           fronti&egrave;res.
         </p>
 
-        {/* Chiffres clés */}
-        <BanniereStats />
-
-        <p className="mt-8 font-display text-xl italic text-lime sm:text-2xl">
-          Et ce n&rsquo;est pas fini.
-        </p>
-
         <Link
           href="/club-ambassadeur"
-          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink transition-all hover:brightness-95"
+          className="group mt-8 inline-flex items-center gap-3 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink transition-all hover:brightness-95"
         >
           D&eacute;couvrir le projet
           <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
             &rarr;
           </span>
         </Link>
+
+        {/* Chiffres clés */}
+        <BanniereStats />
+
+        <p className="mt-8 font-display text-xl italic text-lime sm:text-2xl">
+          Et ce n&rsquo;est pas fini.
+        </p>
       </div>
     </section>
   );

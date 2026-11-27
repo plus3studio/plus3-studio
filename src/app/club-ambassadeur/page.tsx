@@ -8,8 +8,7 @@ import StatsResultats from "@/components/StatsResultats";
 import { getLogoPath } from "@/lib/getLogo";
 
 export const metadata: Metadata = {
-  title:
-    "Club Ambassadeur +3 Studio — La Ligugéenne Football | Étude de cas",
+  title: "Club Ambassadeur — La Ligugéenne Football | Étude de cas",
   description:
     "Comment +3 Studio a offert une saison de communication de niveau professionnel à La Ligugéenne, club amateur de Régional 2. Nouvelle identité, maillot collector Kappa, 639 584 vues en un mois et une couverture presse internationale (SoccerBible, Footy Headlines, France 3).",
   alternates: { canonical: "/club-ambassadeur" },
