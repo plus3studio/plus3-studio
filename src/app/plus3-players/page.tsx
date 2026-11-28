@@ -75,9 +75,9 @@ const JOUEURS = [
 ];
 
 const OM_REELS = [
-  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "32% 50%", vid: "CYiuvPHRZHc" },
-  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "50% 50%", vid: "tMCmyKcxCeU" },
-  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "55% 50%", vid: "5kxUYk3ZByw" },
+  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "43% 50%", vid: "CYiuvPHRZHc" },
+  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "33% 50%", vid: "tMCmyKcxCeU" },
+  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "60% 50%", vid: "5kxUYk3ZByw" },
 ];
 
 const PACKS = [
@@ -273,18 +273,32 @@ export default function Plus3PlayersPage() {
           </h2>
 
           {/* Ambassadeur — Kandet Diawara */}
-          <div className="mt-10 overflow-hidden rounded-3xl border-2 border-red-600 bg-[#0a0a0a] p-7 md:p-10">
-            <span className="inline-flex items-center gap-2 rounded-full bg-red-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
-              Ambassadeur +3 Players
-            </span>
-            <h3 className="mt-5 text-3xl font-bold md:text-4xl">Kandet Diawara</h3>
-            <p className="mt-2 text-white/60">ESTAC Troyes · Ligue 1</p>
-            <p className="mt-4 max-w-2xl text-white/75">
-              Premier joueur ambassadeur +3 Players. Une saison de contenu de niveau pro,
-              shooting et vidéo sur ses matchs, pour prouver ce que l&rsquo;offre peut
-              faire pour l&rsquo;image d&rsquo;un joueur. Les premiers contenus arrivent
-              en décembre 2026.
-            </p>
+          <div className="mt-10 grid items-stretch gap-0 overflow-hidden rounded-3xl border-2 border-red-600 bg-[#0a0a0a] md:grid-cols-[0.8fr_1.2fr]">
+            <div className="relative min-h-[260px] overflow-hidden">
+              <Image
+                src="/plus3-players/kandet.jpg"
+                alt="Kandet Diawara — ambassadeur +3 Players"
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
+                style={{ objectPosition: "50% 25%" }}
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent md:bg-gradient-to-r" />
+            </div>
+            <div className="p-7 md:p-10">
+              <span className="inline-flex items-center gap-2 rounded-full bg-red-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                Ambassadeur +3 Players
+              </span>
+              <h3 className="mt-5 text-3xl font-bold md:text-4xl">Kandet Diawara</h3>
+              <p className="mt-2 text-white/60">ESTAC Troyes · Ligue 1</p>
+              <p className="mt-4 max-w-2xl text-white/75">
+                Premier joueur à nous faire confiance pour +3 Players. Avec son agent,
+                Kandet nous a confié le développement de son image pour l&rsquo;aider à
+                passer un cap : couverture de ses matchs en photo et en vidéo, direction
+                artistique et contenu réseaux, pour exister autant en dehors du terrain
+                que dessus.
+              </p>
+            </div>
           </div>
 
           {/* Joueurs accompagnés */}

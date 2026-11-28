@@ -30,18 +30,19 @@ const ACTES: Acte[] = [
     num: "Acte I",
     title: "L’Armorial",
     sub: "Logo & identité",
-    desc: "Une nouvelle identité visuelle pour le club, dévoilée le 30 juillet. Un seul visuel de logo a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
+    desc: "Une nouvelle identité dévoilée le 30 juillet. Un club centenaire, plus de cent ans d’histoire : cette identité, on ne l’a pas inventée, on en a hérité. Le blason fait vivre trois âmes — le prestige de Ligugé et de son abbaye, la mémoire industrielle de ses usines, et le cœur populaire du club. Un blason patiné, taillé pour durer. Un seul visuel a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
     media: { kind: "instagram", url: "https://www.instagram.com/p/DbbGjEHjFBJ/" },
   },
   {
     num: "Acte II",
     title: "La Tunique",
     sub: "Le maillot",
-    desc: "Un maillot collector produit avec Kappa, dévoilé le 19 août : nouveau blason, pinstripes et références au carrelage de l’abbaye de Ligugé. Une seule publication a cumulé 76 758 vues.",
+    desc: "Un maillot collector produit avec Kappa, dévoilé le 19 août : nouveau blason, références au carrelage de l’abbaye de Ligugé sur les manches et le bas du maillot, et des lignes qui rappellent le maillot noir et blanc historique du club. Une seule publication a cumulé 76 758 vues.",
     media: { kind: "instagram", url: "https://www.instagram.com/p/DcOB_iFCFVp/" },
     youtube: "k9e4nmq5Xpc",
     gallery: true,
     credit: "Un maillot conçu avec Kappa · direction artistique +3 Studio",
+    link: { label: "Un lancement qui a fait parler", href: "#presse" },
   },
   {
     num: "Acte III",
@@ -61,7 +62,7 @@ const ACTES: Acte[] = [
     num: "Acte V",
     title: "Le Prélude",
     sub: "Lancement de la saison",
-    desc: "Le coup d’envoi de la saison : l’aftermovie du match d’ouverture.",
+    desc: "Le coup d’envoi de la saison : l’aftermovie du match d’ouverture, remporté 2-1. La saison démarre de la meilleure des façons.",
     media: { kind: "youtube", id: "wDk8zQQ1pjg" },
   },
 ];
@@ -176,7 +177,9 @@ export default function ClubAmbassadeurPage() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
             Un choix m&eacute;ticuleux. Apr&egrave;s avoir lu les r&eacute;ponses de
             chaque candidature et visit&eacute; les trois finalistes, La Ligug&eacute;enne
-            s&rsquo;est impos&eacute;e. L&rsquo;annonce, film&eacute;e dans le village, a
+            s&rsquo;est impos&eacute;e : c&rsquo;est son potentiel cr&eacute;atif qui nous
+            a s&eacute;duits, le terrain id&eacute;al pour montrer ce que le programme
+            peut faire. L&rsquo;annonce, film&eacute;e dans le village, a
             r&eacute;v&eacute;l&eacute; le club choisi pour l&rsquo;&eacute;dition
             2026-2027.
           </p>
@@ -229,7 +232,7 @@ export default function ClubAmbassadeurPage() {
       </section>
 
       {/* LA PRESSE */}
-      <section className="bg-bone-50 py-20 md:py-28">
+      <section id="presse" className="scroll-mt-24 bg-bone-50 py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-5 md:px-10">
           <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Ils en parlent

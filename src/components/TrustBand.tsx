@@ -8,7 +8,7 @@ const LOGOS = [
   { src: "/trust/catp.png", alt: "Crédit Agricole Touraine Poitou", href: "/projets#projet-CATP" },
   { src: "/trust/stade-rochelais.png", alt: "Stade Rochelais", href: "/projets#projet-Stade-Rochelais" },
   { src: "/trust/marathon.png", alt: "Marathon Poitiers-Futuroscope", href: "/projets#projet-Marathon-Poitiers-Futuroscope" },
-  { src: "/trust/district-vienne.png", alt: "District de la Vienne de Football", href: "/club-ambassadeur" },
+  { src: "/trust/district-vienne.png", alt: "District de la Vienne de Football", href: "/projets#projet-EDF-Futsal" },
   { src: "/trust/spvb.png", alt: "Alterna SPVB", href: "/projets#projet-Alterna-SPVB" },
   // logo large sur 2 lignes : hauteur réduite pour une surface comparable aux autres
   { src: "/trust/formations-football.png", alt: "Formation Football", href: "/projets#projet-Formations-Football", cls: "h-6 md:h-8" },

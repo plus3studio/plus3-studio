@@ -52,7 +52,7 @@ const EQUIPE = [
   },
     {
     name: "Un réseau de créatifs",
-    role: "Graphistes, photographes, motion designers, développeurs web… On a tous les profils sous la main et on mobilise le bon selon chaque projet.",
+    role: "Graphistes, photographes, monteurs, motion designers, développeurs : on réunit tous les profils et on mobilise le bon selon chaque projet.",
     photo: null,
   },
 ];
@@ -63,21 +63,21 @@ const PRESSE = [
     outlet: "SoccerBible",
     note: "International",
     img: "/cas-ligugeenne/presse/01.jpg",
-    desc: "Le maillot collector de La Ligugéenne repéré par le média foot international, aux côtés des plus grands clubs.",
+    desc: "Le maillot de La Ligugéenne raconté par l'une des références mondiales du maillot de football.",
     href: "#",
   },
   {
     outlet: "Footy Headlines",
     note: "International",
     img: "/cas-ligugeenne/presse/03.jpg",
-    desc: "La tunique de ce club de Régional 2 mise en avant sur la référence mondiale du maillot de football.",
+    desc: "La tunique d'un club de Régional 2 mise en avant sur la référence mondiale du maillot de football.",
     href: "#",
   },
   {
     outlet: "Football Shirt Culture",
     note: "International",
     img: "/cas-ligugeenne/presse/04.jpg",
-    desc: "Un club amateur français dans les pages d'un média spécialisé suivi par des passionnés du monde entier.",
+    desc: "Un club amateur français dans les pages d'un média suivi par des passionnés du monde entier.",
     href: "#",
   },
   {
@@ -91,7 +91,7 @@ const PRESSE = [
     outlet: "France 3 Nouvelle-Aquitaine",
     note: "France",
     img: "/cas-ligugeenne/presse/06.jpg",
-    desc: "Reportage télé sur La Ligugéenne et la saison de communication offerte par +3 Studio.",
+    desc: "La chaîne régionale revient sur La Ligugéenne et la saison de communication signée +3 Studio.",
     href: "#",
   },
   {
@@ -164,9 +164,9 @@ export default function AgencePage() {
             <p>
               Tout commence dans un club de football semi-pro, là où se croisent celles
               et ceux qui deviendront les fondateurs de +3 Studio. Même passion du sport,
-              même constat : les joueurs et les clubs qui travaillent dur sur le terrain
-              n&rsquo;ont presque jamais, à côté, une communication à la hauteur de ce
-              qu&rsquo;ils valent.
+              même constat : sur le terrain, les clubs et les joueurs donnent tout. En
+              dehors, leur image ne suit pas toujours, loin de ce qu&rsquo;ils valent
+              vraiment.
             </p>
             <p>
               De cette idée est née une agence : mettre un niveau de création
@@ -316,7 +316,11 @@ export default function AgencePage() {
                     <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-ink">
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute h-60 w-60 rounded-full border border-dashed border-lime/25"
+                        className="pointer-events-none absolute h-64 w-64 rounded-full border border-dashed border-lime/30"
+                      />
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute h-48 w-48 rounded-full border border-lime/50"
                       />
                       <span
                         aria-hidden
@@ -324,9 +328,9 @@ export default function AgencePage() {
                       />
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="/reseau.png"
+                        src="/plus3-mark-white.png"
                         alt="+3 Studio"
-                        className="relative h-36 w-36 object-contain md:h-40 md:w-40"
+                        className="relative h-28 w-auto object-contain md:h-32"
                       />
                     </div>
                   )}
@@ -351,8 +355,7 @@ export default function AgencePage() {
             Ils ont parlé de nous
           </h2>
           <p className="reveal reveal-delay-2 mt-4 max-w-2xl text-base text-ink/60">
-            Nos projets repris par la presse spécialisée, en France et à
-            l&rsquo;international.
+            Nos projets repris par la presse, en France et à l&rsquo;international.
           </p>
 
           <PresseCarousel items={PRESSE} />

@@ -22,7 +22,7 @@ const CAS: Cas[] = [
   {
     client: "La Ligugéenne · Club Ambassadeur",
     title: "Faire exister un club amateur comme un club pro",
-    pitch: "Une identité complète, pensée dans l'histoire du club et de son village.",
+    pitch: "Un renouveau complet, qui puise dans l'identité du club et de son village.",
     cover: "/cas-ligugeenne/maillot-seul.jpg",
     pos: "50% 40%",
     cta: { href: "/club-ambassadeur", label: "En savoir plus sur le projet" },
@@ -47,53 +47,53 @@ const CAS: Cas[] = [
   },
   {
     client: "Olympique de Marseille",
-    title: "Le maillot dans la ville",
+    title: "L'OM dans la ville",
     pitch: "Une campagne lifestyle qui sort le maillot du stade.",
     cover: "/projects/01-Olympique-de-marseille/cas-cover.jpg",
-    pos: "50% 60%",
+    pos: "50% 50%",
     cta: { href: "/projets#projet-Olympique-de-marseille", label: "Voir le projet" },
     details: [
       {
         label: "La demande",
-        text: "Mettre en scène les maillots de l'OM au-delà du terrain, dans l'ADN de la ville de Marseille.",
-      },
-      {
-        label: "L'objectif",
-        text: "Incarner le lien entre le club et sa ville, produire un contenu lifestyle désirable et partageable sur les réseaux.",
+        text: "Produire du contenu authentique autour des maillots de l'OM, au-delà du terrain : montrer la vie à la marseillaise et ce que Marseille est vraiment, une ville entière de passionnés, bien plus qu'un club.",
       },
       {
         label: "L'intention artistique",
-        text: "Confronter le maillot à la lumière, aux décors et à la culture urbaine marseillaise. Une direction photo brute et solaire, loin de l'imagerie classique du match.",
+        text: "Une direction photo solaire, loin de l'imagerie classique du match. Sortir le maillot du stade pour le confronter à la lumière, aux décors et à la culture de Marseille.",
       },
       {
         label: "Les livrables",
-        text: "Série photo lifestyle et formats verticaux pour les réseaux. Photos Alexis Patient, retouche Alix Hubert.",
+        text: "Une série photo lifestyle et des formats verticaux pour les réseaux, plus des rushs vidéo réutilisables tout au long de la saison. Photos Alexis Patient, retouche Alix Hubert.",
+      },
+      {
+        label: "Le résultat",
+        text: "Un contenu qui a vécu bien au-delà de l'annonce, décliné par le club tout au long de la saison.",
       },
     ],
   },
   {
-    client: "Alterna SPVB × Adidas",
+    client: "Alterna SPVB × adidas",
     title: "L'annonce du nouveau maillot",
-    pitch: "Révéler un maillot comme un objet premium, et en faire un événement.",
+    pitch: "Dévoiler le retour historique de l'Alterna SPVB avec adidas, et en faire un événement pour toute la ville.",
     cover: "/projects/04-Alterna-SPVB/cas-cover.jpg",
     pos: "50% 25%",
     cta: { href: "/projets#projet-Alterna-SPVB", label: "Voir le projet" },
     details: [
       {
         label: "La demande",
-        text: "Annoncer le nouveau maillot du Stade Poitevin Volley Beach, en partenariat avec Adidas.",
-      },
-      {
-        label: "L'objectif",
-        text: "Créer l'événement autour de la sortie, valoriser le partenariat équipementier et marquer le passage à un nouveau cap.",
+        text: "Annoncer le nouveau maillot de l'Alterna SPVB, fourni par adidas, en faisant référence aux années dorées du club — ses plus belles victoires, déjà avec adidas comme équipementier — et en mettant toute la ville en lumière. Montrer que le Stade Poitevin Volley-Ball est bien plus qu'un club sportif.",
       },
       {
         label: "L'intention artistique",
-        text: "Traiter le maillot comme un produit premium : mise en scène soignée et teaser qui fait monter l'attente avant la révélation.",
+        text: "Raconter une histoire à travers Poitiers, de la ville jusqu'au club, comme un poème construit sur l'anaphore « Poitiers, c'est… ». Glisser les nouveaux maillots partout dans le film, au milieu de tenues d'époque, et parsemer le récit de clins d'œil cachés, jusqu'à la scène finale au Futuroscope.",
       },
       {
         label: "Les livrables",
-        text: "Vidéo d'annonce, visuels réseaux et shooting.",
+        text: "Une vidéo d'annonce et un teaser.",
+      },
+      {
+        label: "Le résultat",
+        text: "Plus de 100 000 vues et 6 000 interactions en 3 jours. La deuxième annonce maillot la plus vue du département, juste derrière La Ligugéenne — que +3 Studio a aussi réalisée.",
       },
     ],
   },

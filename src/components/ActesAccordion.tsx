@@ -17,6 +17,7 @@ export type Acte = {
   youtube?: string;
   gallery?: boolean;
   credit?: string;
+  link?: { label: string; href: string };
 };
 
 const SHOOTING = ["maillot-2", "maillot-3", "design-1", "design-2"];
@@ -113,6 +114,15 @@ export default function ActesAccordion({ actes }: { actes: Acte[] }) {
                       <div className="mt-5">
                         <YouTube id={a.youtube} title={`La Ligugéenne — ${a.title}`} />
                       </div>
+                    )}
+                    {a.link && (
+                      <a
+                        href={a.link.href}
+                        className="mt-5 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink/85"
+                      >
+                        {a.link.label}
+                        <span>&rarr;</span>
+                      </a>
                     )}
                   </div>
                 </div>

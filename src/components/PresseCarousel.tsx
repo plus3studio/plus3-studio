@@ -8,6 +8,7 @@ export type PresseItem = {
   img: string;
   desc: string;
   href: string;
+  pos?: string;
 };
 
 export default function PresseCarousel({ items }: { items: PresseItem[] }) {
@@ -62,6 +63,7 @@ export default function PresseCarousel({ items }: { items: PresseItem[] }) {
                 src={m.img}
                 alt={`${m.outlet} — +3 Studio`}
                 loading="lazy"
+                style={{ objectPosition: m.pos ?? "50% 0%" }}
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
