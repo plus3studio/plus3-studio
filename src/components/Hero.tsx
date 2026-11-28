@@ -34,7 +34,6 @@ export default function Hero() {
 
   return (
     <section
-      id="top"
       className="relative isolate flex min-h-screen flex-col overflow-hidden bg-ink text-white"
     >
       {/* ── VIDEO BACKGROUND ─────────────────────────────────────────── */}

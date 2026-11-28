@@ -207,6 +207,12 @@ export default function Navbar({ logoSrc }: NavbarProps) {
         <Link
           href="/"
           aria-label={`${site.name} — accueil`}
+          onClick={() => {
+            // Nettoie un éventuel hash résiduel (#contact, #projets…) dans l'URL
+            if (typeof window !== "undefined" && window.location.hash) {
+              history.replaceState(null, "", window.location.pathname);
+            }
+          }}
           className="flex items-center gap-2"
         >
           {logoSrc ? (

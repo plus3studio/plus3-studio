@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StatsResultats from "@/components/StatsResultats";
 import ActesAccordion, { type Acte } from "@/components/ActesAccordion";
+import PresseCarousel from "@/components/PresseCarousel";
 import RevealMount from "@/components/RevealMount";
 import { getLogoPath } from "@/lib/getLogo";
 
@@ -16,13 +17,63 @@ export const metadata: Metadata = {
 };
 
 const PRESSE = [
-  { name: "SoccerBible", note: "International", caps: ["01", "02"] },
-  { name: "Footy Headlines", note: "International", caps: ["03"] },
-  { name: "Football Shirt Culture", note: "International", caps: ["04"] },
-  { name: "Dégaine by So Foot", note: "France", caps: ["05"] },
-  { name: "France 3 Nouvelle-Aquitaine", note: "France", caps: ["06"] },
-  { name: "La Nouvelle République", note: "France · Vienne", caps: ["07"] },
-  { name: "Felipe Saad", note: "Réactions", caps: ["08"] },
+  {
+    outlet: "beIN Sports",
+    note: "TV · Salon VIP",
+    img: "https://i.ytimg.com/vi/V5FTckJjhtc/hqdefault.jpg",
+    desc: "Le maillot à l'honneur dans l'émission Salon VIP de beIN Sports.",
+    href: "#",
+    video: "V5FTckJjhtc",
+  },
+  {
+    outlet: "SoccerBible",
+    note: "International",
+    img: "/cas-ligugeenne/presse/01.jpg",
+    desc: "Le maillot de La Ligugéenne raconté par l'une des références mondiales du maillot.",
+    href: "#",
+  },
+  {
+    outlet: "Footy Headlines",
+    note: "International",
+    img: "/cas-ligugeenne/presse/03.jpg",
+    desc: "La tunique d'un club de Régional 2 sur la référence mondiale du maillot de football.",
+    href: "#",
+  },
+  {
+    outlet: "Football Shirt Culture",
+    note: "International",
+    img: "/cas-ligugeenne/presse/04.jpg",
+    desc: "Un club amateur français dans un média suivi par des passionnés du monde entier.",
+    href: "#",
+  },
+  {
+    outlet: "Dégaine by So Foot",
+    note: "France",
+    img: "/cas-ligugeenne/presse/05.jpg",
+    desc: "Le projet Club Ambassadeur raconté par le média lifestyle de So Foot.",
+    href: "#",
+  },
+  {
+    outlet: "France 3 Nouvelle-Aquitaine",
+    note: "France",
+    img: "/cas-ligugeenne/presse/06.jpg",
+    desc: "La chaîne régionale revient sur La Ligugéenne et la saison signée +3 Studio.",
+    href: "#",
+  },
+  {
+    outlet: "La Nouvelle République",
+    note: "Vienne",
+    img: "/cas-ligugeenne/presse/07.jpg",
+    desc: "La presse locale revient sur l'aventure du club de Ligugé.",
+    href: "#",
+  },
+  {
+    outlet: "Felipe Saad",
+    note: "Réactions",
+    img: "/cas-ligugeenne/presse/08.jpg",
+    desc: "Le maillot repéré et partagé par d'anciens joueurs professionnels.",
+    href: "#",
+  },
 ];
 
 const ACTES: Acte[] = [
@@ -235,63 +286,11 @@ export default function ClubAmbassadeurPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Ils en parlent
           </span>
-          <h2 className="mt-3 mb-10 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink md:text-5xl">
             La Ligug&eacute;enne sous les projecteurs
           </h2>
 
-          {/* Extrait beIN — vidéo auto-hébergée (lecture sans cookie) */}
-          <div className="mb-12 flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-7">
-            <div className="w-full max-w-[260px] overflow-hidden rounded-2xl border border-bone-200 bg-ink">
-              <div className="relative aspect-[9/16]">
-                <iframe
-                  className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/V5FTckJjhtc?rel=0"
-                  title="beIN Sports — La Ligugéenne"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-            <div className="text-center sm:pt-3 sm:text-left">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
-                Sur grand écran
-              </p>
-              <p className="mt-2 text-xl font-bold text-ink">beIN Sports</p>
-              <p className="mt-1 max-w-sm text-sm text-mist-500">
-                Le maillot &agrave; l&rsquo;honneur dans l&rsquo;&eacute;mission Salon VIP
-                de beIN Sports.
-              </p>
-            </div>
-          </div>
-
-          <div className="[column-fill:_balance] gap-5 sm:columns-2 lg:columns-3">
-            {PRESSE.map((m) => (
-              <figure
-                key={m.name}
-                className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-bone-200 bg-white shadow-sm"
-              >
-                <figcaption className="flex items-baseline justify-between gap-2 px-4 pb-3 pt-4">
-                  <p className="font-bold text-ink">{m.name}</p>
-                  <p className="text-xs uppercase tracking-wider text-mist-500">
-                    {m.note}
-                  </p>
-                </figcaption>
-                <div className="divide-y divide-bone-200 border-t border-bone-200">
-                  {m.caps.map((c) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      key={c}
-                      src={`/cas-ligugeenne/presse/${c}.jpg`}
-                      alt={`La Ligugéenne — ${m.name}`}
-                      loading="lazy"
-                      className="w-full"
-                    />
-                  ))}
-                </div>
-              </figure>
-            ))}
-          </div>
+          <PresseCarousel items={PRESSE} />
         </div>
       </section>
 

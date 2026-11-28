@@ -85,7 +85,7 @@ const CAS: Cas[] = [
       },
       {
         label: "L'intention artistique",
-        text: "Raconter une histoire à travers Poitiers, de la ville jusqu'au club, comme un poème construit sur l'anaphore « Poitiers, c'est… ». Glisser les nouveaux maillots partout dans le film, au milieu de tenues d'époque, et parsemer le récit de clins d'œil cachés, jusqu'à la scène finale au Futuroscope.",
+        text: "Raconter une histoire à travers Poitiers, de la ville jusqu'au club, comme un poème construit sur l'anaphore « Poitiers, c'est… ». Glisser les nouveaux maillots partout dans le film, au milieu de tenues d'époque, et parsemer le récit de clins d'œil cachés, en passant par le Futuroscope, jusqu'à la scène finale dans la salle, au milieu des trophées.",
       },
       {
         label: "Les livrables",

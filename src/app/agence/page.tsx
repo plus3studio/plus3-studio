@@ -60,6 +60,14 @@ const EQUIPE = [
 // Coupures presse — à compléter au fur et à mesure (href = lien article)
 const PRESSE = [
   {
+    outlet: "beIN Sports",
+    note: "TV · Salon VIP",
+    img: "https://i.ytimg.com/vi/V5FTckJjhtc/hqdefault.jpg",
+    desc: "Le maillot de La Ligugéenne à l'honneur dans l'émission Salon VIP de beIN Sports.",
+    href: "#",
+    video: "V5FTckJjhtc",
+  },
+  {
     outlet: "SoccerBible",
     note: "International",
     img: "/cas-ligugeenne/presse/01.jpg",
@@ -314,23 +322,24 @@ export default function AgencePage() {
                     />
                   ) : (
                     <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-ink">
+                      {/* dégradé radial doux du centre vers les pointillés */}
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute h-64 w-64 rounded-full border border-dashed border-lime/30"
+                        className="pointer-events-none absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(187,255,0,0.14)_0%,rgba(187,255,0,0.04)_55%,transparent_72%)]"
                       />
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute h-48 w-48 rounded-full border border-lime/50"
+                        className="pointer-events-none absolute h-64 w-64 rounded-full border border-dashed border-lime/35"
                       />
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute h-44 w-44 rounded-full bg-lime/10 blur-[55px]"
+                        className="pointer-events-none absolute h-48 w-48 rounded-full border border-lime/55"
                       />
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/plus3-mark-white.png"
                         alt="+3 Studio"
-                        className="relative h-20 w-auto translate-x-[3%] object-contain md:h-24"
+                        className="relative h-28 w-auto -translate-x-[7%] object-contain md:h-28"
                       />
                     </div>
                   )}

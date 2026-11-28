@@ -75,8 +75,8 @@ const JOUEURS = [
 ];
 
 const OM_REELS = [
-  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "64% 45%", vid: "CYiuvPHRZHc" },
   { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "48% 46%", vid: "tMCmyKcxCeU" },
+  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "64% 45%", vid: "CYiuvPHRZHc" },
   { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "42% 48%", vid: "5kxUYk3ZByw" },
 ];
 
@@ -280,7 +280,7 @@ export default function Plus3PlayersPage() {
                 alt="Kandet Diawara — ambassadeur +3 Players"
                 fill
                 sizes="(min-width: 768px) 40vw, 100vw"
-                style={{ objectPosition: "50% 42%" }}
+                style={{ objectPosition: "50% 32%" }}
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent md:bg-gradient-to-r" />
@@ -440,10 +440,10 @@ export default function Plus3PlayersPage() {
               Nous contacter &rarr;
             </Link>
             <Link
-              href="/"
+              href="/agence"
               className="inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white hover:text-ink"
             >
-              Retour à l&rsquo;accueil
+              Découvrir l&rsquo;agence
             </Link>
           </div>
         </div>

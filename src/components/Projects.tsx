@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   projectFilters,
   type Project,
@@ -164,6 +164,15 @@ export default function Projects({
   const [active, setActive] = useState<Filter>("Tous");
   const [page, setPage] = useState(0);
   const [openProject, setOpenProject] = useState<Project | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // Change de page et remonte en haut de la grille
+  const changePage = useCallback((next: number) => {
+    setPage(next);
+    requestAnimationFrame(() => {
+      gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, []);
 
   const filtered = useMemo(() => {
     if (active === "Tous") return projects;
@@ -263,7 +272,7 @@ export default function Projects({
           </div>
 
           {/* Grid: 3 columns × 2 rows */}
-          <div className="grid gap-4 grid-cols-2 md:gap-8 lg:grid-cols-3">
+          <div ref={gridRef} className="grid scroll-mt-28 gap-4 grid-cols-2 md:gap-8 lg:grid-cols-3">
             {visible.map((project) => (
               <ProjectCard
                 key={project.id}
@@ -302,7 +311,7 @@ export default function Projects({
             <div className="mt-8 flex items-center justify-center gap-4 md:mt-12">
               <button
                 type="button"
-                onClick={() => setPage((p) => p - 1)}
+                onClick={() => changePage(page - 1)}
                 disabled={!canPrev}
                 className={`flex h-12 w-12 items-center justify-center rounded-full border text-lg transition ${
                   canPrev
@@ -318,7 +327,7 @@ export default function Projects({
               </span>
               <button
                 type="button"
-                onClick={() => setPage((p) => p + 1)}
+                onClick={() => changePage(page + 1)}
                 disabled={!canNext}
                 className={`flex h-12 w-12 items-center justify-center rounded-full border text-lg transition ${
                   canNext

@@ -36,7 +36,7 @@ const DOMAINES: Domaine[] = [
     players: true,
     teaser: "Construire l'image d'un athlète, sur et en dehors du terrain.",
     img: "/agence/joueur-pavard.jpg",
-    pos: "50% 8%",
+    pos: "50% 18%",
     includes: [
       "Un shooting de personal branding",
       "L'annonce d'un transfert ou d'une signature",
@@ -51,7 +51,7 @@ const DOMAINES: Domaine[] = [
     title: "Marques & événements",
     teaser: "Faire vivre une marque ou un événement en image.",
     img: "/agence/arena.jpg",
-    pos: "50% 95%",
+    pos: "50% 72%",
     includes: [
       "Un film de marque ou une publicité",
       "La captation d'un événement",
