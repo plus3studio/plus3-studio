@@ -10,7 +10,8 @@ const LOGOS = [
   { src: "/trust/marathon.png", alt: "Marathon Poitiers-Futuroscope", href: "/#projets" },
   { src: "/trust/district-vienne.png", alt: "District de la Vienne de Football", href: "/#projets" },
   { src: "/trust/spvb.png", alt: "Alterna SPVB", href: "/#projets" },
-  { src: "/trust/formations-football.png", alt: "Formation Football", href: "/#projets" },
+  // logo large sur 2 lignes : hauteur réduite pour une surface comparable aux autres
+  { src: "/trust/formations-football.png", alt: "Formation Football", href: "/#projets", cls: "h-6 md:h-8" },
 ];
 
 export default function TrustBand() {
@@ -20,20 +21,15 @@ export default function TrustBand() {
         <p className="text-center text-[10px] uppercase tracking-[0.25em] text-white/40">
           Ils nous ont fait confiance
         </p>
-        <div className="mt-10 flex items-center gap-x-12 overflow-x-auto pb-2 md:mt-12 md:justify-center md:gap-x-16 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-7 md:mt-12 md:gap-x-14">
           {LOGOS.map((l) => (
-            <Link
-              key={l.src}
-              href={l.href}
-              className="shrink-0"
-              aria-label={l.alt}
-            >
+            <Link key={l.src} href={l.href} aria-label={l.alt}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={l.src}
                 alt={l.alt}
                 loading="lazy"
-                className="h-11 w-auto max-w-none opacity-75 transition hover:opacity-100 md:h-14"
+                className={`${l.cls ?? "h-10 md:h-12"} w-auto opacity-75 transition hover:opacity-100`}
               />
             </Link>
           ))}

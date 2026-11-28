@@ -16,13 +16,11 @@ const ICONS: Record<string, React.ReactNode> = {
     />
   ),
   linkedin: (
-    <>
-      <rect x="2.5" y="2.5" width="19" height="19" rx="3" />
-      <path
-        d="M7 10v7M7 7.2v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"
-        fill="none"
-      />
-    </>
+    <path
+      d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3.2 9.2h3.6V21H3.2zM9 9.2h3.45v1.6h.05c.48-.9 1.65-1.85 3.4-1.85 3.64 0 4.31 2.4 4.31 5.5V21h-3.6v-5.3c0-1.26-.02-2.9-1.76-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"
+      fill="currentColor"
+      stroke="none"
+    />
   ),
   facebook: (
     <path

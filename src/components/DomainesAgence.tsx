@@ -12,7 +12,7 @@ type Domaine = {
   pos: string;
   includes: string[];
   note?: string;
-  href?: string;
+  cta?: { label: string; href: string; red?: boolean };
 };
 
 const DOMAINES: Domaine[] = [
@@ -29,6 +29,7 @@ const DOMAINES: Domaine[] = [
       "Le contenu et les réseaux de toute une saison",
     ],
     note: "Du club amateur au niveau national.",
+    cta: { label: "Découvrir nos réalisations", href: "/projets" },
   },
   {
     title: "Joueurs",
@@ -44,7 +45,7 @@ const DOMAINES: Domaine[] = [
       "Une collaboration de marque",
     ],
     note: "Une offre dédiée : +3 Players.",
-    href: "/plus3-players",
+    cta: { label: "Découvrir +3 Players", href: "/plus3-players", red: true },
   },
   {
     title: "Marques & événements",
@@ -59,6 +60,7 @@ const DOMAINES: Domaine[] = [
       "Une activation terrain et son contenu réseaux",
     ],
     note: "Dans le sport comme au-delà.",
+    cta: { label: "Découvrir nos créations", href: "/projets" },
   },
 ];
 
@@ -66,7 +68,7 @@ export default function DomainesAgence() {
   const [open, setOpen] = useState<number>(-1);
 
   return (
-    <div className="mt-12 grid gap-5 md:grid-cols-3">
+    <div className="mt-12 grid items-start gap-5 md:grid-cols-3">
       {DOMAINES.map((d, i) => {
         const isOpen = open === i;
         return (
@@ -134,12 +136,16 @@ export default function DomainesAgence() {
                       {d.note}
                     </p>
                   )}
-                  {d.href && (
+                  {d.cta && (
                     <Link
-                      href={d.href}
-                      className="mt-5 inline-flex items-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-red-500"
+                      href={d.cta.href}
+                      className={`mt-5 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition ${
+                        d.cta.red
+                          ? "bg-red-600 text-white hover:bg-red-500"
+                          : "bg-lime text-ink hover:brightness-95"
+                      }`}
                     >
-                      Découvrir +3 Players &rarr;
+                      {d.cta.label} &rarr;
                     </Link>
                   )}
                 </div>

@@ -336,6 +336,7 @@ export default function Plus3PlayersPage() {
                   thumb={r.img}
                   title={`Reel ${r.name}`}
                   pos={r.pos}
+                  vertical
                 />
                 <p className="px-4 py-3 text-sm font-semibold">{r.name}</p>
               </div>

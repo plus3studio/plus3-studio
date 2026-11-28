@@ -12,10 +12,21 @@ type Props = {
   title: string;
   pos?: string;
   className?: string;
+  /** vidéo verticale (reel / short) → cadre 9:16 */
+  vertical?: boolean;
 };
 
-export default function LazyVideo({ kind, src, thumb, title, pos, className }: Props) {
+export default function LazyVideo({
+  kind,
+  src,
+  thumb,
+  title,
+  pos,
+  className,
+  vertical,
+}: Props) {
   const [play, setPlay] = useState(false);
+  const ratio = vertical ? "aspect-[9/16]" : "aspect-video";
 
   if (play && kind === "instagram") {
     return (
@@ -27,7 +38,7 @@ export default function LazyVideo({ kind, src, thumb, title, pos, className }: P
 
   if (play) {
     return (
-      <div className={`relative aspect-video w-full overflow-hidden bg-ink ${className ?? ""}`}>
+      <div className={`relative ${ratio} w-full overflow-hidden bg-ink ${className ?? ""}`}>
         <iframe
           className="absolute inset-0 h-full w-full"
           src={`https://www.youtube.com/embed/${src}?autoplay=1&rel=0&playsinline=1`}
@@ -45,7 +56,7 @@ export default function LazyVideo({ kind, src, thumb, title, pos, className }: P
       type="button"
       onClick={() => setPlay(true)}
       aria-label={`Lire la vidéo : ${title}`}
-      className={`group relative block aspect-video w-full overflow-hidden bg-ink ${className ?? ""}`}
+      className={`group relative block ${ratio} w-full overflow-hidden bg-ink ${className ?? ""}`}
     >
       <Image
         src={thumb}

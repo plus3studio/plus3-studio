@@ -109,6 +109,13 @@ export default function ContactPage() {
             vous rapidement.
           </p>
 
+          <a
+            href="#contact"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-semibold text-ink transition hover:brightness-95"
+          >
+            Nous contacter &rarr;
+          </a>
+
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Colonne gauche : localisation + réseaux */}
             <div>
@@ -220,8 +227,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-white py-20 md:py-28">
+      {/* FORMULAIRE (id=contact) — l'action principale d'abord */}
+      <CTA />
+
+      {/* FAQ — répond aux dernières questions juste après */}
+      <section className="bg-bone-50 py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 md:px-10">
           <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Questions fréquentes
@@ -232,9 +242,6 @@ export default function ContactPage() {
           <FaqAccordion items={FAQ} />
         </div>
       </section>
-
-      {/* FORMULAIRE (id=contact) */}
-      <CTA />
 
       <Footer />
     </main>

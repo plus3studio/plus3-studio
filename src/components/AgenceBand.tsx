@@ -19,7 +19,7 @@ const DOMAINES = [
     title: "Marques & événements",
     desc: "Captation, films de marque et aftermovies pour les marques et les événements, dans le sport comme au-delà.",
     img: "/agence/marques-home.jpg",
-    pos: "50% 45%",
+    pos: "28% 78%",
   },
 ];
 

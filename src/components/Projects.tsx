@@ -130,7 +130,11 @@ function ProjectCard({
   );
 
   return (
-    <article onClick={onClick} className="group cursor-pointer">
+    <article
+      id={`projet-${project.id}`}
+      onClick={onClick}
+      className="group scroll-mt-28 cursor-pointer rounded-2xl transition-shadow target:ring-2 target:ring-lime target:ring-offset-4 target:ring-offset-ink"
+    >
       {/* Même emprise (aspect 4/5) pour toutes les cartes → alignées */}
       <div className="relative aspect-[4/5]">
         {project.featured ? (

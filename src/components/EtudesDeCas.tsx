@@ -12,11 +12,12 @@ type Cas = {
   pitch: string;
   cover: string;
   pos?: string;
-  ring: string; // classe border au survol + ouverture
-  accent: string; // classe texte accent
-  href?: string;
+  cta: { href: string; label: string };
   details: Detail[];
 };
+
+const RING = "hover:border-lime [&[data-open=true]]:border-lime";
+const ACCENT = "text-lime";
 
 const CAS: Cas[] = [
   {
@@ -25,9 +26,7 @@ const CAS: Cas[] = [
     pitch: "Une identité complète, pensée dans l'histoire du club et de son village.",
     cover: "/cas-ligugeenne/maillot-seul.jpg",
     pos: "50% 40%",
-    ring: "hover:border-lime [&[data-open=true]]:border-lime",
-    accent: "text-lime",
-    href: "/club-ambassadeur",
+    cta: { href: "/club-ambassadeur", label: "En savoir plus sur le projet" },
     details: [
       {
         label: "La demande",
@@ -51,10 +50,9 @@ const CAS: Cas[] = [
     client: "Olympique de Marseille",
     title: "Le maillot dans la ville",
     pitch: "Une campagne lifestyle qui sort le maillot du stade.",
-    cover: "/projects/01-Olympique-de-marseille/cover.jpg",
-    pos: "50% 35%",
-    ring: "hover:border-sky-400 [&[data-open=true]]:border-sky-400",
-    accent: "text-sky-400",
+    cover: "/projects/01-Olympique-de-marseille/cas-cover.jpg",
+    pos: "50% 45%",
+    cta: { href: "/projets#projet-Olympique-de-marseille", label: "Voir le projet" },
     details: [
       {
         label: "La demande",
@@ -78,10 +76,9 @@ const CAS: Cas[] = [
     client: "Alterna SPVB × Adidas",
     title: "L'annonce du nouveau maillot",
     pitch: "Révéler un maillot comme un objet premium, et en faire un événement.",
-    cover: "/projects/04-Alterna-SPVB/cover.jpg",
-    pos: "50% 30%",
-    ring: "hover:border-cyan-400 [&[data-open=true]]:border-cyan-400",
-    accent: "text-cyan-400",
+    cover: "/projects/04-Alterna-SPVB/cas-cover.jpg",
+    pos: "50% 25%",
+    cta: { href: "/projets#projet-Alterna-SPVB", label: "Voir le projet" },
     details: [
       {
         label: "La demande",
@@ -114,7 +111,7 @@ export default function EtudesDeCas() {
           <div
             key={c.client}
             data-open={isOpen}
-            className={`overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] transition-colors duration-300 ${c.ring}`}
+            className={`overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a] transition-colors duration-300 ${RING}`}
           >
             <button
               type="button"
@@ -134,7 +131,7 @@ export default function EtudesDeCas() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent md:bg-gradient-to-r" />
               </div>
               <div className="flex flex-col justify-center p-6 md:p-9">
-                <span className={`text-[10px] uppercase tracking-[0.25em] ${c.accent}`}>
+                <span className={`text-[10px] uppercase tracking-[0.25em] ${ACCENT}`}>
                   {c.client}
                 </span>
                 <h3 className="mt-3 text-xl font-bold text-white md:text-2xl">
@@ -142,7 +139,7 @@ export default function EtudesDeCas() {
                 </h3>
                 <p className="mt-2 text-sm text-white/60">{c.pitch}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/80">
-                  {isOpen ? "Réduire" : "Voir l'étude de cas"}
+                  {isOpen ? "Réduire" : "Lire le case study"}
                   <span
                     className={`transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
@@ -165,7 +162,7 @@ export default function EtudesDeCas() {
                     {c.details.map((d) => (
                       <div key={d.label}>
                         <p
-                          className={`text-[11px] font-semibold uppercase tracking-[0.2em] ${c.accent}`}
+                          className={`text-[11px] font-semibold uppercase tracking-[0.2em] ${ACCENT}`}
                         >
                           {d.label}
                         </p>
@@ -175,15 +172,13 @@ export default function EtudesDeCas() {
                       </div>
                     ))}
                   </div>
-                  {c.href && (
-                    <Link
-                      href={c.href}
-                      className="mt-7 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
-                    >
-                      Voir l&rsquo;étude de cas complète
-                      <span>&rarr;</span>
-                    </Link>
-                  )}
+                  <Link
+                    href={c.cta.href}
+                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
+                  >
+                    {c.cta.label}
+                    <span>&rarr;</span>
+                  </Link>
                 </div>
               </div>
             </div>

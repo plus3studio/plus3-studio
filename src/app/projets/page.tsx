@@ -51,7 +51,7 @@ export default function ProjetsPage() {
             En détail
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Études de cas
+            Case Study
           </h2>
           <p className="mt-4 max-w-2xl text-base text-white/60 md:text-lg">
             Trois projets racontés de l&rsquo;intérieur : la demande, l&rsquo;intention,
