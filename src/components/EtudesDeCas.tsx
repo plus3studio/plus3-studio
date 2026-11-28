@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 type Detail = { label: string; text: string };
 
@@ -51,7 +50,7 @@ const CAS: Cas[] = [
     title: "Le maillot dans la ville",
     pitch: "Une campagne lifestyle qui sort le maillot du stade.",
     cover: "/projects/01-Olympique-de-marseille/cas-cover.jpg",
-    pos: "50% 45%",
+    pos: "50% 60%",
     cta: { href: "/projets#projet-Olympique-de-marseille", label: "Voir le projet" },
     details: [
       {
@@ -172,13 +171,13 @@ export default function EtudesDeCas() {
                       </div>
                     ))}
                   </div>
-                  <Link
+                  <a
                     href={c.cta.href}
                     className="mt-7 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
                   >
                     {c.cta.label}
                     <span>&rarr;</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

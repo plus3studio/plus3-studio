@@ -20,39 +20,39 @@ export const metadata: Metadata = {
 const FAQ: FaqItem[] = [
   {
     q: "Quels services propose +3 Studio ?",
-    a: "+3 Studio est une agence de communication dédiée au sport : vidéo, photo, direction créative, graphisme, identité visuelle, couverture de match, reportage et gestion des réseaux sociaux. On accompagne les clubs, les joueurs, les institutions et les marques, du club amateur au niveau national.",
+    a: "+3 Studio est une agence de communication dédiée au sport : vidéo, photo, graphisme et direction artistique, identité visuelle, couverture de match et d’événement, reportage, community management et stratégie de contenu. On accompagne les joueurs professionnels, les clubs, les institutions et les marques, du club amateur au niveau international.",
   },
   {
     q: "Où êtes-vous basés et où vous déplacez-vous ?",
-    a: "On est basés près de Poitiers (Vienne, Nouvelle-Aquitaine) et on se déplace partout en France et à l’international. Position centrale oblige, Paris est à environ 1h30 en TGV, Bordeaux à environ 1h et Nantes à environ 2h : on intervient facilement dans toute la France, et on tourne régulièrement à l’étranger, notamment en Espagne.",
+    a: "On est basés à Poitiers (Vienne, Nouvelle-Aquitaine) et on intervient partout en France : Paris à 1h30 en TGV, Bordeaux à 1h, Nantes à 2h. On s’appuie aussi sur un réseau de créatifs partout en France et en Europe, qui nous rend rapidement disponibles peu importe où se situe le besoin. On a également la possibilité de tourner à l’étranger.",
   },
   {
-    q: "Travaillez-vous avec les clubs amateurs ou seulement les clubs pros ?",
-    a: "Les deux. L’idée de départ de +3 Studio, c’est justement de donner à un club amateur la même qualité d’image qu’un club pro. On adapte l’accompagnement au niveau et au budget, du club de district à la structure professionnelle.",
+    q: "Travaillez-vous avec les clubs professionnels ou amateurs ?",
+    a: "Les deux. Les clubs professionnels font partie de nos clients, au même titre que les clubs amateurs. Notre conviction : offrir à chaque structure une qualité d’image de niveau professionnel, du club de district au club national. On adapte l’accompagnement au niveau, aux objectifs et au budget.",
   },
   {
-    q: "Combien coûte une vidéo ou une prestation photo ?",
-    a: "Chaque projet est différent : le prix dépend du format, de la durée, du nombre de jours de tournage et des livrables attendus. On établit un devis sur mesure après un premier échange. Le plus simple, c’est de nous décrire votre besoin via le formulaire pour recevoir une proposition.",
+    q: "Combien coûte une vidéo, une prestation photo ou graphique ?",
+    a: "Chaque besoin est différent : le prix dépend du format, du volume, du nombre de jours de production et des livrables attendus, en vidéo, en photo comme en graphisme. On établit un devis sur mesure après un premier échange. Le plus simple : décrivez-nous votre projet via le formulaire pour recevoir une proposition.",
   },
   {
-    q: "Faites-vous de la photo et de la vidéo ?",
-    a: "Oui, les deux, souvent sur un même projet. On couvre la vidéo (match, lifestyle, film de marque, aftermovie, reels), la photo (shooting, match day, portrait) et toute la partie création graphique qui va avec.",
+    q: "Pouvez-vous gérer la vidéo, la photo et le graphisme sur un même projet ?",
+    a: "Oui, c’est même notre force : réunir la vidéo, la photo, le graphisme et la direction artistique sous une même direction créative, pour une image cohérente d’un bout à l’autre du projet.",
   },
   {
     q: "Qu’est-ce que +3 Players ?",
-    a: "+3 Players, c’est l’offre de +3 Studio dédiée aux joueurs et aux athlètes : personal branding, contenu réseaux, visuels match day, vidéo lifestyle et gestion d’image. Un accompagnement pensé pour exister en dehors du terrain.",
+    a: "+3 Players, c’est l’offre de +3 Studio dédiée aux joueurs et aux athlètes : personal branding, contenu réseaux, visuels match day, vidéo lifestyle et gestion d’image. Un accompagnement pensé pour exister sur et en dehors du terrain.",
   },
   {
-    q: "Gérez-vous les réseaux sociaux des clubs et des joueurs ?",
-    a: "Oui. On peut produire le contenu ponctuellement ou gérer les réseaux sur la durée : ligne éditoriale, calendrier, création des visuels et des vidéos, couverture de match. On s’adapte selon que vous cherchez un coup de main ou une prise en charge complète.",
+    q: "Gérez-vous les réseaux sociaux et le community management ?",
+    a: "Oui. On intervient en création de contenu ponctuelle ou en gestion sur la durée : community management, ligne éditoriale, calendrier de publication, création des visuels et des vidéos, couverture de match. On s’adapte, d’un renfort ponctuel à une prise en charge complète.",
   },
   {
-    q: "Travaillez-vous aussi pour les entreprises hors sport ?",
-    a: "Oui, via CD Studio, la structure dédiée au corporate et à l’événementiel tous secteurs : films d’entreprise, captation, reportage et contenu de marque. +3 Studio reste spécialisée sport, CD Studio couvre le reste.",
+    q: "Travaillez-vous aussi pour des marques hors sport ?",
+    a: "Oui. Au-delà du sport, on accompagne des marques et des entreprises sur leurs besoins de communication, de l’événementiel au corporate. On cumule une vraie expérience hors sport et on s’adapte à chaque projet : mise en avant de vos partenaires, contenu de marque, film d’entreprise. Parlons-en.",
   },
   {
     q: "Comment se passe une collaboration avec +3 Studio ?",
-    a: "On commence par un échange pour comprendre votre projet, vos objectifs et votre timing. On vous envoie un devis, puis on cale les dates de tournage. Après production, vous recevez vos livrables prêts à publier. On peut intervenir sur une prestation ponctuelle comme sur un accompagnement de saison.",
+    a: "On commence par un échange pour cerner votre projet, vos objectifs et vos échéances. On vous envoie une proposition et un devis, puis on pose le planning ensemble. On produit dans les temps et vous recevez vos livrables prêts à publier et à utiliser. On intervient aussi bien sur une prestation ponctuelle que sur un accompagnement de saison.",
   },
 ];
 
@@ -69,9 +69,9 @@ const faqJsonLd = {
 const TRAJETS = [
   { ville: "Paris", temps: "1h30 en TGV" },
   { ville: "Bordeaux", temps: "1h en TGV" },
-  { ville: "Nantes", temps: "~2h" },
-  { ville: "Lyon", temps: "train ou avion" },
-  { ville: "International", temps: "Espagne & ailleurs" },
+  { ville: "Nantes", temps: "2h en train" },
+  { ville: "Lyon", temps: "1h en avion" },
+  { ville: "International", temps: "partout dans le monde" },
 ];
 
 export default function ContactPage() {
@@ -123,10 +123,10 @@ export default function ContactPage() {
                 Où nous trouver
               </p>
               <p className="mt-3 max-w-md text-base leading-relaxed text-white/70">
-                Basés près de <strong className="text-white">Poitiers</strong> (Vienne,
+                Basés à <strong className="text-white">Poitiers</strong> (Vienne,
                 Nouvelle-Aquitaine). On se déplace{" "}
                 <strong className="text-white">partout en France</strong>
-                {" "}et à l&rsquo;international.
+                {" "}et au-delà.
               </p>
 
               <div className="mt-6 flex max-w-md flex-wrap gap-2">
@@ -232,7 +232,7 @@ export default function ContactPage() {
 
       {/* FAQ — répond aux dernières questions juste après */}
       <section className="bg-bone-50 py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-5 md:px-10">
+        <div className="mx-auto max-w-5xl px-5 md:px-10">
           <span className="text-[10px] uppercase tracking-[0.25em] text-mist-500">
             Questions fréquentes
           </span>

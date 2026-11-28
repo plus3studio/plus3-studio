@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   projectFilters,
   type Project,
@@ -133,7 +133,7 @@ function ProjectCard({
     <article
       id={`projet-${project.id}`}
       onClick={onClick}
-      className="group scroll-mt-28 cursor-pointer rounded-2xl transition-shadow target:ring-2 target:ring-lime target:ring-offset-4 target:ring-offset-ink"
+      className="group scroll-mt-28 cursor-pointer rounded-2xl"
     >
       {/* Même emprise (aspect 4/5) pour toutes les cartes → alignées */}
       <div className="relative aspect-[4/5]">
@@ -177,6 +177,37 @@ export default function Projects({
     setActive(f);
     setPage(0);
   }, []);
+
+  // Lien vers un projet précis (#projet-xxx) : saute à la bonne page,
+  // scrolle jusqu'au bloc et le met en surbrillance. Marche au chargement
+  // (trust band) et au changement de hash (bouton case study, même page).
+  useEffect(() => {
+    if (preview) return;
+    function handleHash() {
+      const hash = window.location.hash;
+      if (!hash.startsWith("#projet-")) return;
+      const id = hash.slice("#projet-".length);
+      const idx = projects.findIndex((p) => p.id === id);
+      if (idx < 0) return;
+      setActive("Tous");
+      setPage(Math.floor(idx / PAGE_SIZE));
+      window.setTimeout(() => {
+        const el = document.getElementById(`projet-${id}`);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.remove("project-highlight");
+        void el.offsetWidth;
+        el.classList.add("project-highlight");
+        window.setTimeout(() => el.classList.remove("project-highlight"), 2800);
+      }, 120);
+    }
+    const t = window.setTimeout(handleHash, 300);
+    window.addEventListener("hashchange", handleHash);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("hashchange", handleHash);
+    };
+  }, [preview, projects]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const visible = preview

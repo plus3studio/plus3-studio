@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import DomainesAgence from "@/components/DomainesAgence";
+import PresseCarousel from "@/components/PresseCarousel";
 import RevealMount from "@/components/RevealMount";
 import { getProjects } from "@/lib/getProjects";
 import { getLogoPath } from "@/lib/getLogo";
@@ -50,7 +51,7 @@ const EQUIPE = [
     photo: "/team/alexis.jpg",
   },
     {
-    name: "Un réseau de freelances",
+    name: "Un réseau de créatifs",
     role: "Graphistes, photographes, motion designers, développeurs web… On a tous les profils sous la main et on mobilise le bon selon chaque projet.",
     photo: null,
   },
@@ -58,12 +59,48 @@ const EQUIPE = [
 
 // Coupures presse — à compléter au fur et à mesure (href = lien article)
 const PRESSE = [
-  { outlet: "SoccerBible", note: "International", img: "/cas-ligugeenne/presse/01.jpg", href: "#" },
-  { outlet: "Footy Headlines", note: "International", img: "/cas-ligugeenne/presse/03.jpg", href: "#" },
-  { outlet: "Football Shirt Culture", note: "International", img: "/cas-ligugeenne/presse/04.jpg", href: "#" },
-  { outlet: "Dégaine by So Foot", note: "France", img: "/cas-ligugeenne/presse/05.jpg", href: "#" },
-  { outlet: "France 3 Nouvelle-Aquitaine", note: "France", img: "/cas-ligugeenne/presse/06.jpg", href: "#" },
-  { outlet: "La Nouvelle République", note: "Vienne", img: "/cas-ligugeenne/presse/07.jpg", href: "#" },
+  {
+    outlet: "SoccerBible",
+    note: "International",
+    img: "/cas-ligugeenne/presse/01.jpg",
+    desc: "Le maillot collector de La Ligugéenne repéré par le média foot international, aux côtés des plus grands clubs.",
+    href: "#",
+  },
+  {
+    outlet: "Footy Headlines",
+    note: "International",
+    img: "/cas-ligugeenne/presse/03.jpg",
+    desc: "La tunique de ce club de Régional 2 mise en avant sur la référence mondiale du maillot de football.",
+    href: "#",
+  },
+  {
+    outlet: "Football Shirt Culture",
+    note: "International",
+    img: "/cas-ligugeenne/presse/04.jpg",
+    desc: "Un club amateur français dans les pages d'un média spécialisé suivi par des passionnés du monde entier.",
+    href: "#",
+  },
+  {
+    outlet: "Dégaine by So Foot",
+    note: "France",
+    img: "/cas-ligugeenne/presse/05.jpg",
+    desc: "Le projet Club Ambassadeur raconté par le média lifestyle de So Foot.",
+    href: "#",
+  },
+  {
+    outlet: "France 3 Nouvelle-Aquitaine",
+    note: "France",
+    img: "/cas-ligugeenne/presse/06.jpg",
+    desc: "Reportage télé sur La Ligugéenne et la saison de communication offerte par +3 Studio.",
+    href: "#",
+  },
+  {
+    outlet: "La Nouvelle République",
+    note: "Vienne",
+    img: "/cas-ligugeenne/presse/07.jpg",
+    desc: "La presse locale revient sur l'aventure du club de Ligugé et sa portée bien au-delà de la Vienne.",
+    href: "#",
+  },
 ];
 
 export default function AgencePage() {
@@ -243,7 +280,7 @@ export default function AgencePage() {
                 key={s}
                 className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-5 py-2.5 text-sm font-medium text-white/90 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-lime hover:bg-lime/10 hover:text-white"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-lime/60 transition-all duration-300 group-hover:w-3 group-hover:bg-lime" />
+                <span className="h-1.5 w-1.5 rounded-full bg-lime/60 transition-colors duration-300 group-hover:bg-lime group-hover:[animation:flash_0.7s_ease-in-out_infinite]" />
                 {s}
               </span>
             ))}
@@ -308,7 +345,7 @@ export default function AgencePage() {
       <section className="bg-bone-50 py-20 text-ink md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-10">
           <span className="reveal text-[10px] uppercase tracking-[0.25em] text-mist-500">
-            Dans les médias
+            +3 dans les médias
           </span>
           <h2 className="reveal reveal-delay-1 mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
             Ils ont parlé de nous
@@ -318,38 +355,7 @@ export default function AgencePage() {
             l&rsquo;international.
           </p>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {PRESSE.map((m) => (
-              <a
-                key={m.outlet}
-                href={m.href}
-                target={m.href !== "#" ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="group overflow-hidden rounded-2xl border border-bone-200 bg-white transition hover:-translate-y-1 hover:border-ink/20 hover:shadow-lg"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden bg-bone-100">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={m.img}
-                    alt={`${m.outlet} — +3 Studio`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-2 p-5">
-                  <div>
-                    <p className="font-bold text-ink">{m.outlet}</p>
-                    <p className="text-xs uppercase tracking-wider text-mist-500">
-                      {m.note}
-                    </p>
-                  </div>
-                  <span className="text-sm font-semibold text-ink transition-transform duration-300 group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
+          <PresseCarousel items={PRESSE} />
         </div>
       </section>
 
