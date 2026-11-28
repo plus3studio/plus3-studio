@@ -75,9 +75,9 @@ const JOUEURS = [
 ];
 
 const OM_REELS = [
-  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "43% 50%", vid: "CYiuvPHRZHc" },
-  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "33% 50%", vid: "tMCmyKcxCeU" },
-  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "60% 50%", vid: "5kxUYk3ZByw" },
+  { name: "Angel Gomes", img: "/plus3-players/reels/gomes.jpg", pos: "64% 45%", vid: "CYiuvPHRZHc" },
+  { name: "Benjamin Pavard", img: "/plus3-players/reels/pavard.jpg", pos: "48% 46%", vid: "tMCmyKcxCeU" },
+  { name: "Mason Greenwood", img: "/plus3-players/reels/greenwood.jpg", pos: "42% 48%", vid: "5kxUYk3ZByw" },
 ];
 
 const PACKS = [
@@ -280,7 +280,7 @@ export default function Plus3PlayersPage() {
                 alt="Kandet Diawara — ambassadeur +3 Players"
                 fill
                 sizes="(min-width: 768px) 40vw, 100vw"
-                style={{ objectPosition: "50% 25%" }}
+                style={{ objectPosition: "50% 42%" }}
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent md:bg-gradient-to-r" />
@@ -292,11 +292,10 @@ export default function Plus3PlayersPage() {
               <h3 className="mt-5 text-3xl font-bold md:text-4xl">Kandet Diawara</h3>
               <p className="mt-2 text-white/60">ESTAC Troyes · Ligue 1</p>
               <p className="mt-4 max-w-2xl text-white/75">
-                Premier joueur à nous faire confiance pour +3 Players. Avec son agent,
-                Kandet nous a confié le développement de son image pour l&rsquo;aider à
-                passer un cap : couverture de ses matchs en photo et en vidéo, direction
-                artistique et contenu réseaux, pour exister autant en dehors du terrain
-                que dessus.
+                Kandet et son agent nous ont fait confiance pour développer son image et
+                l&rsquo;aider à passer un cap : couverture de ses matchs en photo et en
+                vidéo, direction artistique et contenu réseaux, pour exister autant en
+                dehors du terrain que dessus.
               </p>
             </div>
           </div>

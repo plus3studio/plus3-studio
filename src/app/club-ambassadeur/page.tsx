@@ -30,7 +30,7 @@ const ACTES: Acte[] = [
     num: "Acte I",
     title: "L’Armorial",
     sub: "Logo & identité",
-    desc: "Une nouvelle identité dévoilée le 30 juillet. Un club centenaire, plus de cent ans d’histoire : cette identité, on ne l’a pas inventée, on en a hérité. Le blason fait vivre trois âmes — le prestige de Ligugé et de son abbaye, la mémoire industrielle de ses usines, et le cœur populaire du club. Un blason patiné, taillé pour durer. Un seul visuel a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
+    desc: "Une nouvelle identité dévoilée le 30 juillet. Un club centenaire, plus de cent ans d’histoire : cette identité, on ne l’a pas inventée, on en a hérité. Le blason fait vivre trois âmes : le prestige de Ligugé et de son abbaye, la mémoire industrielle de ses usines, et le cœur populaire du club. Un blason patiné, taillé pour durer. Un seul visuel a cumulé 33 205 vues, sept fois la moyenne d’une publication du club.",
     media: { kind: "instagram", url: "https://www.instagram.com/p/DbbGjEHjFBJ/" },
   },
   {
@@ -42,7 +42,7 @@ const ACTES: Acte[] = [
     youtube: "k9e4nmq5Xpc",
     gallery: true,
     credit: "Un maillot conçu avec Kappa · direction artistique +3 Studio",
-    link: { label: "Un lancement qui a fait parler", href: "#presse" },
+    link: { label: "Une campagne qui a fait parler", href: "#presse" },
   },
   {
     num: "Acte III",
@@ -139,8 +139,8 @@ export default function ClubAmbassadeurPage() {
             <p>
               &Agrave; l&rsquo;issue d&rsquo;un appel &agrave; candidature, La Ligug&eacute;enne
               Football, club de R&eacute;gional 2 bas&eacute; &agrave; Ligug&eacute; (Vienne,
-              3 500 habitants, 250 licenci&eacute;s), a &eacute;t&eacute; choisie pour
-              l&rsquo;&eacute;dition 2026-2027.
+              3 500 habitants, 250 licenci&eacute;s), a &eacute;t&eacute; choisie comme
+              premier Club Ambassadeur.
             </p>
           </div>
         </div>
@@ -177,11 +177,9 @@ export default function ClubAmbassadeurPage() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70">
             Un choix m&eacute;ticuleux. Apr&egrave;s avoir lu les r&eacute;ponses de
             chaque candidature et visit&eacute; les trois finalistes, La Ligug&eacute;enne
-            s&rsquo;est impos&eacute;e : c&rsquo;est son potentiel cr&eacute;atif qui nous
-            a s&eacute;duits, le terrain id&eacute;al pour montrer ce que le programme
-            peut faire. L&rsquo;annonce, film&eacute;e dans le village, a
-            r&eacute;v&eacute;l&eacute; le club choisi pour l&rsquo;&eacute;dition
-            2026-2027.
+            s&rsquo;est impos&eacute;e. L&rsquo;annonce, film&eacute;e dans le village, a
+            r&eacute;v&eacute;l&eacute; tout le potentiel cr&eacute;atif qu&rsquo;on allait
+            pouvoir exploiter avec le club tout au long de la saison.
           </p>
         </div>
       </section>
@@ -323,6 +321,11 @@ export default function ClubAmbassadeurPage() {
               Trinit&eacute;-et-Tobago) et treize d&eacute;partements fran&ccedil;ais. Le
               stock initial a &eacute;t&eacute; &eacute;coul&eacute;. Une seconde
               s&eacute;rie a suivi, elle aussi aujourd&rsquo;hui en rupture.
+            </p>
+            <p className="mt-6 text-base font-semibold leading-relaxed text-ink">
+              Et ce n&rsquo;est qu&rsquo;un d&eacute;but : d&rsquo;autres campagnes et
+              activations sont en cr&eacute;ation pour continuer &agrave; faire vivre tout
+              ce qu&rsquo;on a construit, tout au long de la saison.
             </p>
           </div>
         </div>

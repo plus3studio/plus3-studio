@@ -330,7 +330,7 @@ export default function AgencePage() {
                       <img
                         src="/plus3-mark-white.png"
                         alt="+3 Studio"
-                        className="relative h-28 w-auto object-contain md:h-32"
+                        className="relative h-20 w-auto translate-x-[3%] object-contain md:h-24"
                       />
                     </div>
                   )}

@@ -33,11 +33,11 @@ const CAS: Cas[] = [
       },
       {
         label: "L'intention",
-        text: "Ancrer chaque création dans l'histoire du club et du village : nouveau blason, pinstripes, références au carrelage de l'abbaye de Ligugé, typographie à empattements. Chaque temps fort est nommé dans l'univers du club — L'Armorial, La Tunique, Le Serment — pour rester fidèle à son héritage à chaque étape.",
+        text: "Ancrer chaque création dans l'histoire du club et du village : nouveau blason, pinstripes, références au carrelage de l'abbaye de Ligugé, typographie à empattements. Chaque temps fort est nommé dans l'univers du club (L'Armorial, La Tunique, Le Serment), pour rester fidèle à son héritage à chaque étape.",
       },
       {
         label: "Les livrables",
-        text: "Logo et identité visuelle, maillot collector avec Kappa, site e-commerce et application, contenu de saison et couverture de match.",
+        text: "Logo et identité visuelle, maillot collector avec Kappa, site e-commerce et application, community management, contenu de saison et couverture de match.",
       },
       {
         label: "Le résultat",
@@ -63,11 +63,11 @@ const CAS: Cas[] = [
       },
       {
         label: "Les livrables",
-        text: "Une série photo lifestyle et des formats verticaux pour les réseaux, plus des rushs vidéo réutilisables tout au long de la saison. Photos Alexis Patient, retouche Alix Hubert.",
+        text: "Une série photo lifestyle et des formats verticaux pour les réseaux, plus des rushs vidéo réutilisables tout au long de la saison.",
       },
       {
         label: "Le résultat",
-        text: "Un contenu qui a vécu bien au-delà de l'annonce, décliné par le club tout au long de la saison.",
+        text: "Un contenu décliné par le club tout au long de la saison sur ses différents réseaux. Et une confiance qui a duré : l'OM nous a rappelés à trois reprises, dont pour couvrir des matchs.",
       },
     ],
   },
@@ -81,7 +81,7 @@ const CAS: Cas[] = [
     details: [
       {
         label: "La demande",
-        text: "Annoncer le nouveau maillot de l'Alterna SPVB, fourni par adidas, en faisant référence aux années dorées du club — ses plus belles victoires, déjà avec adidas comme équipementier — et en mettant toute la ville en lumière. Montrer que le Stade Poitevin Volley-Ball est bien plus qu'un club sportif.",
+        text: "Annoncer le nouveau maillot de l'Alterna SPVB, fourni par adidas, en faisant référence aux années dorées du club, ses plus belles victoires déjà avec adidas comme équipementier, et en mettant toute la ville en lumière. Montrer que l'Alterna Stade Poitevin Volley-Ball est bien plus qu'un club sportif.",
       },
       {
         label: "L'intention artistique",
@@ -89,11 +89,11 @@ const CAS: Cas[] = [
       },
       {
         label: "Les livrables",
-        text: "Une vidéo d'annonce et un teaser.",
+        text: "Une vidéo d'annonce et un teaser, publiés sur tous les réseaux du club et sur son site, et diffusés toute la saison sur les écrans de la salle.",
       },
       {
         label: "Le résultat",
-        text: "Plus de 100 000 vues et 6 000 interactions en 3 jours. La deuxième annonce maillot la plus vue du département, juste derrière La Ligugéenne — que +3 Studio a aussi réalisée.",
+        text: "Plus de 100 000 vues et 6 000 interactions en 3 jours. La deuxième annonce maillot la plus vue du département, juste derrière La Ligugéenne (que +3 Studio a aussi réalisée).",
       },
     ],
   },
